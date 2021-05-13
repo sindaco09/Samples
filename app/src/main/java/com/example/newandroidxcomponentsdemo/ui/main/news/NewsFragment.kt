@@ -29,6 +29,8 @@ class NewsFragment: DataBindingFragment<FragmentNewsBinding>(R.layout.fragment_n
         observeData()
 
         fetchData()
+
+        viewModel.getInAppNotificationsEnabledSet()
     }
 
     private fun fetchData() {
@@ -55,7 +57,7 @@ class NewsFragment: DataBindingFragment<FragmentNewsBinding>(R.layout.fragment_n
         }
     }
 
-    fun initUI() {
+    private fun initUI() {
         setResetButton()
         with(binding) {
             reset.setOnClickListener(setResetButton())

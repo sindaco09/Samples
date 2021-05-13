@@ -1,8 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="enable_push_notifications" translatable="false">enable_push_notifications</string>
     <string name="news_frequency" translatable="false">news_frequency</string>
     <string name="key_local_push" translatable="false">key_local_push</string>
     <string name="key_breaking_push" translatable="false">key_breaking_push</string>
     <string name="key_alert_push" translatable="false">key_alert_push</string>
+
+    <string name="key_local_in_app" translatable="false">key_local_in_app</string>
+    <string name="key_breaking_in_app" translatable="false">key_breaking_in_app</string>
+    <string name="key_alert_in_app" translatable="false">key_alert_in_app</string>
+    <string name="enable_in_app_notifications" translatable="false">enable_in_app_notifications</string>
+    <string name="enable_push_notifications" translatable="false">enable_push_notifications</string>
 </resources>

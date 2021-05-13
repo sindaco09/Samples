@@ -20,4 +20,9 @@
         <item>@string/key_breaking_push</item>
         <item>@string/key_local_push</item>
     </string-array>
+    <string-array name="news_type_in_app_values">
+        <item>@string/key_alert_in_app</item>
+        <item>@string/key_breaking_in_app</item>
+        <item>@string/key_local_in_app</item>
+    </string-array>
 </resources>

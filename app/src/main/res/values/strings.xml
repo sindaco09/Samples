@@ -33,5 +33,6 @@
     <string name="attachment_summary_off">Only download attachments when manually requested</string>
     <string name="frequency">Frequency</string>
     <string name="frequency_summary">Frequency in seconds that news is received</string>
-    <string name="breaking_news_push_notifications_summary">Allow the app to display push notifications for breaking news</string>
+    <string name="breaking_news_push_notifications_summary">Allow the app to display push notifications for selected news types</string>
+    <string name="breaking_news_in_app_notifications_summary">Allow the app to display in-app notifications for selected news types</string>
 </resources>

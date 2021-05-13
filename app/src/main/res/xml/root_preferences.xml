@@ -12,11 +12,18 @@
             app:summary="@string/frequency_summary" />
 
         <MultiSelectListPreference
-            app:key="enable_push_notifications"
+            app:key="@string/enable_push_notifications"
             android:entries="@array/news_type_entries"
             android:entryValues="@array/news_type_push_values"
             android:summary="@string/breaking_news_push_notifications_summary"
             app:title="Push Notifications" />
+
+        <MultiSelectListPreference
+            app:key="@string/enable_in_app_notifications"
+            android:entries="@array/news_type_entries"
+            android:entryValues="@array/news_type_in_app_values"
+            android:summary="@string/breaking_news_in_app_notifications_summary"
+            app:title="In App Notifications" />
 
     </PreferenceCategory>
 

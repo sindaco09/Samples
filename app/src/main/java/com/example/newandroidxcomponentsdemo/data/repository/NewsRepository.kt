@@ -3,6 +3,7 @@ package com.example.newandroidxcomponentsdemo.data.repository
 import android.util.Log
 import com.example.newandroidxcomponentsdemo.data.network.result.BaseResult
 import com.example.newandroidxcomponentsdemo.data.models.news.News
+import com.example.newandroidxcomponentsdemo.data.storage.news.NewsCache
 import com.indaco.myhomeapp.data.network.api.news.NewsApi
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
@@ -14,7 +15,10 @@ import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
-class NewsRepository @Inject constructor(private val newsApi: NewsApi) {
+class NewsRepository @Inject constructor(
+    private val newsCache: NewsCache,
+    private val newsApi: NewsApi
+    ) {
 
     var breakingNewsCooldown = 5_000L
 
@@ -40,6 +44,8 @@ class NewsRepository @Inject constructor(private val newsApi: NewsApi) {
         }
 
     fun interruptBreakingNews() = allowNewsFlow.set(false)
+
+    fun getInAppNotificationsEnabledSet() = newsCache.getInAppNotificationsEnabledSet()
 
 
 }

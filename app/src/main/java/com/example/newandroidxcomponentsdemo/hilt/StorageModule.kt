@@ -8,6 +8,7 @@ import androidx.room.Room
 import com.example.newandroidxcomponentsdemo.CurrentUser
 import com.example.newandroidxcomponentsdemo.data.storage.AppDatabase
 import com.example.newandroidxcomponentsdemo.data.storage.DataStorePrefs.dataStorePreferences
+import com.example.newandroidxcomponentsdemo.data.storage.SyncPrefDataStore
 import com.example.newandroidxcomponentsdemo.data.user.CurrentUserSerializer.userDataStore
 import com.example.newandroidxcomponentsdemo.data.user.UserDao
 import dagger.Module
@@ -41,7 +42,7 @@ object StorageModule {
     fun provideDataStorePreferences(@ApplicationContext context: Context): DataStore<Preferences> =
         context.dataStorePreferences
 
-//    @Provides
-//    fun provideDataStorePreferences(@ApplicationContext context: Context): DataStore<Preferences> =
-//        context.userDataStorePreferences
+    @Provides
+    fun provideSyncPrefsDataStore(dataStore: DataStore<Preferences>) =
+        SyncPrefDataStore(dataStore)
 }

@@ -15,6 +15,7 @@ import kotlinx.coroutines.runBlocking
  * Preferences Data Store is setup to return the values on synchronous
  */
 class SyncPrefDataStore(private val dataStore: DataStore<Preferences>): PreferenceDataStore() {
+
     private val dispatcher = Dispatchers.Default
 
     override fun putString(key: String, value: String?) {

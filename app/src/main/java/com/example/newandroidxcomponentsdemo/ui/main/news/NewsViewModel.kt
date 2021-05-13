@@ -1,5 +1,6 @@
 package com.example.newandroidxcomponentsdemo.ui.main.news
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -40,6 +41,13 @@ class NewsViewModel @Inject constructor(
     fun stopBreakingNews() {
         newsRepository.interruptBreakingNews()
         newsJob?.cancel()
+    }
+
+    fun getInAppNotificationsEnabledSet() {
+        val set = newsRepository.getInAppNotificationsEnabledSet()
+        set.forEach { key, value ->
+            Log.d("TAG","inApp notifications enabled: $key, $value")
+        }
     }
 
     fun increaseNewsCount() {

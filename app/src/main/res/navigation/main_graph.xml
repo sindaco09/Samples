@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_graph"
+    app:startDestination="@id/nav_home">
+
+    <action
+        android:id="@+id/go_to_settings"
+        app:destination="@id/nav_setting" />
+
+    <fragment
+        android:id="@+id/nav_setting"
+        android:name="com.example.newandroidxcomponentsdemo.ui.main.SettingsFragment"
+        android:label="fragment_settings"/>
+
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="com.example.newandroidxcomponentsdemo.ui.main.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" />
+    <fragment
+        android:id="@+id/nav_news"
+        android:name="com.example.newandroidxcomponentsdemo.ui.main.news.NewsFragment"
+        android:label="NewsFragment" />
+    <fragment
+        android:id="@+id/nav_coffee"
+        android:name="com.example.newandroidxcomponentsdemo.ui.main.coffee.CoffeeMachineFragment"
+        android:label="CoffeeMachineFragment" >
+        <action
+            android:id="@+id/action_coffeeMachineFragment_to_coffeeFormDialog"
+            app:destination="@id/coffeeFormDialog" />
+    </fragment>
+    <dialog
+        android:id="@+id/coffeeFormDialog"
+        android:name="com.example.newandroidxcomponentsdemo.ui.main.coffee.CoffeeFormDialog"
+        android:label="CoffeeFormDialog" />
+</navigation>

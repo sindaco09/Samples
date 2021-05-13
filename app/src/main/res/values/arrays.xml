@@ -1,0 +1,23 @@
+<resources>
+    <!-- Reply Preference -->
+    <string-array name="reply_entries">
+        <item>Reply</item>
+        <item>Reply to all</item>
+    </string-array>
+
+    <string-array name="reply_values">
+        <item>reply</item>
+        <item>reply_all</item>
+    </string-array>
+
+    <string-array name="news_type_entries">
+        <item>Alert</item>
+        <item>Breaking</item>
+        <item>Local</item>
+    </string-array>
+    <string-array name="news_type_push_values">
+        <item>@string/key_alert_push</item>
+        <item>@string/key_breaking_push</item>
+        <item>@string/key_local_push</item>
+    </string-array>
+</resources>

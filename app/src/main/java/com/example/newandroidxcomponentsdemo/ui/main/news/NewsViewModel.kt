@@ -22,32 +22,46 @@ class NewsViewModel @Inject constructor(
 
     private val ioDispatcher = Dispatchers.IO
 
-    private var newsJob: Job? = null
+    private var breakingNewsJob: Job? = null
 
-    var newsCount = MutableLiveData("0")
+    private val _breakingNewsLiveDataStream = MutableLiveData<BaseResult<List<News.BreakingNews>>>()
+    val breakingNewsLiveStream: LiveData<BaseResult<List<News.BreakingNews>>> get() = _breakingNewsLiveDataStream
 
-    private val _newsLiveDataStream = MutableLiveData<BaseResult<List<News>>>()
-    val newsLiveStream: LiveData<BaseResult<List<News>>> get() = _newsLiveDataStream
+    private val _localNewsLiveDataStream = MutableLiveData<BaseResult<List<News.LocalNews>>>()
+    val localNewsLiveStream: LiveData<BaseResult<List<News.LocalNews>>> get() = _localNewsLiveDataStream
 
     fun getBreakingNews() {
-        if (newsJob == null || newsJob!!.isCancelled)
-            newsJob = viewModelScope.launch(ioDispatcher) {
-                newsRepository.getBreakingNewsFlow().collect {
-                    _newsLiveDataStream.postValue(it)
+        if (breakingNewsJob == null || breakingNewsJob!!.isCancelled)
+            breakingNewsJob = viewModelScope.launch(ioDispatcher) {
+                newsRepository.getBreakingNewsFlow(1).collect {
+                    _breakingNewsLiveDataStream.postValue(it)
                 }
             }
     }
 
     fun stopBreakingNews() {
         newsRepository.interruptBreakingNews()
-        newsJob?.cancel()
+        breakingNewsJob?.cancel()
     }
 
-    fun getInAppNotificationsEnabledSet() {
-        val set = newsRepository.getInAppNotificationsEnabledSet()
-        set.forEach { key, value ->
-            Log.d("TAG","inApp notifications enabled: $key, $value")
+    fun getLocalNews() {
+        viewModelScope.launch(ioDispatcher) {
+            newsRepository.getLocalNewsFlow().collect {
+                _localNewsLiveDataStream.postValue(it)
+            }
         }
+    }
+
+    fun getInAppNotificationsEnabledMap() {
+        viewModelScope.launch(ioDispatcher) {
+            val flow = newsRepository.getInAppNotificationsEnabledMap()
+            flow.collect { map ->
+                map.forEach { (key, value) ->
+                    Log.d("TAG","inApp notifications enabled: $key, $value")
+                }
+            }
+        }
+
     }
 
     fun increaseNewsCount() {

@@ -1,9 +1,9 @@
 package com.example.newandroidxcomponentsdemo.data.network.result
 
-open class BaseResult<T>(val result: T? = null, val error: String? = null, val success: Boolean) {
+open class BaseResult<T>(val result: T? = null, val error: String? = null, val isSuccess: Boolean) {
 
     fun <R>  map(func: (t: T) -> R): BaseResult<R> {
-        return if (success) {
+        return if (isSuccess) {
             success(func.invoke(result!!))
         } else
             error(error!!)

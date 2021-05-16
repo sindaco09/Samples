@@ -1,11 +1,11 @@
 package com.example.newandroidxcomponentsdemo.data.storage
 
-import android.util.Log
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.*
 import androidx.preference.PreferenceDataStore
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.launch
@@ -32,6 +32,11 @@ class SyncPrefDataStore(private val dataStore: DataStore<Preferences>): Preferen
         CoroutineScope(dispatcher).launch {
             dataStore.edit { it[stringSetPreferencesKey(key)] = values?: emptySet() }
         }
+    }
+
+    fun getStringSetTwo(key: String, defValues: MutableSet<String>?): Flow<Set<String>?> {
+        return dataStore.data
+                .map { it[stringSetPreferencesKey(key)] ?: defValues }
     }
 
     override fun getStringSet(key: String, defValues: MutableSet<String>?): MutableSet<String> {

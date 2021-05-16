@@ -10,15 +10,59 @@
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraint_root"
         android:layout_width="match_parent"
-        android:background="#9FA8DA"
+        android:animateLayoutChanges="true"
         android:layout_height="match_parent">
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guide_top"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:orientation="horizontal"
-            app:layout_constraintGuide_percent=".1" />
+            app:layout_constraintGuide_percent=".00" />
+        <LinearLayout
+            android:id="@+id/breaking_container"
+            android:background="@android:color/holo_red_dark"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="@id/guide_top"
+            android:paddingStart="20dp"
+            android:paddingBottom="5dp"
+            android:orientation="horizontal"
+            android:layout_width="0dp"
+            android:layout_height="0dp">
+            <TextView
+                android:id="@+id/breaking_title"
+                android:text="Breaking:"
+                android:layout_gravity="bottom"
+                android:fontFamily="@font/news_cycle"
+                android:textStyle="bold"
+                android:textSize="20dp"
+                android:textColor="@color/white"
+                android:layout_marginEnd="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <HorizontalScrollView
+                android:id="@+id/breaking_sv"
+                android:layout_gravity="bottom"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingEnd="5dp"
+                android:scrollbars="none">
+                <TextView
+                    android:id="@+id/breaking_body"
+                    android:layout_gravity="bottom"
+                    android:fontFamily="@font/news_cycle"
+                    android:singleLine="true"
+                    android:scrollHorizontally="true"
+                    android:textSize="16dp"
+                    android:textColor="@color/white"
+                    android:layout_marginEnd="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </HorizontalScrollView>
+        </LinearLayout>
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/news_rv"
             app:layout_constraintStart_toStartOf="parent"
@@ -34,7 +78,7 @@
             android:layout_width="0dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toTopOf="@id/settings"
+            app:layout_constraintBottom_toBottomOf="parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
             <Button
@@ -62,35 +106,12 @@
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="wrap_content" />
-        </LinearLayout>
-        <LinearLayout
-            android:id="@+id/settings"
-            android:layout_width="0dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
+
             <Button
-                android:id="@+id/decrease_news_count"
-                android:text="-"
-                android:onClick="@{()->viewmodel.stopBreakingNews()}"
-                android:layout_width="0dp"
+                android:id="@+id/toggle_rv_position"
+                android:text="toggle"
                 android:layout_margin="1dp"
-                android:layout_weight="1"
-                android:layout_height="wrap_content" />
-            <TextView
-                android:id="@+id/news_count"
-                android:text="@={viewmodel.newsCount}"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"/>
-            <Button
-                android:id="@+id/increase_news_count"
-                android:text="+"
-                android:onClick="@{()->viewmodel.getBreakingNews()}"
-                android:layout_width="0dp"
-                android:layout_margin="1dp"
                 android:layout_weight="1"
                 android:layout_height="wrap_content" />
         </LinearLayout>

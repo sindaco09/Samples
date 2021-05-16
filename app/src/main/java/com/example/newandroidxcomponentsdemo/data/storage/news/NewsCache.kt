@@ -1,25 +1,46 @@
 package com.example.newandroidxcomponentsdemo.data.storage.news
 
 import android.content.Context
+import androidx.datastore.core.DataStore
+import androidx.datastore.preferences.core.*
 import com.example.newandroidxcomponentsdemo.R
-import com.example.newandroidxcomponentsdemo.data.storage.SyncPrefDataStore
 import dagger.hilt.android.qualifiers.ApplicationContext
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.map
 import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
 class NewsCache @Inject constructor(
     @ApplicationContext val app: Context,
-    private val dataStore: SyncPrefDataStore) {
+    private val dataStore: DataStore<Preferences>) {
 
-    fun getInAppNotificationsEnabledSet(): HashMap<String, Boolean> {
-        val setKey = app.resources.getString(R.string.enable_in_app_notifications)
-        val stringSet = dataStore.getStringSet(setKey, null)
+    fun getInAppNotificationsEnabledMap(): Flow<HashMap<String, Boolean>> {
+        val key = app.resources.getString(R.string.enable_in_app_notifications)
         val stringArray = app.resources.getStringArray(R.array.news_type_in_app_values)
 
-        return HashMap<String, Boolean>(stringArray.size).apply {
-            stringArray.forEach {
-                this[it] = stringSet.contains(it)
+        return dataStore.data.map {
+            val set = it[stringSetPreferencesKey(key)] ?: emptySet()
+            set.toBooleanHashMap(stringArray)
+        }
+    }
+
+    fun getPushNotificationsEnabledMap(): Flow<HashMap<String, Boolean>> {
+        val key = app.resources.getString(R.string.enable_push_notifications)
+        val stringArray = app.resources.getStringArray(R.array.news_type_push_values)
+
+        return dataStore.data.map {
+            val set = it[stringSetPreferencesKey(key)] ?: emptySet()
+            set.toBooleanHashMap(stringArray)
+        }
+    }
+
+    companion object {
+        fun Set<String>.toBooleanHashMap(stringArray: Array<String>): HashMap<String, Boolean> {
+            return HashMap<String, Boolean>(stringArray.size).apply {
+                stringArray.forEach {
+                    this[it] = contains(it)
+                }
             }
         }
     }

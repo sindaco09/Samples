@@ -1,10 +1,9 @@
 package com.example.newandroidxcomponentsdemo.data.repository
 
-import android.util.Log
 import com.example.newandroidxcomponentsdemo.data.network.result.BaseResult
 import com.example.newandroidxcomponentsdemo.data.models.news.News
 import com.example.newandroidxcomponentsdemo.data.storage.news.NewsCache
-import com.indaco.myhomeapp.data.network.api.news.NewsApi
+import com.example.newandroidxcomponentsdemo.data.network.api.news.NewsApi
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
@@ -21,31 +20,45 @@ class NewsRepository @Inject constructor(
     ) {
 
     var breakingNewsCooldown = 5_000L
+    var localNewsCooldown = 5_000L
 
-    private var allowNewsFlow = AtomicBoolean(false)
+    private var allowBreakingNewsFlow = AtomicBoolean(false)
+    private var allowLocalNewsFlow = AtomicBoolean(false)
 
     fun getNewsFlow(): Flow<BaseResult<List<News>>> {
         return flowOf(newsApi.getBreakingNews())
             .map { it.map { data -> data.news } }
     }
 
-    fun getBreakingNews(count: Int = 2): BaseResult<List<News>> {
+    private fun getBreakingNews(count: Int = 1): BaseResult<List<News.BreakingNews>> {
         return newsApi.getBreakingNews(count).map { data -> data.news }
     }
 
-    suspend fun getBreakingNewsFlow(count: Int = 2) =
+    suspend fun getBreakingNewsFlow(count: Int = 1) =
         flow {
-            allowNewsFlow.set(true)
-            while (allowNewsFlow.get()) {
+            allowBreakingNewsFlow.set(true)
+            while (allowBreakingNewsFlow.get()) {
                 emit(getBreakingNews(count))
                 delay(breakingNewsCooldown)
-                Log.d("TAG","breakingNewsFlow")
             }
         }
 
-    fun interruptBreakingNews() = allowNewsFlow.set(false)
+    private fun getLocalNews(): BaseResult<List<News.LocalNews>> {
+        return newsApi.getLocalNews().map { data -> data.news}
+    }
 
-    fun getInAppNotificationsEnabledSet() = newsCache.getInAppNotificationsEnabledSet()
+    suspend fun getLocalNewsFlow() =
+        flow {
+            allowLocalNewsFlow.set(true)
+            while(allowLocalNewsFlow.get()) {
+                emit(getLocalNews())
+                delay(localNewsCooldown)
+            }
+        }
 
+    fun interruptBreakingNews() = allowBreakingNewsFlow.set(false)
 
+    fun getInAppNotificationsEnabledMap() = newsCache.getInAppNotificationsEnabledMap()
+
+    fun getPushNotificationsEnabledMap() = newsCache.getPushNotificationsEnabledMap()
 }

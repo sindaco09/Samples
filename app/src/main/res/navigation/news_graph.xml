@@ -6,7 +6,7 @@
     app:startDestination="@id/nav_news_fragment">
     <fragment
         android:id="@+id/nav_news_fragment"
-        android:name="com.example.newandroidxcomponentsdemo.ui.main.news.NewsFragment"
+        android:name="com.example.samples.ui.main.news.NewsFragment"
         android:label="NewsFragment"
         tools:layout="@layout/fragment_news" />
 </navigation>

@@ -6,7 +6,7 @@
     <data>
         <variable
             name="viewModel"
-            type="com.example.newandroidxcomponentsdemo.ui.onboard.OnboardViewModel" />
+            type="com.example.samples.ui.onboard.OnboardViewModel" />
     </data>
     <RelativeLayout
         android:padding="20dp"

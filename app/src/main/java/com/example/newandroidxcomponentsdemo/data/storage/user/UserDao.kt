@@ -1,4 +1,4 @@
-package com.example.newandroidxcomponentsdemo.data.user
+package com.example.newandroidxcomponentsdemo.data.storage.user
 
 import androidx.room.Dao
 import androidx.room.Delete

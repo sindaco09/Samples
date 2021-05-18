@@ -47,4 +47,6 @@
     <string name="news_woman_disbelief_body">ATLANTA—Noting the event had caused her to rethink the chronology of her entire life, local woman Jessica Landis told reporters Tuesday that she suddenly realized she was the same age her parents were when they were her age. “It’s just crazy, I’m turning 27 next month, which is the same exact point in my parents’ lives when they were also 27,” said Landis, adding that while she didn’t feel particularly old, at that phase in their lives, her mother and father had already lived over two and a half decades.</string>
     <string name="news_missing_tiger_title">Houston Authorities Scramble As Missing Tiger Disappears Into Crowd Of Tigers</string>
     <string name="news_missing_tiger_body">HOUSTON, TX—Warning that the escaped animal was highly intelligent and a master of deceit, Houston authorities scrambled Friday when a missing tiger named India disappeared into a crowd of tigers. “After four days straight of searching for a loose bengal tiger, our search efforts hit a snag today when he cut across a cul de sac, hid behind a car, and ultimately slipped into a pack of over 100 tigers,”</string>
+    <string name="channel_name">App Channel</string>
+    <string name="channel_description">Channel for Demo App</string>
 </resources>

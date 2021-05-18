@@ -6,7 +6,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.newandroidxcomponentsdemo.data.user.UserRepository
+import com.example.newandroidxcomponentsdemo.data.repository.UserRepository
 import com.example.newandroidxcomponentsdemo.data.models.user.SignUpUser
 import com.example.newandroidxcomponentsdemo.data.models.user.User
 import com.example.newandroidxcomponentsdemo.ui.main.HomeFragment

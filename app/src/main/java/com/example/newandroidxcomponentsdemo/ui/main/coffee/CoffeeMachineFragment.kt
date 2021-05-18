@@ -10,10 +10,12 @@ import android.view.animation.AccelerateDecelerateInterpolator
 import androidx.annotation.RequiresApi
 import androidx.fragment.app.commit
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import com.example.newandroidxcomponentsdemo.R
 import com.example.newandroidxcomponentsdemo.databinding.FragmentCoffeeBinding
 import com.google.android.material.progressindicator.LinearProgressIndicator
 import com.example.newandroidxcomponentsdemo.ui.base.DataBindingFragment
+import com.example.newandroidxcomponentsdemo.util.notifications.NotificationUtil
 import com.indaco.myhomeapp.ui.main.coffee.CoffeeMachineViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -39,6 +41,7 @@ class CoffeeMachineFragment : DataBindingFragment<FragmentCoffeeBinding>(R.layou
             childFragmentManager.commit {
                 add(CoffeeFormDialog(),"dialog")
             }
+
 //            findNavController().navigate(CoffeeMachineFragmentDirections.actionOpenOrderForm())
         }
 
@@ -47,6 +50,8 @@ class CoffeeMachineFragment : DataBindingFragment<FragmentCoffeeBinding>(R.layou
             min = 0
             interpolator = AccelerateDecelerateInterpolator()
         }
+
+        binding.notify.setOnClickListener { NotificationUtil.notifyApp(requireContext(), findNavController()) }
     }
 
     private fun observeData() {

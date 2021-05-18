@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_coffee"
+    android:label="Coffee Graph"
+    app:startDestination="@id/nav_coffee_fragment">
+    <fragment
+        android:id="@+id/nav_coffee_fragment"
+        android:name="com.example.newandroidxcomponentsdemo.ui.main.coffee.CoffeeMachineFragment"
+        android:label="CoffeeMachineFragment"
+        tools:layout="@layout/fragment_coffee" >
+        <action
+            android:id="@+id/action_coffeeMachineFragment_to_coffeeFormDialog"
+            app:destination="@id/coffeeFormDialog" />
+        <action
+            android:id="@+id/action_nav_coffee_to_coffeeCompleteFragment"
+            app:destination="@id/coffeeCompleteFragment" />
+    </fragment>
+    <dialog
+        android:id="@+id/coffeeFormDialog"
+        android:name="com.example.newandroidxcomponentsdemo.ui.main.coffee.CoffeeFormDialog"
+        android:label="CoffeeFormDialog"
+        tools:layout="@layout/coffee_form"/>
+    <fragment
+        android:id="@+id/coffeeCompleteFragment"
+        android:name="com.example.newandroidxcomponentsdemo.ui.main.coffee.CoffeeCompleteFragment"
+        android:label="CoffeeCompleteFragment"
+        tools:layout="@layout/fragment_coffee_complete">
+        <action
+            android:id="@+id/go_to_final"
+            app:destination="@id/coffeeFinalFragment"/>
+    </fragment>
+    <fragment
+        android:id="@+id/coffeeFinalFragment"
+        android:name="com.example.newandroidxcomponentsdemo.ui.main.coffee.CoffeeFinalFragment"
+        android:label="CoffeeFinalFragment">
+
+        <deepLink
+            android:id="@+id/deepLink"
+            app:uri="indaco://demo.com/coffeeComplete" />
+    </fragment>
+</navigation>

@@ -1,7 +1,8 @@
-package com.example.newandroidxcomponentsdemo.data.user
+package com.example.newandroidxcomponentsdemo.data.repository
 
 import com.example.newandroidxcomponentsdemo.CurrentUser
 import com.example.newandroidxcomponentsdemo.data.models.user.User
+import com.example.newandroidxcomponentsdemo.data.storage.user.UserCache
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 

@@ -1,5 +1,6 @@
 package com.example.newandroidxcomponentsdemo.ui.main
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.Menu
@@ -57,6 +58,11 @@ class MainActivity : AppCompatActivity() {
         }
         return super.onOptionsItemSelected(item)
 
+    }
+
+    override fun onNewIntent(intent: Intent?) {
+        super.onNewIntent(intent)
+        Log.d("TAG","onNewIntent: ${intent?.extras.toString()}")
     }
 
 

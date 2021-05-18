@@ -1,4 +1,4 @@
-package com.example.newandroidxcomponentsdemo.data.user
+package com.example.newandroidxcomponentsdemo.data.storage.user
 
 import androidx.datastore.core.DataStore
 import com.example.newandroidxcomponentsdemo.CurrentUser

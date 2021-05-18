@@ -18,21 +18,14 @@
         android:id="@+id/nav_home"
         android:name="com.example.newandroidxcomponentsdemo.ui.main.HomeFragment"
         android:label="fragment_home"
-        tools:layout="@layout/fragment_home" />
-    <fragment
-        android:id="@+id/nav_news"
-        android:name="com.example.newandroidxcomponentsdemo.ui.main.news.NewsFragment"
-        android:label="NewsFragment" />
-    <fragment
-        android:id="@+id/nav_coffee"
-        android:name="com.example.newandroidxcomponentsdemo.ui.main.coffee.CoffeeMachineFragment"
-        android:label="CoffeeMachineFragment" >
+        tools:layout="@layout/fragment_home" >
         <action
-            android:id="@+id/action_coffeeMachineFragment_to_coffeeFormDialog"
-            app:destination="@id/coffeeFormDialog" />
+            android:id="@+id/action_nav_home_to_nav_coffee"
+            app:destination="@id/nav_coffee" />
     </fragment>
-    <dialog
-        android:id="@+id/coffeeFormDialog"
-        android:name="com.example.newandroidxcomponentsdemo.ui.main.coffee.CoffeeFormDialog"
-        android:label="CoffeeFormDialog" />
+
+    <include app:graph="@navigation/news_graph" />
+
+    <include app:graph="@navigation/coffee_graph" />
+
 </navigation>

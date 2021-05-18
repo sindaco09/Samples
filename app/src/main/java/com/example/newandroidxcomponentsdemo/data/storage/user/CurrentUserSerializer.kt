@@ -1,4 +1,4 @@
-package com.example.newandroidxcomponentsdemo.data.user
+package com.example.newandroidxcomponentsdemo.data.storage.user
 
 import android.content.Context
 import androidx.datastore.core.CorruptionException

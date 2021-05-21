@@ -21,11 +21,4 @@ object DataStorePrefs {
     suspend fun setEmail(context: Context, email: String) {
         context.dataStorePreferences.edit { it[EMAIL_KEY] = email }
     }
-
-//    fun <T>getValue(context: Context, key: String): Flow<T> =
-//        context.dataStorePreferences.data.map {
-//            if (T is String)
-//                it[stringPreferencesKey(key)]
-//            it[key]
-//        }
 }

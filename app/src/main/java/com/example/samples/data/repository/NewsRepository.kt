@@ -25,11 +25,6 @@ class NewsRepository @Inject constructor(
     private var allowBreakingNewsFlow = AtomicBoolean(false)
     private var allowLocalNewsFlow = AtomicBoolean(false)
 
-    fun getNewsFlow(): Flow<BaseResult<List<News>>> {
-        return flowOf(newsApi.getBreakingNews())
-            .map { it.map { data -> data.news } }
-    }
-
     private fun getBreakingNews(count: Int = 1): BaseResult<List<News.BreakingNews>> {
         return newsApi.getBreakingNews(count).map { data -> data.news }
     }

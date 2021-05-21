@@ -63,17 +63,4 @@ class NewsViewModel @Inject constructor(
         }
 
     }
-
-    fun increaseNewsCount() {
-//        val value = newsCount.value?:0 + 1
-//        newsCount.postValue(value.toString())
-    }
-
-    fun decreaseNewsCount() {
-//        var value: Int = newsCount.value?:0 - 1
-//        if (value < 0)
-//            value = 0
-//        newsCount.postValue(value.toString())
-    }
-
 }

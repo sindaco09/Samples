@@ -1,4 +1,4 @@
-package com.example.samples.data.movie
+package com.example.samples.ui.main.movie
 
 import androidx.lifecycle.ViewModel
 import com.example.samples.data.repository.MovieRepository

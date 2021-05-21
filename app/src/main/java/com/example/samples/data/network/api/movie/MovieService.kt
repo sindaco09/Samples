@@ -1,7 +1,7 @@
 package com.example.samples.data.network.api.movie
 
 import com.example.samples.data.models.movie.Movie
-import com.example.samples.data.movie.TrendingMovieResponse
+import com.example.samples.data.network.result.movie.TrendingMovieResponse
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Headers

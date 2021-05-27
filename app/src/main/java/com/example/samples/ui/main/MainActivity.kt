@@ -18,7 +18,6 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
-
     private val navController
         get() = (supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment).navController
 
@@ -36,7 +35,8 @@ class MainActivity : AppCompatActivity() {
         appBarConfiguration = AppBarConfiguration(setOf(
             R.id.nav_home,
             R.id.nav_news,
-            R.id.nav_coffee
+            R.id.nav_coffee,
+            R.id.parentFragment
         ), mainBinding.drawerLayout)
 
         setupActionBarWithNavController(navController, appBarConfiguration)

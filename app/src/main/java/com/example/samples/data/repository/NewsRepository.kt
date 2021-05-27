@@ -29,6 +29,10 @@ class NewsRepository @Inject constructor(
         return newsApi.getBreakingNews(count).map { data -> data.news }
     }
 
+    /*
+     * Simulate listening for "Breaking news" from an endpoint every cooldown period
+     * allowBreakingNewsFlow is a controllable switch. Eventually meant to test
+     */
     suspend fun getBreakingNewsFlow(count: Int = 1) =
         flow {
             allowBreakingNewsFlow.set(true)

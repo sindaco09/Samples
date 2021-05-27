@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/parent_fragment_nav_graph"
+    app:startDestination="@id/bridge_discovery_fragment">
+
+    <fragment
+        android:id="@+id/bridge_discovery_fragment"
+        android:name="com.example.samples.ui.main.mockhue.HueConnectionFragment"
+        android:label="ChildAFragment"
+        tools:layout="@layout/fragment_connection">
+        <action
+            android:id="@+id/action_to_lights_fragment"
+            app:destination="@id/lights_fragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/lights_fragment"
+        android:name="com.example.samples.ui.main.mockhue.HueLightsFragment"
+        android:label="ChildBFragment"
+        tools:layout="@layout/fragment_hue_lights"/>
+</navigation>

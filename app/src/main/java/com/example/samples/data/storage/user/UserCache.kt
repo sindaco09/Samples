@@ -5,7 +5,9 @@ import com.example.samples.CurrentUser
 import com.example.samples.data.models.user.User
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
+import javax.inject.Singleton
 
+@Singleton
 class UserCache @Inject constructor(
     private val userDataStore: DataStore<CurrentUser>,
     private val userDao: UserDao

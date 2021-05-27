@@ -28,4 +28,9 @@
 
     <include app:graph="@navigation/coffee_graph" />
 
+    <fragment
+        android:id="@+id/parentFragment"
+        android:name="com.example.samples.ui.main.mockhue.HueParentFragment"
+        android:label="ParentFragment" />
+
 </navigation>

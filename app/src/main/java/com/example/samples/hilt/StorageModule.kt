@@ -9,6 +9,7 @@ import com.example.samples.CurrentUser
 import com.example.samples.data.storage.AppDatabase
 import com.example.samples.data.storage.DataStorePrefs.dataStorePreferences
 import com.example.samples.data.storage.SyncPrefDataStore
+import com.example.samples.data.storage.hue.HueDao
 import com.example.samples.data.storage.user.CurrentUserSerializer.userDataStore
 import com.example.samples.data.storage.user.UserDao
 import dagger.Module
@@ -33,6 +34,11 @@ object StorageModule {
     @Singleton
     fun provideUserDao(db: AppDatabase): UserDao =
         db.provideUserDao()
+
+    @Provides
+    @Singleton
+    fun provideHueDao(db: AppDatabase): HueDao =
+        db.provideHueDao()
 
     @Provides
     fun provideDataStore(@ApplicationContext context: Context): DataStore<CurrentUser> =

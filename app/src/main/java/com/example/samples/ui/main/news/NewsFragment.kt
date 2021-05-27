@@ -19,7 +19,6 @@ import com.example.samples.data.models.news.News
 import com.example.samples.databinding.FragmentNewsBinding
 import com.example.samples.ui.base.DataBindingFragment
 import com.example.samples.util.news.Ext.toPx
-import com.indaco.myhomeapp.ui.main.news.NewsAdapter
 import dagger.hilt.android.AndroidEntryPoint
 import java.util.*
 import java.util.concurrent.atomic.AtomicBoolean

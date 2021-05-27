@@ -17,5 +17,9 @@
             android:id="@+id/nav_news"
             android:icon="@drawable/ic_article"
             android:title="@string/menu_news"/>
+        <item
+            android:id="@+id/parentFragment"
+            android:icon="@drawable/ic_check"
+            android:title="@string/menu_parent_fragment" />
     </group>
 </menu>

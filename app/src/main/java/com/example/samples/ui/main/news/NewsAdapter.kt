@@ -1,4 +1,4 @@
-package com.indaco.myhomeapp.ui.main.news
+package com.example.samples.ui.main.news
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

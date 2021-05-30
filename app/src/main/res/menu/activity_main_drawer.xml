@@ -19,7 +19,11 @@
             android:title="@string/menu_news"/>
         <item
             android:id="@+id/parentFragment"
-            android:icon="@drawable/ic_check"
-            android:title="@string/menu_parent_fragment" />
+            android:icon="@drawable/ic_light"
+            android:title="@string/menu_hue_parent" />
+        <item
+            android:id="@+id/nav_camera"
+            android:icon="@drawable/ic_camera"
+            android:title="@string/menu_camera" />
     </group>
 </menu>

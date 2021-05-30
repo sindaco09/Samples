@@ -31,6 +31,11 @@
     <fragment
         android:id="@+id/parentFragment"
         android:name="com.example.samples.ui.main.mockhue.HueParentFragment"
-        android:label="ParentFragment" />
+        android:label="@string/menu_hue_parent" />
+
+    <fragment
+        android:id="@+id/nav_camera"
+        android:name="com.example.samples.ui.main.camerax.CameraXFragment"
+        android:label="@string/menu_camera" />
 
 </navigation>

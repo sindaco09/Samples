@@ -49,5 +49,6 @@
     <string name="news_missing_tiger_body">HOUSTON, TX—Warning that the escaped animal was highly intelligent and a master of deceit, Houston authorities scrambled Friday when a missing tiger named India disappeared into a crowd of tigers. “After four days straight of searching for a loose bengal tiger, our search efforts hit a snag today when he cut across a cul de sac, hid behind a car, and ultimately slipped into a pack of over 100 tigers,”</string>
     <string name="channel_name">App Channel</string>
     <string name="channel_description">Channel for Demo App</string>
-    <string name="menu_parent_fragment">Parent Fragment</string>
+    <string name="menu_hue_parent">Mock Hue Controller</string>
+    <string name="menu_camera">Camera</string>
 </resources>

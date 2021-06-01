@@ -38,4 +38,18 @@
         android:name="com.example.samples.ui.main.camerax.CameraXFragment"
         android:label="@string/menu_camera" />
 
+    <fragment
+        android:id="@+id/nav_goals"
+        android:name="com.example.samples.ui.main.goal.GoalsFragment"
+        android:label="@string/menu_goals" >
+        <action
+            android:id="@+id/action_nav_goals_to_addGoalDialog"
+            app:destination="@id/addGoalDialog" />
+    </fragment>
+    <fragment
+        android:id="@+id/addGoalDialog"
+        android:name="com.example.samples.ui.main.goal.newgoal.AddGoalDialog"
+        android:label="AddGoalDialog" />
+
+
 </navigation>

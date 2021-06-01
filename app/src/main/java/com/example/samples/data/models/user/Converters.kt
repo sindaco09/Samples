@@ -1,6 +1,7 @@
 package com.example.samples.data.models.user
 
 import androidx.room.TypeConverter
+import com.example.samples.data.models.goal.GoalStatus
 
 class Converters {
 
@@ -9,5 +10,12 @@ class Converters {
 
     @TypeConverter
     fun toGender(gender: Gender = Gender.NONE): Int = gender.ordinal
+
+
+    @TypeConverter
+    fun fromGoalStatus(ordinal: Int = GoalStatus.TODO.ordinal): GoalStatus = GoalStatus.values()[ordinal]
+
+    @TypeConverter
+    fun toGoalStatus(status: GoalStatus = GoalStatus.TODO): Int = status.ordinal
 
 }

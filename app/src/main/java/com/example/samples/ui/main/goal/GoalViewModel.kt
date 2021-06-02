@@ -1,9 +1,11 @@
 package com.example.samples.ui.main.goal
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.samples.data.models.goal.Goal
 import com.example.samples.data.models.goal.GoalStatus
 import com.example.samples.data.models.goal.Goals
 import com.example.samples.data.repository.GoalRepository
@@ -14,9 +16,7 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class GoalViewModel @Inject constructor(
-    private val repository: GoalRepository
-): ViewModel() {
+class GoalViewModel @Inject constructor(private val repository: GoalRepository): ViewModel() {
 
     private val defaultDispatcher = Dispatchers.Default
 
@@ -36,6 +36,21 @@ class GoalViewModel @Inject constructor(
                 _inProgressGoalLiveData.postValue(goals?.filter { it.status == GoalStatus.IN_PROGRESS } ?: emptyList())
                 _doneGoalLiveData.postValue(goals?.filter { it.status == GoalStatus.DONE } ?: emptyList())
             }
+        }
+    }
+
+    fun addNewGoal(goal: String) {
+        if (goal.isNotBlank()) {
+            viewModelScope.launch(defaultDispatcher) {
+                repository.addGoal(Goal(todoItem = goal))
+            }
+        }
+    }
+
+    fun updateGoal(goal: Goal) {
+        viewModelScope.launch(defaultDispatcher) {
+            repository.updateGoal(goal)
+            getGoals()
         }
     }
 }

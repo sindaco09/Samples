@@ -12,23 +12,20 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class AddGoalDialogViewModel @Inject constructor(
-    private val repository: GoalRepository
-): ViewModel() {
+class AddGoalDialogViewModel @Inject constructor(private val repository: GoalRepository): ViewModel() {
 
     private val dispatcher = Dispatchers.Default
 
-    var newGoalLiveData = MutableLiveData("")
+    val dismissDialog = MutableLiveData(false)
 
-    fun addNewGoal() {
-        val newGoal = newGoalLiveData.value
-        if (newGoal.isNullOrBlank()) {
-            Log.d("TAG","newGoal is $newGoal")
+    fun addNewGoal(goal: String) {
+        if (goal.isNotBlank()) {
             viewModelScope.launch(dispatcher) {
-                repository.addGoal(Goal(todoItem = newGoal!!))
+                repository.addGoal(Goal(todoItem = goal))
+                dismissDialog.postValue(true)
             }
         } else {
-            Log.e("TAG","newGoal is empty")
+            Log.e("TAG", "newGoal is empty: goal: $goal")
         }
     }
 }

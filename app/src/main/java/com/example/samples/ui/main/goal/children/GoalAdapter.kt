@@ -1,23 +1,24 @@
-package com.example.samples.ui.main.goal
+package com.example.samples.ui.main.goal.children
 
 import android.annotation.SuppressLint
 import android.content.ClipData
 import android.content.ClipDescription
 import android.content.Intent
-import android.os.Parcelable
 import android.util.Log
 import android.view.*
 import androidx.recyclerview.widget.RecyclerView
 import com.example.samples.data.models.goal.Goal
+import com.example.samples.data.models.goal.GoalStatus
+import com.example.samples.data.models.goal.IndexedGoal
 import com.example.samples.databinding.RowItemDraggableBinding
-import kotlinx.parcelize.Parcelize
+import com.example.samples.ui.main.goal.GoalViewModel
 
-class GoalAdapter(var list: MutableList<Goal>):
-    RecyclerView.Adapter<GoalAdapter.DragAndDropVH>()
-{
+class GoalAdapter(var list: MutableList<Goal>): RecyclerView.Adapter<GoalAdapter.DragAndDropVH>() {
+
     companion object {
         private const val TAG = "DragAdapter"
     }
+
     class DragAndDropVH(val binding: RowItemDraggableBinding): RecyclerView.ViewHolder(binding.root)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DragAndDropVH {
@@ -39,23 +40,18 @@ class GoalAdapter(var list: MutableList<Goal>):
 
         override fun onTouch(v: View?, event: MotionEvent): Boolean {
             when (event.action) {
-                MotionEvent.ACTION_DOWN -> {
-                    Log.d(TAG,"action down")
-                    startDragEvent(v)
-                }
+                MotionEvent.ACTION_DOWN -> startDragEvent(v)
                 MotionEvent.ACTION_UP -> v?.performClick()
-                else -> {
-                    Log.d(TAG,"action else")
-                }
+                else -> { }
             }
             return true
         }
 
         private fun startDragEvent(v: View?) {
-            val item = ClipData.Item(Intent()
-                .putExtra("goal", AdapterDragAndDropListener.RowItem(position, data))
-            )
-            val description = ClipDescription("Goal", arrayOf(ClipDescription.MIMETYPE_TEXT_PLAIN))
+            val item = ClipData.Item(
+                Intent().putExtra(IndexedGoal.GOAL, IndexedGoal(position, data)))
+
+            val description = ClipDescription("", arrayOf(ClipDescription.MIMETYPE_TEXT_PLAIN))
 
             val data = ClipData(description, item)
 
@@ -70,7 +66,7 @@ class GoalAdapter(var list: MutableList<Goal>):
 
     }
 
-    class AdapterDragAndDropListener: View.OnDragListener {
+    class AdapterDragAndDropListener(val goalStatus: GoalStatus, val viewmodel: GoalViewModel): View.OnDragListener {
         override fun onDrag(v: View?, event: DragEvent): Boolean {
             when (event.action) {
                 DragEvent.ACTION_DROP -> {
@@ -78,41 +74,49 @@ class GoalAdapter(var list: MutableList<Goal>):
 
                     val rowItem = getRowItem(event.clipData)
 
-                    Log.d(TAG,"Drag Drop: data: ${rowItem.goal.todoItem}, position: ${rowItem.position}")
+                    viewmodel.updateGoal(rowItem.goal.apply { status = goalStatus })
 
-                    val child: View = event.localState as View
-                    val oldParent: RecyclerView = child.parent as RecyclerView
-                    val adapter = oldParent.adapter as GoalAdapter
-                    adapter.removeItemAt(rowItem.position)
+                    // use below to update goal via actual drop, otherwise in updateGoal
+                    // remove call to getGoals()
 
-                    val newParent: RecyclerView = v!! as RecyclerView
-                    val newAdapter = newParent.adapter as GoalAdapter
-                    newAdapter.insertItem(rowItem.goal)
+//                    val child: View = event.localState as View
+//                    val oldParent: RecyclerView = child.parent as RecyclerView
+//                    val adapter = oldParent.adapter as GoalAdapter
+//                    adapter.removeItemAt(rowItem.position)
+//
+//                    val newParent: RecyclerView = v!! as RecyclerView
+//                    val newAdapter = newParent.adapter as GoalAdapter
+//                    newAdapter.insertItem(rowItem.goal)
                 }
             }
 
             return true
         }
 
-        private fun getRowItem(clipData: ClipData): RowItem {
-            val clipItem = clipData.getItemAt(0)
-            return clipItem.intent.getParcelableExtra<RowItem>("goal") as RowItem
+        companion object {
+            fun getRowItem(clipData: ClipData): IndexedGoal =
+                clipData.getItemAt(0).intent.getSerializableExtra(IndexedGoal.GOAL)!! as IndexedGoal
         }
-
-        @Parcelize
-        class RowItem(val position: Int, val goal: Goal): Parcelable
     }
 
 
     fun removeItemAt(position: Int) {
+        Log.d("TAG","removeItemAt $position")
         list.removeAt(position)
         notifyItemRemoved(position)
         notifyItemRangeChanged(position, list.size)
     }
 
     fun insertItem(item: Goal) {
+        Log.d("TAG","insertItem ${item.id}")
         list.add(0, item)
         notifyItemInserted(0)
         notifyItemRangeChanged(0, list.size)
+    }
+
+    fun updateList(list: List<Goal>) {
+        Log.d("TAG","updateList ${list.size}")
+        this.list = list.toMutableList()
+        notifyDataSetChanged()
     }
 }

@@ -9,7 +9,7 @@ class GoalCache @Inject constructor(private val goalDao: GoalDao) {
 
     fun addGoal(goal: Goal) = goalDao.addGoal(goal)
 
-    fun getGoals(): List<Goal>? = goalDao.getGoals()
+    fun getGoals() = goalDao.getGoals()
 
     fun updateGoal(goal: Goal) = goalDao.updateGoal(goal)
 

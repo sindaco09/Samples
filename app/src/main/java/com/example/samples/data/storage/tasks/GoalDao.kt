@@ -2,6 +2,7 @@ package com.example.samples.data.storage.tasks
 
 import androidx.room.*
 import com.example.samples.data.models.goal.Goal
+import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface GoalDao {
@@ -10,7 +11,7 @@ interface GoalDao {
     fun addGoal(goal: Goal)
 
     @Query("SELECT * FROM goals")
-    fun getGoals(): List<Goal>?
+    fun getGoals(): Flow<List<Goal>?>
 
     @Query("SELECT * FROM goals WHERE id == :uuid LIMIT 1 ")
     fun getGoal(uuid: String): Goal?

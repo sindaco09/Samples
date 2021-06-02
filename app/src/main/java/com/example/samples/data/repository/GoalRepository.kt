@@ -15,7 +15,7 @@ class GoalRepository @Inject constructor(private val goalCache: GoalCache) {
     }
 
     fun getGoals(): Flow<List<Goal>?> {
-        return flowOf(goalCache.getGoals())
+        return goalCache.getGoals()
     }
 
     fun updateGoal(goal: Goal) {

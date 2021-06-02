@@ -6,14 +6,14 @@ import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.viewModels
 import com.example.samples.R
 import com.example.samples.databinding.AddGoalFormBinding
+import com.example.samples.ui.main.goal.GoalViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class AddGoalDialog: DialogFragment(R.layout.add_goal_form) {
 
-    private val viewModel: AddGoalDialogViewModel by viewModels()
+    private val viewModel: GoalViewModel by viewModels({requireParentFragment().requireParentFragment()})
     private var _binding: AddGoalFormBinding? = null
-    private val binding: AddGoalFormBinding get() = _binding!!
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,7 +27,6 @@ class AddGoalDialog: DialogFragment(R.layout.add_goal_form) {
         super.onViewCreated(view, savedInstanceState)
         _binding = AddGoalFormBinding.bind(view).also {
             it.viewmodel = viewModel
-            it.submit.setOnClickListener { dismiss() }
         }
     }
 

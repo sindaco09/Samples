@@ -2,17 +2,16 @@ package com.example.samples.ui.main.goal.children
 
 import android.os.Bundle
 import android.view.View
-import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import com.example.samples.R
 import com.example.samples.data.models.goal.Goal
+import com.example.samples.data.models.goal.GoalStatus
 import com.example.samples.databinding.FragmentTaskChildBinding
 import com.example.samples.ui.base.DataBindingFragment
-import com.example.samples.ui.main.goal.GoalAdapter
 import com.example.samples.ui.main.goal.GoalViewModel
 
-class InProgressFragment: DataBindingFragment<FragmentTaskChildBinding>(R.layout.fragment_task_child) {
+class GoalListFragment(val goalStatus: GoalStatus): DataBindingFragment<FragmentTaskChildBinding>(R.layout.fragment_task_child) {
 
     private val viewModel: GoalViewModel by viewModels({ requireParentFragment() })
 
@@ -23,12 +22,16 @@ class InProgressFragment: DataBindingFragment<FragmentTaskChildBinding>(R.layout
     }
 
     private fun init() {
-
+        binding.recyclerView.setOnDragListener(GoalAdapter.AdapterDragAndDropListener(goalStatus, viewModel))
         observeData()
     }
 
     private fun observeData() {
-        viewModel.inProgressGoalLiveData.observe(viewLifecycleOwner, Observer(::setGoalData))
+        when (goalStatus) {
+            GoalStatus.TODO -> viewModel.toDoGoalLiveData.observe(viewLifecycleOwner, Observer(::setGoalData))
+            GoalStatus.IN_PROGRESS -> viewModel.inProgressGoalLiveData.observe(viewLifecycleOwner, Observer(::setGoalData))
+            GoalStatus.DONE -> viewModel.doneGoalLiveData.observe(viewLifecycleOwner, Observer(::setGoalData))
+        }
     }
 
     private fun setGoalData(list: List<Goal>) {

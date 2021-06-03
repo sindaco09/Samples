@@ -1,9 +1,8 @@
 package com.example.samples.data.repository
 
 import com.example.samples.data.models.goal.Goal
-import com.example.samples.data.storage.tasks.GoalCache
+import com.example.samples.data.storage.goal.GoalCache
 import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.flowOf
 import javax.inject.Inject
 import javax.inject.Singleton
 

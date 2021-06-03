@@ -10,7 +10,7 @@ import com.example.samples.data.storage.AppDatabase
 import com.example.samples.data.storage.DataStorePrefs.dataStorePreferences
 import com.example.samples.data.storage.SyncPrefDataStore
 import com.example.samples.data.storage.hue.HueDao
-import com.example.samples.data.storage.tasks.GoalDao
+import com.example.samples.data.storage.goal.GoalDao
 import com.example.samples.data.storage.user.CurrentUserSerializer.userDataStore
 import com.example.samples.data.storage.user.UserDao
 import dagger.Module

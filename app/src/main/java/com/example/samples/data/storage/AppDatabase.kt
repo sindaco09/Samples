@@ -9,7 +9,7 @@ import com.example.samples.data.storage.user.UserDao
 import com.example.samples.data.models.user.Converters
 import com.example.samples.data.models.user.User
 import com.example.samples.data.storage.hue.HueDao
-import com.example.samples.data.storage.tasks.GoalDao
+import com.example.samples.data.storage.goal.GoalDao
 
 @Database(entities = [User::class, Light::class, Goal::class], version = 4, exportSchema = false)
 @TypeConverters(Converters::class)

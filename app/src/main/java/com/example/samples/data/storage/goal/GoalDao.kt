@@ -1,4 +1,4 @@
-package com.example.samples.data.storage.tasks
+package com.example.samples.data.storage.goal
 
 import androidx.room.*
 import com.example.samples.data.models.goal.Goal

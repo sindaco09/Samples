@@ -38,7 +38,7 @@ class CameraXFragment : DataBindingFragment<FragmentCameraBinding>(R.layout.frag
     }
 
     private fun init() {
-        permissionsUtil = PermissionsUtil(this) { granted ->
+        permissionsUtil = PermissionsUtil(this, PermissionsUtil.Type.CAMERAX) { granted ->
             if (granted) {
                 startCameraPreview()
             } else {

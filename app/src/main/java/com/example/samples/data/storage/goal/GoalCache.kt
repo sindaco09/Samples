@@ -1,4 +1,4 @@
-package com.example.samples.data.storage.tasks
+package com.example.samples.data.storage.goal
 
 import com.example.samples.data.models.goal.Goal
 import javax.inject.Inject

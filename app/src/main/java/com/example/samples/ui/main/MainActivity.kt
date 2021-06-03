@@ -38,7 +38,8 @@ class MainActivity : AppCompatActivity() {
             R.id.nav_coffee,
             R.id.parentFragment,
             R.id.nav_camera,
-            R.id.nav_goals
+            R.id.nav_goals,
+            R.id.connection_graph
         ), mainBinding.drawerLayout)
 
         setupActionBarWithNavController(navController, appBarConfiguration)

@@ -1,4 +1,4 @@
-package com.indaco.myhomeapp.data.models.coffee
+package com.example.samples.data.models.coffee
 
 enum class State(var displayName: String) {
     STAND_BY("Stand By"),

@@ -1,4 +1,4 @@
-package com.example.samples.util.camerax
+package com.example.samples.util.camerax.barcode
 
 import android.content.Context
 import android.util.Log
@@ -10,9 +10,11 @@ import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.lifecycle.LifecycleOwner
 import java.util.concurrent.Executor
 
-class BarcodeCameraPreview(val context: Context) {
+class CameraPreview(val context: Context, val imageAnalyzer: ImageAnalysis.Analyzer? = null) {
 
-    private val TAG = "BarcodeCamera"
+    companion object {
+        private const val TAG = "BarcodeCamera"
+    }
 
     private var _imageCapture: ImageCapture? = null
         get() {
@@ -49,13 +51,22 @@ class BarcodeCameraPreview(val context: Context) {
                     unbindAll()
 
                     // Bind use cases to camera
-                    bindToLifecycle(
-                        owner,
-                        getCameraSelector(),
-                        buildPreview(surfaceProvider),
-                        _imageCapture,
-//                        buildImageAnalyzer(executor, imageToTextAnalyzer)
-                    )
+                    if (imageAnalyzer != null) {
+                        bindToLifecycle(
+                            owner,
+                            getCameraSelector(),
+                            buildPreview(surfaceProvider),
+                            _imageCapture,
+                            buildImageAnalyzer(executor, imageAnalyzer)
+                        )
+                    } else {
+                        bindToLifecycle(
+                            owner,
+                            getCameraSelector(),
+                            buildPreview(surfaceProvider),
+                            _imageCapture
+                        )
+                    }
 
                 } catch (exc: Exception) {
                     Log.e(TAG, "Use case binding failed", exc)

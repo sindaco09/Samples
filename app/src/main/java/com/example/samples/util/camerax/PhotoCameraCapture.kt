@@ -12,6 +12,9 @@ import java.text.SimpleDateFormat
 import java.util.*
 import java.util.concurrent.Executor
 
+/*
+ * saves picture to device
+ */
 class PhotoCameraCapture(private val context: Context) {
 
     private var outputDirectory: File

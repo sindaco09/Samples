@@ -1,4 +1,4 @@
-package com.example.samples.util.camerax
+package com.example.samples.util.camerax.barcode
 
 import android.util.Log
 import androidx.camera.core.ExperimentalGetImage
@@ -8,7 +8,6 @@ import com.google.mlkit.vision.barcode.Barcode
 import com.google.mlkit.vision.barcode.BarcodeScannerOptions
 import com.google.mlkit.vision.barcode.BarcodeScanning
 import com.google.mlkit.vision.common.InputImage
-import java.nio.ByteBuffer
 
 open class QRCodeAnalyzer(private val listener: (Barcode) -> Unit): ImageAnalysis.Analyzer {
 

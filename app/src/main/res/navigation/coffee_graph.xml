@@ -31,10 +31,13 @@
             android:id="@+id/go_to_final"
             app:destination="@id/coffeeFinalFragment"/>
     </fragment>
+
+    <!-- DeepLinking to this fragment will result in only startDestination being in backstack -->
     <fragment
         android:id="@+id/coffeeFinalFragment"
         android:name="com.example.samples.ui.main.coffee.CoffeeFinalFragment"
-        android:label="CoffeeFinalFragment">
+        android:label="CoffeeFinalFragment"
+        tools:layout="@layout/fragment_final_coffee">
 
         <deepLink
             android:id="@+id/deepLink"

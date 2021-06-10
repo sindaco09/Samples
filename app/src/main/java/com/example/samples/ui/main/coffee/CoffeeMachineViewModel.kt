@@ -1,12 +1,12 @@
-package com.indaco.myhomeapp.ui.main.coffee
+package com.example.samples.ui.main.coffee
 
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.samples.data.models.coffee.Coffee
-import com.indaco.myhomeapp.data.models.coffee.CoffeeMachine
-import com.indaco.myhomeapp.data.models.coffee.State
+import com.example.samples.data.models.coffee.CoffeeMachine
+import com.example.samples.data.models.coffee.State
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
@@ -15,6 +15,7 @@ class CoffeeMachineViewModel : ViewModel() {
 
     private val dispatcher = Dispatchers.Default
 
+    // TODO: convert status to StateFlow or SharedFlow
     var statusLiveData = MutableLiveData("Status: ")
     var progress = MutableLiveData(Pair(0,0))
 

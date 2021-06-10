@@ -16,9 +16,14 @@ import com.example.samples.databinding.FragmentCoffeeBinding
 import com.google.android.material.progressindicator.LinearProgressIndicator
 import com.example.samples.ui.base.DataBindingFragment
 import com.example.samples.util.notifications.NotificationUtil
-import com.indaco.myhomeapp.ui.main.coffee.CoffeeMachineViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
+/*
+ * Test
+ * DeepLinking to CoffeeFinalFragment in NavGraph
+ * DataBinding with ViewModel and skip this fragment layer of communication
+ * StateFlow in CoffeeMachine
+ */
 @AndroidEntryPoint
 class CoffeeMachineFragment : DataBindingFragment<FragmentCoffeeBinding>(R.layout.fragment_coffee) {
 
@@ -61,7 +66,7 @@ class CoffeeMachineFragment : DataBindingFragment<FragmentCoffeeBinding>(R.layou
     }
 
 
-    fun observeProgress() = viewModel.progress.observe(viewLifecycleOwner) {
+    private fun observeProgress() = viewModel.progress.observe(viewLifecycleOwner) {
         with(binding.progressMeter) {
             delayedSmoothProgress(prevProgress, it.first, it.second.toLong())
             prevProgress = it.first

@@ -1,18 +1,28 @@
-package com.indaco.myhomeapp.data.models.coffee
+package com.example.samples.data.models.coffee
 
 import android.util.Log
-import com.example.samples.data.models.coffee.Coffee
-import com.example.samples.data.models.coffee.Size
 import kotlinx.coroutines.*
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.collect
 
+/*
+ * extracted methods from viewmodel into this "CoffeeMachine" class for visibility
+ * purpose is to test State Machine and test StateFlow/SharedFlow
+ */
 class CoffeeMachine(var coffeeOrder: Coffee? = null, val scope: CoroutineScope) {
+
+    companion object {
+        const val MAX_WATER_LEVEL = 48
+        const val MAX_BEAN_LEVEL = 100
+    }
 
     private val dispatcher = Dispatchers.Default
 
-    var stateJob: Job? = null
+    // cannot restart jobs, must cancel/complete and assign new job to restart
+    private var stateJob: Job? = null
+
     private var prevState: State? = null
+
     var stateFlow = MutableStateFlow(State.STAND_BY)
     val state get() = stateFlow.value
 
@@ -48,23 +58,12 @@ class CoffeeMachine(var coffeeOrder: Coffee? = null, val scope: CoroutineScope) 
         }
     }
 
-    fun hasEnoughWater(size: Size): Boolean = waterLevel >= size.oz
-
-    fun hasEnoughBeans() = beanLevel >= MAX_BEAN_LEVEL / 4
-
-    companion object {
-        const val MAX_WATER_LEVEL = 48
-        const val MAX_BEAN_LEVEL = 100
-    }
-
-
     fun makeCoffee() {
         if (stateJob != null && stateJob!!.isActive)
             stateFlow.value = prevState!!
         else
             collectStateFlow()
     }
-
 
     private fun collectStateFlow() {
         stateJob = scope.launch(dispatcher) {
@@ -117,6 +116,8 @@ class CoffeeMachine(var coffeeOrder: Coffee? = null, val scope: CoroutineScope) 
         }
     }
 
+    private fun hasEnoughWater(size: Size): Boolean = waterLevel >= size.oz
+
     private suspend fun boilWater() {
         delay(5_000)
     }
@@ -130,6 +131,8 @@ class CoffeeMachine(var coffeeOrder: Coffee? = null, val scope: CoroutineScope) 
             error()
         }
     }
+
+    private fun hasEnoughBeans() = beanLevel >= MAX_BEAN_LEVEL / 4
 
     private suspend fun grindBeans() {
         delay(5_000)

@@ -13,7 +13,6 @@ import com.example.samples.data.models.coffee.Coffee
 import com.example.samples.data.models.coffee.Roast
 import com.example.samples.data.models.coffee.Size
 import com.example.samples.data.models.coffee.Temp
-import com.indaco.myhomeapp.ui.main.coffee.CoffeeMachineViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

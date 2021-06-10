@@ -18,7 +18,7 @@
             android:icon="@drawable/ic_article"
             android:title="@string/menu_news"/>
         <item
-            android:id="@+id/parentFragment"
+            android:id="@+id/hueParentFragment"
             android:icon="@drawable/ic_light"
             android:title="@string/menu_hue_parent" />
         <item

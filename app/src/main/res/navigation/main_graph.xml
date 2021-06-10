@@ -31,27 +31,21 @@
     <include app:graph="@navigation/connection_graph" />
 
     <fragment
-        android:id="@+id/parentFragment"
+        android:id="@+id/hueParentFragment"
         android:name="com.example.samples.ui.main.mockhue.HueParentFragment"
-        android:label="@string/menu_hue_parent" />
+        android:label="@string/menu_hue_parent"
+        tools:layout="@layout/fragment_parent"/>
 
     <fragment
         android:id="@+id/nav_camera"
         android:name="com.example.samples.ui.main.camerax.CameraXFragment"
-        android:label="@string/menu_camera" />
+        android:label="@string/menu_camera"
+        tools:layout="@layout/fragment_camera"/>
 
     <fragment
         android:id="@+id/nav_goals"
         android:name="com.example.samples.ui.main.goal.GoalsFragment"
-        android:label="@string/menu_goals" >
-        <action
-            android:id="@+id/action_nav_goals_to_addGoalDialog"
-            app:destination="@id/addGoalDialog" />
-    </fragment>
-    <fragment
-        android:id="@+id/addGoalDialog"
-        android:name="com.example.samples.ui.main.goal.newgoal.AddGoalDialog"
-        android:label="AddGoalDialog" />
-
+        android:label="@string/menu_goals"
+        tools:layout="@layout/fragment_goals"/>
 
 </navigation>

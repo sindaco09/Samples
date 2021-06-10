@@ -1,4 +1,4 @@
-package com.example.samples.ui.main.mockhue
+package com.example.samples.ui.main.mockhue.children
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope

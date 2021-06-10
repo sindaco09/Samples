@@ -8,7 +8,7 @@
 
     <fragment
         android:id="@+id/bridge_discovery_fragment"
-        android:name="com.example.samples.ui.main.mockhue.HueConnectionFragment"
+        android:name="com.example.samples.ui.main.mockhue.children.HueConnectionFragment"
         android:label="ChildAFragment"
         tools:layout="@layout/fragment_connection">
         <action
@@ -17,7 +17,7 @@
     </fragment>
     <fragment
         android:id="@+id/lights_fragment"
-        android:name="com.example.samples.ui.main.mockhue.HueLightsFragment"
+        android:name="com.example.samples.ui.main.mockhue.children.HueLightsFragment"
         android:label="ChildBFragment"
         tools:layout="@layout/fragment_hue_lights"/>
 </navigation>

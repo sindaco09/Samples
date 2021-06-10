@@ -27,7 +27,14 @@ class AddGoalDialog: DialogFragment(R.layout.add_goal_form) {
         super.onViewCreated(view, savedInstanceState)
         _binding = AddGoalFormBinding.bind(view).also {
             it.viewmodel = viewModel
+
+            it.submit.setOnClickListener { addGoal() }
         }
+    }
+
+    private fun addGoal() {
+        viewModel.addNewGoal(_binding?.goalEntry?.text.toString())
+
     }
 
     override fun onDestroyView() {

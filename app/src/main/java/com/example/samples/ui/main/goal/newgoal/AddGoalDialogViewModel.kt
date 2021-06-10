@@ -16,6 +16,7 @@ class AddGoalDialogViewModel @Inject constructor(private val repository: GoalRep
 
     private val dispatcher = Dispatchers.Default
 
+    // TODO: better way to let fragment know to dismiss dialog than via liveData?
     val dismissDialog = MutableLiveData(false)
 
     fun addNewGoal(goal: String) {

@@ -38,6 +38,7 @@ class GoalAdapter(var list: MutableList<Goal>): RecyclerView.Adapter<GoalAdapter
 
     class CardClickListener(val position: Int, val data: Goal): View.OnTouchListener {
 
+        // Sometimes better to use onLongClick instead of onTouch to allow for onClick events
         override fun onTouch(v: View?, event: MotionEvent): Boolean {
             when (event.action) {
                 MotionEvent.ACTION_DOWN -> startDragEvent(v)
@@ -99,23 +100,19 @@ class GoalAdapter(var list: MutableList<Goal>): RecyclerView.Adapter<GoalAdapter
         }
     }
 
-
     fun removeItemAt(position: Int) {
-        Log.d("TAG","removeItemAt $position")
         list.removeAt(position)
         notifyItemRemoved(position)
         notifyItemRangeChanged(position, list.size)
     }
 
     fun insertItem(item: Goal) {
-        Log.d("TAG","insertItem ${item.id}")
         list.add(0, item)
         notifyItemInserted(0)
         notifyItemRangeChanged(0, list.size)
     }
 
     fun updateList(list: List<Goal>) {
-        Log.d("TAG","updateList ${list.size}")
         this.list = list.toMutableList()
         notifyDataSetChanged()
     }

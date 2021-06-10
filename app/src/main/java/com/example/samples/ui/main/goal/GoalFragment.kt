@@ -17,6 +17,9 @@ import com.example.samples.ui.main.goal.newgoal.AddGoalDialog
 import com.google.android.material.tabs.TabLayoutMediator
 import dagger.hilt.android.AndroidEntryPoint
 
+/*
+ * Demonstrates dragging and dropping views from one list into another
+ */
 @AndroidEntryPoint
 class GoalsFragment: DataBindingFragment<FragmentGoalsBinding>(R.layout.fragment_goals) {
 
@@ -103,7 +106,8 @@ class TasksPagerAdapter(fragment: Fragment): FragmentStateAdapter(fragment) {
 
     private val tabFrags = List(GoalStatus.values().size) {
         val goalStatus = GoalStatus.values()[it]
-        TabFragment(GoalListFragment(goalStatus), goalStatus) }
+        TabFragment(GoalListFragment(goalStatus), goalStatus)
+    }
 
     class TabFragment(val fragment: Fragment, val status: GoalStatus)
 

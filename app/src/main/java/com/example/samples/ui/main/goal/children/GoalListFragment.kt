@@ -11,6 +11,10 @@ import com.example.samples.databinding.FragmentTaskChildBinding
 import com.example.samples.ui.base.DataBindingFragment
 import com.example.samples.ui.main.goal.GoalViewModel
 
+/*
+ * Generic fragment holding a recyclerview that can drag & drop it's items
+ * between other GoalListFragments
+ */
 class GoalListFragment(val goalStatus: GoalStatus): DataBindingFragment<FragmentTaskChildBinding>(R.layout.fragment_task_child) {
 
     private val viewModel: GoalViewModel by viewModels({ requireParentFragment() })

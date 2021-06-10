@@ -4,6 +4,9 @@ import android.content.Context
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.OnLifecycleEvent
 
+/*
+ * exploring making a new location listener using lifecycle to register/unregister
+ */
 class MyMockLocationListener(
     private val context: Context,
     private val lifecycle: Lifecycle,

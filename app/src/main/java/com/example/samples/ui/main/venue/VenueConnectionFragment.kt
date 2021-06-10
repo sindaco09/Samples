@@ -7,6 +7,10 @@ import com.example.samples.R
 import com.example.samples.databinding.FragmentVenueConnectionBinding
 import com.example.samples.ui.base.DataBindingFragment
 
+/*
+ * Begin looking into mechanics behind wifi connection to Access Points (APs), Local Hotspot,
+ * and other various ways described in developer docs
+ */
 class VenueConnectionFragment: DataBindingFragment<FragmentVenueConnectionBinding>(R.layout.fragment_venue_connection) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

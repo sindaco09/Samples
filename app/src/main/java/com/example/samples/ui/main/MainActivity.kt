@@ -1,6 +1,5 @@
 package com.example.samples.ui.main
 
-import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.Menu
@@ -36,7 +35,7 @@ class MainActivity : AppCompatActivity() {
             R.id.nav_home,
             R.id.nav_news,
             R.id.nav_coffee,
-            R.id.parentFragment,
+            R.id.hueParentFragment,
             R.id.nav_camera,
             R.id.nav_goals,
             R.id.connection_graph
@@ -52,7 +51,6 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        Log.d("TAG","onOptionsItemSelected: ${item.title}")
         when (item.itemId) {
             R.id.action_settings -> navController.navigate(R.id.go_to_settings)
             R.id.action_logout -> {}
@@ -62,12 +60,6 @@ class MainActivity : AppCompatActivity() {
         return super.onOptionsItemSelected(item)
 
     }
-
-    override fun onNewIntent(intent: Intent?) {
-        super.onNewIntent(intent)
-        Log.d("TAG","onNewIntent: ${intent?.extras.toString()}")
-    }
-
 
     override fun onSupportNavigateUp() =
         navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()

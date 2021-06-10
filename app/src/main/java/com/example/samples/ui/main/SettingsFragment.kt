@@ -9,6 +9,10 @@ import com.example.samples.data.storage.SyncPrefDataStore
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
+/*
+ * Goal is to test Preferences Fragment used to automatically get/save SharedPreferences
+ * using the DataStore Preferences file vs the usual SharedPreferences location
+ */
 @AndroidEntryPoint
 class SettingsFragment : PreferenceFragmentCompat() {
 

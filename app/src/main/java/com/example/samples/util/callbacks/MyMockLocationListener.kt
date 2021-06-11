@@ -1,4 +1,4 @@
-package com.example.samples.ui.customviews
+package com.example.samples.util.callbacks
 
 import android.content.Context
 import androidx.lifecycle.Lifecycle

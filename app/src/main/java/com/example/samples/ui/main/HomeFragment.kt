@@ -6,7 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.View
 import androidx.fragment.app.activityViewModels
 import com.example.samples.R
-import com.example.samples.ui.customviews.MyMockLocationListener
+import com.example.samples.util.callbacks.MyMockLocationListener
 import com.example.samples.ui.onboard.OnboardViewModel
 import dagger.hilt.android.AndroidEntryPoint
 

@@ -18,7 +18,7 @@ import com.example.samples.R
 import com.example.samples.data.models.news.News
 import com.example.samples.databinding.FragmentNewsBinding
 import com.example.samples.ui.base.DataBindingFragment
-import com.example.samples.util.news.Ext.toPx
+import com.example.samples.util.common.Ext.toPx
 import dagger.hilt.android.AndroidEntryPoint
 import java.util.*
 import java.util.concurrent.atomic.AtomicBoolean

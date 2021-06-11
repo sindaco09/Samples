@@ -1,6 +1,9 @@
-package com.example.samples.hilt
+package com.example.samples.core.hilt
 
-import com.example.samples.data.network.api.movie.MovieService
+import com.example.samples.data.network.api.bart.BartApi
+import com.example.samples.data.network.api.bart.BartService
+import com.example.samples.data.repository.BartRepository
+import com.example.samples.data.storage.bart.BartCache
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -16,7 +19,9 @@ import javax.inject.Singleton
 class NetworkModule {
 
     companion object {
-        private const val baseUrl = "URL"
+        // This should never be baseUrl because the baseUrl changes depending on api
+        // being used
+        private const val baseUrl = "https://www.google.com"
     }
 
     @Provides
@@ -38,6 +43,12 @@ class NetworkModule {
 
     @Provides
     @Singleton
-    fun provideMovieService(retrofit: Retrofit) =
-        retrofit.create(MovieService::class.java)
+    fun provideBartApi(retrofit: Retrofit) =
+        BartApi(retrofit.create(BartService::class.java))
+
+    @Provides
+    @Singleton
+    fun provideBartRepository(bartApi: BartApi, bartCache: BartCache) =
+        BartRepository(bartApi, bartCache)
+
 }

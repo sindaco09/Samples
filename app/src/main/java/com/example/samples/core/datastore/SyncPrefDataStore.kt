@@ -1,4 +1,4 @@
-package com.example.samples.data.storage
+package com.example.samples.core.datastore
 
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.*

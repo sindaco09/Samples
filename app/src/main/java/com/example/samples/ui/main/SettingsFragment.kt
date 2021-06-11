@@ -5,7 +5,7 @@ import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
 import androidx.preference.PreferenceFragmentCompat
 import com.example.samples.R
-import com.example.samples.data.storage.SyncPrefDataStore
+import com.example.samples.core.datastore.SyncPrefDataStore
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 

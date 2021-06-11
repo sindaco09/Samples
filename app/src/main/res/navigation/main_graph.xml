@@ -30,6 +30,8 @@
 
     <include app:graph="@navigation/connection_graph" />
 
+    <include app:graph="@navigation/bart_graph" />
+
     <fragment
         android:id="@+id/hueParentFragment"
         android:name="com.example.samples.ui.main.mockhue.HueParentFragment"

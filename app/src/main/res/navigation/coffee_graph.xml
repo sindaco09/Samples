@@ -39,8 +39,6 @@
         android:label="CoffeeFinalFragment"
         tools:layout="@layout/fragment_final_coffee">
 
-        <deepLink
-            android:id="@+id/deepLink"
-            app:uri="indaco://demo.com/coffeeComplete" />
+        <deepLink app:uri="indaco://demo.com/coffeeComplete" />
     </fragment>
 </navigation>

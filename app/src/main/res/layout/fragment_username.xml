@@ -14,7 +14,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="20dp"
-        tools:context=".ui.onboard.LoginFragment">
+        tools:context=".ui.onboard.LandingFragment">
         <LinearLayout
             android:id="@+id/form"
             android:layout_width="match_parent"

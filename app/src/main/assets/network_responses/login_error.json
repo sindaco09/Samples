@@ -1,0 +1,6 @@
+{
+  "error": {
+    "type": 101,
+    "message": "user does not exist"
+  }
+}

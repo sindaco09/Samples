@@ -15,7 +15,7 @@
         android:label="UsernameFragment" />
     <fragment
         android:id="@+id/loginFragment"
-        android:name="com.example.samples.ui.onboard.LoginFragment"
+        android:name="com.example.samples.ui.onboard.LandingFragment"
         android:label="fragment_login"
-        tools:layout="@layout/fragment_login" />
+        tools:layout="@layout/fragment_landing" />
 </navigation>

@@ -19,7 +19,7 @@ class OnboardViewModel @Inject constructor(private val userRepository: UserRepos
 
     enum class State(val fragment: Class<out Fragment>) {
         HOME(HomeFragment::class.java),
-        LOGIN (LoginFragment::class.java),
+        LOGIN (LandingFragment::class.java),
         REGISTER_USERNAME(UsernameFragment::class.java),
         REGISTER_PASSWORD(PasswordFragment::class.java),
         REGISTER_ABOUT_ME(AboutMeFragment::class.java)

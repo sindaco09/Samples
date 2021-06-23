@@ -1,4 +1,4 @@
-package com.example.samples.ui.main
+package com.example.samples.ui.main.home
 
 import android.os.Bundle
 import android.util.Log
@@ -12,8 +12,6 @@ import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class HomeFragment : Fragment(R.layout.fragment_home) {
-
-    private val onboardViewModel: OnboardViewModel by activityViewModels()
 
     private lateinit var locationListener: MyMockLocationListener
 

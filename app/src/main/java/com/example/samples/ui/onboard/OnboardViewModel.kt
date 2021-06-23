@@ -9,7 +9,7 @@ import androidx.lifecycle.viewModelScope
 import com.example.samples.data.repository.UserRepository
 import com.example.samples.data.models.user.SignUpUser
 import com.example.samples.data.models.user.User
-import com.example.samples.ui.main.HomeFragment
+import com.example.samples.ui.main.home.HomeFragment
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject

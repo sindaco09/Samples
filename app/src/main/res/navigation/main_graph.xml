@@ -16,7 +16,7 @@
 
     <fragment
         android:id="@+id/nav_home"
-        android:name="com.example.samples.ui.main.HomeFragment"
+        android:name="com.example.samples.ui.main.home.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" >
         <action

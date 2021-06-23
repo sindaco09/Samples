@@ -54,7 +54,9 @@ class MainActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.action_settings -> navController.navigate(R.id.go_to_settings)
-            R.id.action_logout -> {}
+            R.id.action_logout -> {
+//                navController.navigate(R.id.logout)
+            }
             else -> Log.e("TAG","impossible state")
 
         }

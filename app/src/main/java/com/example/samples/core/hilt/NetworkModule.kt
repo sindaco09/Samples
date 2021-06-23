@@ -1,9 +1,6 @@
 package com.example.samples.core.hilt
 
-import com.example.samples.data.network.api.bart.BartApi
 import com.example.samples.data.network.api.bart.BartService
-import com.example.samples.data.repository.BartRepository
-import com.example.samples.data.storage.bart.BartCache
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -12,7 +9,6 @@ import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
-import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
@@ -41,14 +37,9 @@ class NetworkModule {
             .build()
     }
 
+    // Only need to provide for interfaces
     @Provides
-    @Singleton
-    fun provideBartApi(retrofit: Retrofit) =
-        BartApi(retrofit.create(BartService::class.java))
-
-    @Provides
-    @Singleton
-    fun provideBartRepository(bartApi: BartApi, bartCache: BartCache) =
-        BartRepository(bartApi, bartCache)
+    fun provideBartService(retrofit: Retrofit): BartService =
+        retrofit.create(BartService::class.java)
 
 }

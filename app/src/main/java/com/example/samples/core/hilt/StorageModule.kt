@@ -1,6 +1,5 @@
 package com.example.samples.core.hilt
 
-import android.app.Application
 import android.content.Context
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
@@ -27,7 +26,7 @@ object StorageModule {
 
     @Provides
     @Singleton
-    fun provideDB(application: Application) =
+    fun provideDB(@ApplicationContext application: Context) =
         Room.databaseBuilder(application, AppDatabase::class.java, "database")
             .fallbackToDestructiveMigration() //clear db on version increase
             .build()

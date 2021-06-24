@@ -12,7 +12,7 @@ import javax.inject.Inject
 @AndroidEntryPoint
 class LoginFragment: DataBindingFragment<FragmentLoginBinding>(R.layout.fragment_login) {
 
-    @Inject private lateinit var loginViewModel: LoginViewModel
+    private lateinit var loginViewModel: LoginViewModel
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -45,8 +45,8 @@ class LoginFragment: DataBindingFragment<FragmentLoginBinding>(R.layout.fragment
 
     private fun isEmailEntryValid(email: String?): Boolean {
         val error =  when {
-            email.isNullOrBlank() -> "Email is blank"
-            email.isEmailInvalid() -> "Not a valid email"
+            email.isNullOrBlank() -> getString(R.string.error_email_blank)
+            email.isEmailInvalid() -> getString(R.string.error_email_not_email_pattern)
             else ->  null
         }
         binding.passwordLayout.error = error
@@ -59,10 +59,10 @@ class LoginFragment: DataBindingFragment<FragmentLoginBinding>(R.layout.fragment
 
     private fun isPasswordValid(password: String?): Boolean {
         val error =  when {
-            password.isNullOrBlank() -> "Password is blank"
-            password.length < 3 -> "Password is too short"
-            password.length > 10 -> "Password is too long"
-            password.all { it.isLetterOrDigit() } -> "Password is can only be alphanumeric"
+            password.isNullOrBlank() -> getString(R.string.error_password_blank)
+            password.length < 3 -> getString(R.string.error_password_short)
+            password.length > 10 -> getString(R.string.error_password_long)
+            password.all { it.isLetterOrDigit() } -> getString(R.string.error_password_not_alphanumeric)
             else ->  null
         }
         binding.passwordLayout.error = error
@@ -89,5 +89,4 @@ class LoginFragment: DataBindingFragment<FragmentLoginBinding>(R.layout.fragment
     private fun goToMainScreen() {
 
     }
-
 }

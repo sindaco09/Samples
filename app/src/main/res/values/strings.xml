@@ -40,4 +40,10 @@
     <string name="menu_connection">Venue</string>
     <string name="camera_mode_title">Pick Camera Mode</string>
     <string name="capture_disabled">Capture disabled in this mode</string>
+    <string name="error_password_blank">Password is blank</string>
+    <string name="error_password_short">Password is too short</string>
+    <string name="error_password_long">Password is too long</string>
+    <string name="error_password_not_alphanumeric">Password is can only be alphanumeric</string>
+    <string name="error_email_blank">Email is blank</string>
+    <string name="error_email_not_email_pattern">Not a valid email</string>
 </resources>

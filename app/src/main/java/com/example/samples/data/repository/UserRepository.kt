@@ -3,7 +3,10 @@ package com.example.samples.data.repository
 import com.example.samples.CurrentUser
 import com.example.samples.data.models.user.User
 import com.example.samples.data.storage.user.UserCache
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.flow
+import java.lang.Exception
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -29,5 +32,13 @@ class UserRepository @Inject constructor(
     suspend fun loginUser(user: User) = userCache.setCurrentUser(user)
 
     suspend fun addUser(user: User) = userCache.addUser(user)
+
+    suspend fun processQRCode(code: String?): Flow<String?> {
+        return flow<String?> {
+            delay(4_000)
+
+            emit(code)
+        }
+    }
 
 }

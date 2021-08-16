@@ -8,7 +8,9 @@ import androidx.camera.core.ImageCapture
 import androidx.camera.core.Preview
 import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.lifecycle.LifecycleOwner
+import com.google.common.util.concurrent.ListenableFuture
 import java.util.concurrent.Executor
+import java.util.concurrent.atomic.AtomicBoolean
 
 class CameraPreview(val context: Context, val imageAnalyzer: ImageAnalysis.Analyzer? = null) {
 
@@ -44,7 +46,6 @@ class CameraPreview(val context: Context, val imageAnalyzer: ImageAnalysis.Analy
         val cameraProviderFuture = ProcessCameraProvider.getInstance(context)
 
         cameraProviderFuture.addListener({
-
             cameraProviderFuture.get().apply {
                 try {
                     // Unbind use cases before rebinding

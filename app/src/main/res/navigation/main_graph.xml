@@ -40,9 +40,9 @@
 
     <fragment
         android:id="@+id/nav_camera"
-        android:name="com.example.samples.ui.main.camerax.CameraXFragment"
+        android:name="com.example.samples.ui.main.camerax.CameraMenuFragment"
         android:label="@string/menu_camera"
-        tools:layout="@layout/fragment_camera"/>
+        tools:layout="@layout/fragment_camera_menu"/>
 
     <fragment
         android:id="@+id/nav_goals"

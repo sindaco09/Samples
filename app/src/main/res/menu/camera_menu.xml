@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/action_qr_camerax"
+        android:enabled="true"
+        android:icon="@drawable/ic_camera"
+        android:title="Androidx QR" />
+    <item
+        android:id="@+id/action_qr_camera_legacy"
+        android:enabled="true"
+        android:icon="@drawable/ic_legacy_camera"
+        android:title="Legacy QR" />
+    <item
+        android:id="@+id/action_image_to_text_reader"
+        android:enabled="true"
+        android:icon="@drawable/ic_image_search"
+        android:title="Image-to-Text Reader" />
+
+</menu>

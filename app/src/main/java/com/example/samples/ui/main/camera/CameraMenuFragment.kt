@@ -1,4 +1,4 @@
-package com.example.samples.ui.main.camerax
+package com.example.samples.ui.main.camera
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -7,9 +7,9 @@ import androidx.fragment.app.commit
 import com.example.samples.R
 import com.example.samples.databinding.FragmentCameraMenuBinding
 import com.example.samples.ui.base.DataBindingFragment
-import com.example.samples.ui.main.camerax.types.ImageToTextCameraFragment
-import com.example.samples.ui.main.camerax.types.QRCameraLegacyFragment
-import com.example.samples.ui.main.camerax.types.QRCameraXFragment
+import com.example.samples.ui.main.camera.types.ImageToTextCameraXFragment
+import com.example.samples.ui.main.camera.types.QRCamera2Fragment
+import com.example.samples.ui.main.camera.types.QRCameraXFragment
 
 class CameraMenuFragment: DataBindingFragment<FragmentCameraMenuBinding>(R.layout.fragment_camera_menu) {
 
@@ -24,8 +24,8 @@ class CameraMenuFragment: DataBindingFragment<FragmentCameraMenuBinding>(R.layou
         binding.bottomNav.setOnItemSelectedListener {
             when(it.itemId) {
                 R.id.action_qr_camerax -> QRCameraXFragment()
-                R.id.action_qr_camera_legacy -> QRCameraLegacyFragment()
-                R.id.action_image_to_text_reader -> ImageToTextCameraFragment()
+                R.id.action_qr_camera_legacy -> QRCamera2Fragment()
+                R.id.action_image_to_text_reader -> ImageToTextCameraXFragment()
                 else -> null
             }?.let {
                 childFragmentManager.commit { replace(binding.cameraFragmentContainer.id, it) }

@@ -1,4 +1,4 @@
-package com.example.samples.ui.main.camerax.types
+package com.example.samples.ui.main.camera.types
 
 import android.os.Bundle
 import android.view.View
@@ -10,7 +10,7 @@ import androidx.lifecycle.Observer
 import com.example.samples.R
 import com.example.samples.databinding.FragmentQrCameraxBinding
 import com.example.samples.ui.base.DataBindingFragment
-import com.example.samples.ui.main.camerax.CameraViewModel
+import com.example.samples.ui.main.camera.CameraViewModel
 import com.example.samples.util.camera.barcode.camerax.CameraPreview
 import com.example.samples.util.camera.barcode.camerax.QRCodeAnalyzer
 import com.example.samples.util.common.PermissionsUtil

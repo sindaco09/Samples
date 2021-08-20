@@ -1,4 +1,4 @@
-package com.example.samples.ui.main.camerax.types
+package com.example.samples.ui.main.camera.types
 
 import android.os.Bundle
 import android.view.View
@@ -14,7 +14,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.asExecutor
 
 @ExperimentalGetImage
-class ImageToTextCameraFragment: DataBindingFragment<FragmentImageToTextCameraBinding>(R.layout.fragment_image_to_text_camera) {
+class ImageToTextCameraXFragment: DataBindingFragment<FragmentImageToTextCameraBinding>(R.layout.fragment_image_to_text_camera) {
 
     companion object {
         private const val TAG = "CameraXBasic"

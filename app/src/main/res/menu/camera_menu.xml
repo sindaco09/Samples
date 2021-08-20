@@ -4,16 +4,16 @@
         android:id="@+id/action_qr_camerax"
         android:enabled="true"
         android:icon="@drawable/ic_camera"
-        android:title="Androidx QR" />
+        android:title="CameraX QR" />
     <item
         android:id="@+id/action_qr_camera_legacy"
         android:enabled="true"
         android:icon="@drawable/ic_legacy_camera"
-        android:title="Legacy QR" />
+        android:title="Camera2 QR" />
     <item
         android:id="@+id/action_image_to_text_reader"
         android:enabled="true"
         android:icon="@drawable/ic_image_search"
-        android:title="Image-to-Text Reader" />
+        android:title="Img-to-Txt Reader" />
 
 </menu>

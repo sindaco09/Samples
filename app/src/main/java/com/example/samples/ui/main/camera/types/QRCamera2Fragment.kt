@@ -1,4 +1,4 @@
-package com.example.samples.ui.main.camerax.types
+package com.example.samples.ui.main.camera.types
 
 import android.annotation.SuppressLint
 import android.content.Context
@@ -29,7 +29,7 @@ import kotlinx.coroutines.asExecutor
 import java.util.*
 
 @AndroidEntryPoint
-class QRCameraLegacyFragment: DataBindingFragment<FragmentQrCameraLegacyBinding>(R.layout.fragment_qr_camera_legacy) {
+class QRCamera2Fragment: DataBindingFragment<FragmentQrCameraLegacyBinding>(R.layout.fragment_qr_camera_legacy) {
 
     companion object {
         private const val TAG = "QRCameraLegacyFragment"

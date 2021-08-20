@@ -1,4 +1,4 @@
-package com.example.samples.ui.main.camerax
+package com.example.samples.ui.main.camera
 
 import android.util.Log
 import androidx.lifecycle.LiveData

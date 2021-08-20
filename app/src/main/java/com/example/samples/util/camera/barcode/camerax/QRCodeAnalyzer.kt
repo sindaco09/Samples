@@ -1,4 +1,4 @@
-package com.example.samples.util.camerax.barcode
+package com.example.samples.util.camera.barcode.camerax
 
 import android.util.Log
 import androidx.camera.core.ExperimentalGetImage
@@ -31,14 +31,12 @@ open class QRCodeAnalyzer(private val listener: (Barcode) -> Unit): ImageAnalysi
     override fun analyze(imageProxy: ImageProxy) {
 
         imageProxy.image?.let { image ->
-            val inputImage =
-                InputImage.fromMediaImage(image, imageProxy.imageInfo.rotationDegrees)
+            val inputImage = InputImage.fromMediaImage(image, imageProxy.imageInfo.rotationDegrees)
 
             // Optional, faster if scanner knows exact formats to scan for
             val options = BarcodeScannerOptions.Builder()
                 .setBarcodeFormats(Barcode.FORMAT_QR_CODE)
                 .build()
-            Log.d(TAG, "analyze in image proxy")
 
             BarcodeScanning
                 .getClient(options)
@@ -46,8 +44,6 @@ open class QRCodeAnalyzer(private val listener: (Barcode) -> Unit): ImageAnalysi
                 .addOnSuccessListener { processBarcodes(it) }
                 .addOnFailureListener { Log.e(TAG, "onFailed", it) }
                 .addOnCompleteListener {
-//                    Log.d(TAG, "onComplete")
-
                     // Make sure to close imageproxy after onComplete when done with analyze
                     // mutliple calls to imageProxy.close() do not cause crash
                     imageProxy.close()
@@ -59,10 +55,9 @@ open class QRCodeAnalyzer(private val listener: (Barcode) -> Unit): ImageAnalysi
         if (enabled.get()){
             if (barcodes.isNotEmpty()) {
                 enabled.set(false)
-                barcodes.forEach { barcode ->
-                    when (barcode.valueType) {
-                        Barcode.TYPE_URL -> listener(barcode)
-                    }
+                barcodes.forEach {
+                    if (it.valueType == Barcode.TYPE_URL)
+                        listener(it)
                 }
             }
         }

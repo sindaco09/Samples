@@ -6,9 +6,9 @@ import androidx.camera.core.ExperimentalGetImage
 import com.example.samples.R
 import com.example.samples.databinding.FragmentImageToTextCameraBinding
 import com.example.samples.ui.base.DataBindingFragment
-import com.example.samples.util.camerax.barcode.CameraPreview
-import com.example.samples.util.camerax.image_to_text.ImageToTextAnalyzer
-import com.example.samples.util.camerax.image_to_text.TextToImageCapture
+import com.example.samples.util.camera.barcode.camerax.CameraPreview
+import com.example.samples.util.camera.image_to_text.ImageToTextAnalyzer
+import com.example.samples.util.camera.image_to_text.TextToImageCapture
 import com.example.samples.util.common.PermissionsUtil
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.asExecutor

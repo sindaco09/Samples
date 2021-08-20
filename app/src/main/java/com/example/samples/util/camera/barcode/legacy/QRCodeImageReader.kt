@@ -1,4 +1,4 @@
-package com.example.samples.util.camerax.barcode.legacy
+package com.example.samples.util.camera.barcode.legacy
 
 import android.graphics.BitmapFactory
 import android.graphics.ImageFormat

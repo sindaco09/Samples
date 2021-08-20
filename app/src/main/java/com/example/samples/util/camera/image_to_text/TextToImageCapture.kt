@@ -1,4 +1,4 @@
-package com.example.samples.util.camerax.image_to_text
+package com.example.samples.util.camera.image_to_text
 
 import android.util.Log
 import androidx.camera.core.ExperimentalGetImage

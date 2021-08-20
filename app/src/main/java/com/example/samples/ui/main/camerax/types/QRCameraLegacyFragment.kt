@@ -19,7 +19,7 @@ import android.widget.Toast
 import com.example.samples.R
 import com.example.samples.databinding.FragmentQrCameraLegacyBinding
 import com.example.samples.ui.base.DataBindingFragment
-import com.example.samples.util.camerax.barcode.legacy.QRCodeImageReader
+import com.example.samples.util.camera.barcode.legacy.QRCodeImageReader
 import com.example.samples.util.common.PermissionsUtil
 import com.google.android.gms.vision.barcode.Barcode
 import com.google.android.gms.vision.barcode.BarcodeDetector
@@ -43,6 +43,8 @@ class QRCameraLegacyFragment: DataBindingFragment<FragmentQrCameraLegacyBinding>
 
     private lateinit var permissionsUtil: PermissionsUtil
 
+    private var cameraDevice: CameraDevice? = null
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -52,22 +54,11 @@ class QRCameraLegacyFragment: DataBindingFragment<FragmentQrCameraLegacyBinding>
     }
 
     private val callback = object : SurfaceHolder.Callback {
-        override fun surfaceCreated(holder: SurfaceHolder) {
-            startCameraPreview()
-        }
+        override fun surfaceCreated(holder: SurfaceHolder) = startCameraPreview()
 
-        override fun surfaceChanged(
-            holder: SurfaceHolder,
-            format: Int,
-            width: Int,
-            height: Int
-        ) {
+        override fun surfaceChanged(holder: SurfaceHolder, format: Int, width: Int, height: Int) {}
 
-        }
-
-        override fun surfaceDestroyed(holder: SurfaceHolder) {
-
-        }
+        override fun surfaceDestroyed(holder: SurfaceHolder) {}
     }
 
     override fun onDestroyView() {
@@ -75,7 +66,6 @@ class QRCameraLegacyFragment: DataBindingFragment<FragmentQrCameraLegacyBinding>
 
         cameraDevice?.close()
     }
-
 
     private fun initPermissionUtil() {
         permissionsUtil = PermissionsUtil(this, PermissionsUtil.Type.CAMERAX) { granted ->
@@ -92,11 +82,11 @@ class QRCameraLegacyFragment: DataBindingFragment<FragmentQrCameraLegacyBinding>
     @SuppressLint("MissingPermission")
     private fun startCameraPreview() {
         if (permissionsUtil.allPermissionsGranted()) {
-            activity?.let { a ->
+            activity?.let { _activity ->
                 cameraBkgHandler = Handler(Looper.getMainLooper())
 
                 // Get Camera using system service
-                val cm = a.getSystemService(Context.CAMERA_SERVICE) as CameraManager
+                val cm = _activity.getSystemService(Context.CAMERA_SERVICE) as CameraManager
 
                 // find cameraIds on phone and verify Back Facing Lens exists
                 val backFacingCamera = cm.cameraIdList.find {
@@ -112,11 +102,7 @@ class QRCameraLegacyFragment: DataBindingFragment<FragmentQrCameraLegacyBinding>
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
                         cm.openCamera(backFacingCamera, exeuctor, cameraStateCallback)
                     } else {
-                        cm.openCamera(
-                            backFacingCamera,
-                            cameraStateCallback,
-                            cameraBkgHandler
-                        )
+                        cm.openCamera(backFacingCamera, cameraStateCallback, cameraBkgHandler)
                     }
                 }
             }
@@ -129,6 +115,7 @@ class QRCameraLegacyFragment: DataBindingFragment<FragmentQrCameraLegacyBinding>
         override fun onOpened(camera: CameraDevice) {
 
             cameraDevice = camera
+
             val barcodeDetector = BarcodeDetector.Builder(requireContext())
                 .setBarcodeFormats(Barcode.QR_CODE)
                 .build()
@@ -173,18 +160,11 @@ class QRCameraLegacyFragment: DataBindingFragment<FragmentQrCameraLegacyBinding>
             }
         }
 
-        override fun onDisconnected(camera: CameraDevice) {
+        override fun onDisconnected(camera: CameraDevice) {}
 
-        }
-
-        override fun onError(camera: CameraDevice, error: Int) {
-
-        }
+        override fun onError(camera: CameraDevice, error: Int) {}
 
     }
-
-    var captureSession: CameraCaptureSession? = null
-    var cameraDevice: CameraDevice? = null
 
     private fun createCaptureStateCallback(camera: CameraDevice) = object : CameraCaptureSession.StateCallback() {
         override fun onConfigured(session: CameraCaptureSession) {
@@ -192,25 +172,20 @@ class QRCameraLegacyFragment: DataBindingFragment<FragmentQrCameraLegacyBinding>
             builder.addTarget(binding.surfaceView.holder.surface)
             builder.addTarget(qrCodeImageReader.imageReader.surface)
             session.setRepeatingRequest(builder.build(), null, null)
-            captureSession = session
         }
 
         override fun onConfigureFailed(session: CameraCaptureSession) {
             Log.d(TAG, "onConfigureFailed")
         }
-
     }
 
     private fun postProcessCode(result: String?) {
-        val message = if (result == null) {
-            "null code received..."
-        } else {
-            "QR code is: $result"
-        }
-        Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT).show()
+        Toast.makeText(requireContext(),
+            if (result == null) "null code received..." else "QR code is: $result",
+            Toast.LENGTH_SHORT)
+            .show()
 
         // Important to let QR Code Analyzer to resume scanning images for QR Codes
         qrCodeImageReader.resume()
     }
-
 }

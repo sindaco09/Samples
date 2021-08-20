@@ -1,4 +1,4 @@
-package com.example.samples.util.camerax
+package com.example.samples.util.camera
 
 import android.content.Context
 import android.net.Uri

@@ -1,9 +1,10 @@
-package com.example.samples.util.camerax.barcode
+package com.example.samples.util.camera.barcode.camerax
 
 import android.content.Context
 import android.util.Log
 import androidx.camera.core.CameraSelector
 import androidx.camera.core.ImageAnalysis
+import androidx.camera.core.ImageAnalysis.STRATEGY_KEEP_ONLY_LATEST
 import androidx.camera.core.ImageCapture
 import androidx.camera.core.Preview
 import androidx.camera.lifecycle.ProcessCameraProvider
@@ -17,15 +18,10 @@ class CameraPreview(val context: Context, val imageAnalyzer: ImageAnalysis.Analy
         const val NO_CAMERA_CODE = 1
     }
 
-    private var _imageCapture: ImageCapture? = null
-        get() {
-            if (field == null)
-                field = ImageCapture.Builder().build()
-            return field
-        }
-
     private fun buildImageAnalyzer(executor: Executor, imageAnalyzer: ImageAnalysis.Analyzer) =
-        ImageAnalysis.Builder().build().also { it.setAnalyzer(executor, imageAnalyzer) }
+        ImageAnalysis.Builder()
+            .setBackpressureStrategy(STRATEGY_KEEP_ONLY_LATEST)
+            .build().also { it.setAnalyzer(executor, imageAnalyzer) }
 
     private fun buildPreview(surfaceProvider: Preview.SurfaceProvider) =
         Preview.Builder().build().also { it.setSurfaceProvider(surfaceProvider) }
@@ -36,12 +32,10 @@ class CameraPreview(val context: Context, val imageAnalyzer: ImageAnalysis.Analy
         surfaceProvider: Preview.SurfaceProvider,
         onError: (Int) -> Unit
     ) {
-        Log.d("TAG","startCamera")
         val cameraProvider = ProcessCameraProvider.getInstance(context)
 
         cameraProvider.addListener({
             cameraProvider.get().apply {
-
 
                     try {
                         // Unbind use cases before rebinding
@@ -54,37 +48,31 @@ class CameraPreview(val context: Context, val imageAnalyzer: ImageAnalysis.Analy
                         }
 
                         if (cameraSelector != null) {
-                            Log.d("TAG","startCamera camera available: ${cameraSelector.toString()}")
 
                             // Bind use cases to camera
                             if (imageAnalyzer != null) {
-                                Log.d("TAG","startCamera has imageAnalyzer")
                                 bindToLifecycle(
                                     owner,
                                     cameraSelector,
                                     buildPreview(surfaceProvider),
-                                    _imageCapture,
+                                    ImageCapture.Builder().build(),
                                     buildImageAnalyzer(executor, imageAnalyzer)
                                 )
                             } else {
-                                Log.d("TAG","startCamera has NO imageAnalyzer")
                                 bindToLifecycle(
                                     owner,
                                     cameraSelector,
                                     buildPreview(surfaceProvider),
-                                    _imageCapture
+                                    ImageCapture.Builder().build()
                                 )
                             }
                         } else {
-                            Log.d("TAG","startCamera no camera")
                             onError.invoke(NO_CAMERA_CODE)
                         }
                     } catch (exc: Exception) {
                         Log.e(TAG, "Use case binding failed", exc)
                     }
-
             }
-
         }, executor)
     }
 }

@@ -1,7 +1,6 @@
 package com.example.samples.ui.main.camerax.types
 
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
@@ -12,8 +11,8 @@ import com.example.samples.R
 import com.example.samples.databinding.FragmentQrCameraxBinding
 import com.example.samples.ui.base.DataBindingFragment
 import com.example.samples.ui.main.camerax.CameraViewModel
-import com.example.samples.util.camerax.barcode.CameraPreview
-import com.example.samples.util.camerax.barcode.QRCodeAnalyzer
+import com.example.samples.util.camera.barcode.camerax.CameraPreview
+import com.example.samples.util.camera.barcode.camerax.QRCodeAnalyzer
 import com.example.samples.util.common.PermissionsUtil
 import com.google.mlkit.vision.barcode.Barcode
 import dagger.hilt.android.AndroidEntryPoint
@@ -38,13 +37,19 @@ class QRCameraXFragment : DataBindingFragment<FragmentQrCameraxBinding>(R.layout
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        initPermissionUtil()
+        init()
     }
 
-    override fun onStart() {
-        super.onStart()
+    private fun init() {
+        initPermissionUtil()
 
         initCamera()
+
+        initUI()
+    }
+
+    private fun initUI() {
+        binding.noCameraIcon.setOnClickListener { displayNoCameraAvailable() }
     }
 
     private fun initPermissionUtil() {
@@ -66,9 +71,7 @@ class QRCameraXFragment : DataBindingFragment<FragmentQrCameraxBinding>(R.layout
                 cameraViewModel.processQRCode(barcode.rawValue).observe(viewLifecycleOwner, Observer(::postProcessCode))
             }
 
-            val cameraPreview = CameraPreview(requireContext(), qrCodeAnalyzer)
-
-            startCameraPreview(cameraPreview)
+            startCameraPreview(CameraPreview(requireContext(), qrCodeAnalyzer))
         } else {
             permissionsUtil.requestPermission()
         }
@@ -85,12 +88,8 @@ class QRCameraXFragment : DataBindingFragment<FragmentQrCameraxBinding>(R.layout
         }
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        Log.e("TAG","onDestroyView")
-    }
-
     private fun displayNoCameraAvailable() {
+        binding.noCameraIcon.visibility = View.VISIBLE
         AlertDialog.Builder(requireContext())
             .setTitle("Error")
             .setMessage("No camera available")
@@ -99,12 +98,10 @@ class QRCameraXFragment : DataBindingFragment<FragmentQrCameraxBinding>(R.layout
     }
 
     private fun postProcessCode(result: String?) {
-        val message = if (result == null) {
-            "null code received..."
-        } else {
-            "QR code is: $result"
-        }
-        Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT).show()
+        Toast.makeText(requireContext(),
+            if (result == null) "null code received..." else "QR code is: $result",
+            Toast.LENGTH_SHORT)
+            .show()
 
         // Important to let QR Code Analyzer to resume scanning images for QR Codes
         qrCodeAnalyzer?.resume()

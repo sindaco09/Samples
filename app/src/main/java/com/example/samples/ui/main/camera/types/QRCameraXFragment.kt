@@ -19,9 +19,13 @@ import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.asExecutor
 
-/*
- * This class is meant to explore Camerax library combined with google vision classes
- * like QR code scanner
+/**
+ * Demonstrating creating QR Reader with CameraX api instead of Camera2
+ *
+ * Much less boilerplate code compared to Camera2 api.
+ * Pros: for QR reading purposes, very clean and easy to create
+ * Cons: some experimental tags and alpha libraries being used. not sure the consequences with
+ * non-flagship phones
  */
 @AndroidEntryPoint
 @ExperimentalGetImage

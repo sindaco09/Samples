@@ -15,5 +15,4 @@
         android:enabled="true"
         android:icon="@drawable/ic_image_search"
         android:title="Img-to-Txt Reader" />
-
 </menu>

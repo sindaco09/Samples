@@ -28,6 +28,14 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.asExecutor
 import java.util.*
 
+/**
+ * Demonstrating creating QR Reader with Camera2 api instead of CameraX
+ * Difference is a lot more boilerplate & setup vs CameraX. This is a stable library with no
+ * experimental features compared to CameraX though.
+ *
+ * Ran into an issue where i wasn't releasing the camera when I was done with this fragment.
+ * An issue i ran into working on TopTracer app
+ */
 @AndroidEntryPoint
 class QRCamera2Fragment: DataBindingFragment<FragmentQrCameraLegacyBinding>(R.layout.fragment_qr_camera_legacy) {
 
@@ -90,10 +98,9 @@ class QRCamera2Fragment: DataBindingFragment<FragmentQrCameraLegacyBinding>(R.la
 
                 // find cameraIds on phone and verify Back Facing Lens exists
                 val backFacingCamera = cm.cameraIdList.find {
-                    val characteristics = cm.getCameraCharacteristics(it)
-                    val cameraDirection = characteristics.get(CameraCharacteristics.LENS_FACING)
+                    val cameraDirection = cm.getCameraCharacteristics(it).get(CameraCharacteristics.LENS_FACING)
 
-                    return@find cameraDirection != null && cameraDirection == CameraCharacteristics.LENS_FACING_BACK
+                    return@find cameraDirection == CameraCharacteristics.LENS_FACING_BACK
                 }
 
                 if (backFacingCamera != null) {
@@ -130,9 +137,7 @@ class QRCamera2Fragment: DataBindingFragment<FragmentQrCameraLegacyBinding>(R.la
                 binding.surfaceView.height,
                 barcodeDetector,
                 cameraBkgHandler!!
-            ) {
-                postProcessCode(it)
-            }
+            ) { postProcessCode(it) }
 
             val captureStateCallback = createCaptureStateCallback(camera)
 

@@ -8,10 +8,15 @@ import android.provider.Settings
 import android.util.Log
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AlertDialog
+import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 
-class PermissionsUtil(val fragment: Fragment, val type: Type, permissionGranted: (Boolean) -> Unit) {
+class PermissionsUtil(
+    val fragment: Fragment,
+    val type: Type,
+    permissionGranted: (Boolean) -> Unit
+) {
 
     // Eventually, nice to know what type of permissions (camera, location, etc...)
     enum class Type {CAMERAX, LOCATION}
@@ -53,7 +58,11 @@ class PermissionsUtil(val fragment: Fragment, val type: Type, permissionGranted:
         when (type) {
             Type.CAMERAX -> REQUIRED_CAMERA_PERMISSIONS
             Type.LOCATION -> REQUIRED_LOCATION_PERMISSIONS
-        }.all { ContextCompat.checkSelfPermission(fragment.requireContext(), it) == PackageManager.PERMISSION_GRANTED }
+        }.all {
+            val permission = ContextCompat.checkSelfPermission(fragment.requireContext(), it)
+            val shouldShowRationale = ActivityCompat.shouldShowRequestPermissionRationale(fragment.requireActivity(), it)
+            Log.d("TAG","allPermissionsGranted: $permission, shouldShowRationale: $shouldShowRationale")
+            ContextCompat.checkSelfPermission(fragment.requireContext(), it) == PackageManager.PERMISSION_GRANTED }
 
     fun allPermissionsGranted(onSuccess: () -> Unit) {
         if (allPermissionsGranted()) {

@@ -38,6 +38,4 @@
     <string name="menu_camera">Camera</string>
     <string name="menu_goals">Goals</string>
     <string name="menu_connection">Venue</string>
-    <string name="camera_mode_title">Pick Camera Mode</string>
-    <string name="capture_disabled">Capture disabled in this mode</string>
 </resources>

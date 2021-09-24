@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:id="@+id/bottom_sheet"
+    android:animateLayoutChanges="true"
+    app:behavior_hideable="false"
+    app:behavior_halfExpandedRatio=".45"
+    app:behavior_peekHeight="?android:attr/actionBarSize"
+    app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/tabs_card"
+        app:cardElevation="10dp"
+        android:background="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="?android:attr/actionBarSize">
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tabs_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <com.google.android.material.tabs.TabItem
+                android:layout_width="wrap_content"
+                android:text="Southbound"
+                android:layout_height="wrap_content" />
+            <com.google.android.material.tabs.TabItem
+                android:layout_width="wrap_content"
+                android:text="Northbound"
+                android:layout_height="wrap_content" />
+        </com.google.android.material.tabs.TabLayout>
+    </com.google.android.material.card.MaterialCardView>
+    <TextView
+        android:id="@+id/latest_report"
+        android:padding="10dp"
+        android:visibility="gone"
+        android:background="@android:color/holo_red_dark"
+        android:textColor="@android:color/white"
+        android:textStyle="bold"
+        android:layout_below="@id/tabs_card"
+        android:text="Delay: "
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <ViewFlipper
+        android:id="@+id/view_flipper"
+        android:layout_below="@id/latest_report"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true">
+        <ListView
+            android:id="@+id/southbound_lv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <ListView
+            android:id="@+id/northbound_lv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </ViewFlipper>
+</RelativeLayout>

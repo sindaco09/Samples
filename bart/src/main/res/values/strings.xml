@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="menu_commute">Commute</string>
+    <string name="title_bart">Bart</string>
+</resources>

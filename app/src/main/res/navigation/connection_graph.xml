@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/venueConnectionFragment"
-        android:name="com.example.samples.ui.main.venue.VenueConnectionFragment"
+        android:name="com.indaco.samples.ui.main.venue.VenueConnectionFragment"
         android:label="VenueConnectionFragment"
         tools:layout="@layout/fragment_venue_connection">
         <action
@@ -16,7 +16,7 @@
     </fragment>
     <fragment
         android:id="@+id/wifiConnectionFragment"
-        android:name="com.example.samples.ui.main.venue.wifi.WifiConnectionFragment"
+        android:name="com.indaco.samples.ui.main.venue.wifi.WifiConnectionFragment"
         android:label="WifiConnectionFragment"
         tools:layout="@layout/fragment_connect_wifi"/>
 </navigation>

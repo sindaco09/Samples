@@ -1,14 +1,14 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 buildscript {
     ext {
-        hilt_version = '2.37'
-        kotlin_version = '1.5.30'
+        camerax_version = "1.0.2"
+        camerax_view_version = "1.0.0-alpha29"
+        hilt_version = '2.38.1'
+        kotlin_version = '1.5.31'
         lifecycle_version = '2.3.1'
         nav_version = "2.3.5"
         protobufVersion = '3.15.6'
         room_version = "2.3.0"
-        camerax_version = "1.0.1"
-        camerax_view_version = "1.0.0-alpha28"
     }
 
     repositories {

@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-option java_package = "com.example.samples";
+option java_package = "com.indaco.samples";
 option java_multiple_files = true;
 
 message CurrentUser {

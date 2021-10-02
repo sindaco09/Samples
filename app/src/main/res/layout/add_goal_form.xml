@@ -4,7 +4,7 @@
     <data>
         <variable
             name="viewmodel"
-            type="com.example.samples.ui.main.goal.GoalViewModel" />
+            type="com.indaco.samples.ui.main.goal.GoalViewModel" />
     </data>
     <com.google.android.material.card.MaterialCardView
         android:padding="20dp"

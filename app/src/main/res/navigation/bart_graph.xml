@@ -7,7 +7,7 @@
     app:startDestination="@id/nav_bart">
     <fragment
         android:id="@+id/nav_bart"
-        android:name="com.example.samples.ui.main.bart.BartFragment"
+        android:name="com.indaco.samples.ui.main.bart.BartFragment"
         android:label="@string/menu_commute"
         tools:layout="@layout/fragment_commute">
         <action
@@ -21,15 +21,15 @@
     </fragment>
     <dialog
         android:id="@+id/station_bottom_dialog_fragment"
-        android:name="com.example.samples.ui.main.bart.details.BartItemListDialogFragment">
+        android:name="com.indaco.samples.ui.main.bart.details.BartItemListDialogFragment">
         <argument
             android:name="type"
             android:defaultValue="STATION"
-            app:argType="com.example.samples.data.models.bart.BartType"/>
+            app:argType="com.indaco.samples.data.models.bart.BartType"/>
     </dialog>
     <fragment
         android:id="@+id/bartMapsFragment"
-        android:name="com.example.samples.ui.main.bart.details.BartMapsFragment"
+        android:name="com.indaco.samples.ui.main.bart.details.BartMapsFragment"
         android:label="{name}">
         <argument
             android:name="name"
@@ -45,6 +45,6 @@
         <argument
             android:name="bart_type"
             android:defaultValue="STATION"
-            app:argType="com.example.samples.data.models.bart.BartType" />
+            app:argType="com.indaco.samples.data.models.bart.BartType" />
     </fragment>
 </navigation>

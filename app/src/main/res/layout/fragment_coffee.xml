@@ -6,7 +6,7 @@
     <data>
         <variable
             name="viewmodel"
-            type="com.example.samples.ui.main.coffee.CoffeeMachineViewModel" />
+            type="com.indaco.samples.ui.main.coffee.CoffeeMachineViewModel" />
     </data>
     <RelativeLayout
         android:layout_width="match_parent"

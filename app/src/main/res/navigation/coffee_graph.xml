@@ -7,7 +7,7 @@
     app:startDestination="@id/nav_coffee_fragment">
     <fragment
         android:id="@+id/nav_coffee_fragment"
-        android:name="com.example.samples.ui.main.coffee.CoffeeMachineFragment"
+        android:name="com.indaco.samples.ui.main.coffee.CoffeeMachineFragment"
         android:label="CoffeeMachineFragment"
         tools:layout="@layout/fragment_coffee" >
         <action
@@ -19,12 +19,12 @@
     </fragment>
     <dialog
         android:id="@+id/coffeeFormDialog"
-        android:name="com.example.samples.ui.main.coffee.CoffeeFormDialog"
+        android:name="com.indaco.samples.ui.main.coffee.CoffeeFormDialog"
         android:label="CoffeeFormDialog"
         tools:layout="@layout/coffee_form"/>
     <fragment
         android:id="@+id/coffeeCompleteFragment"
-        android:name="com.example.samples.ui.main.coffee.CoffeeCompleteFragment"
+        android:name="com.indaco.samples.ui.main.coffee.CoffeeCompleteFragment"
         android:label="CoffeeCompleteFragment"
         tools:layout="@layout/fragment_coffee_complete">
         <action
@@ -35,7 +35,7 @@
     <!-- DeepLinking to this fragment will result in only startDestination being in backstack -->
     <fragment
         android:id="@+id/coffeeFinalFragment"
-        android:name="com.example.samples.ui.main.coffee.CoffeeFinalFragment"
+        android:name="com.indaco.samples.ui.main.coffee.CoffeeFinalFragment"
         android:label="CoffeeFinalFragment"
         tools:layout="@layout/fragment_final_coffee">
 

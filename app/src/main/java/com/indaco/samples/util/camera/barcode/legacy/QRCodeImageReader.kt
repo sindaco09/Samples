@@ -41,7 +41,7 @@ class QRCodeImageReader(
 
                 if (barcodeResults.size() > 0) {
                     Log.d("TAG", "Barcode detected!")
-                    barcodeResults.forEach { key, value ->
+                    barcodeResults.forEach { _, value ->
                         listener.invoke(value.rawValue)
                     }
                 } else {

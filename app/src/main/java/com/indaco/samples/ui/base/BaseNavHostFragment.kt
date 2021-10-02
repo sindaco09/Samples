@@ -4,6 +4,7 @@ import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.FragmentManager
 import androidx.navigation.*
+import androidx.navigation.dynamicfeatures.fragment.DynamicNavHostFragment
 import androidx.navigation.fragment.FragmentNavigator
 import androidx.navigation.fragment.NavHostFragment
 import com.indaco.samples.R
@@ -19,7 +20,7 @@ private val defaultNavOptions = navOptions {
 
 private val emptyNavOptions = navOptions {}
 
-class BaseNavHostFragment: NavHostFragment() {
+class BaseNavHostFragment: DynamicNavHostFragment() {
 
     override fun onCreateNavController(navController: NavController) {
         super.onCreateNavController(navController)
@@ -39,14 +40,14 @@ class BaseFragmentNavigator(
     override fun navigate(
             destination: Destination,
             args: Bundle?,
-            navOptions: NavOptions?,
+            _navOptions: NavOptions?,
             navigatorExtras: Navigator.Extras?
     ): NavDestination? {
         // this will try to fill in empty animations with defaults when no shared element transitions are set
         // https://developer.android.com/guide/navigation/navigation-animate-transitions#shared-element
         val shouldUseTransitionsInstead = navigatorExtras != null
-        val navOptions = if (shouldUseTransitionsInstead) navOptions
-        else navOptions.fillEmptyAnimationsWithDefaults()
+        val navOptions = if (shouldUseTransitionsInstead) _navOptions
+        else _navOptions.fillEmptyAnimationsWithDefaults()
         return super.navigate(destination, args, navOptions, navigatorExtras)
     }
 

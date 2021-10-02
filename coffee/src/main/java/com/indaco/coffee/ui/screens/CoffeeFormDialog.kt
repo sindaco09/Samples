@@ -1,4 +1,4 @@
-package com.indaco.samples.ui.main.coffee
+package com.indaco.coffee.ui.screens
 
 import android.os.Bundle
 import android.util.Log

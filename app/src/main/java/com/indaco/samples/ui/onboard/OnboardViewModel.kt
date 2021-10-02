@@ -132,7 +132,6 @@ class OnboardViewModel @Inject constructor(private val userRepository: UserRepos
     private fun userDetailsValid(): Result {
         with(signUpUser) {
             return when {
-                age == null -> Result("Must enter an age")
                 gender == com.indaco.samples.data.models.user.Gender.NONE -> Result("Must select a gender")
                 emailET.isNullOrEmpty() -> Result("Must enter email")
                 else -> Result()

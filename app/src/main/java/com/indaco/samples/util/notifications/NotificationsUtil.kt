@@ -53,7 +53,7 @@ object NotificationUtil {
 
             val deepLink = NavDeepLinkBuilder(context)
                 .setGraph(R.navigation.main_graph)
-                .setDestination(R.id.coffeeFinalFragment)
+                .setDestination(R.id.nav_coffee)
                 .createPendingIntent()
 
 

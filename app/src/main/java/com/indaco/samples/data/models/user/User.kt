@@ -14,7 +14,7 @@ class User(
     constructor(signUpUser: SignUpUser) : this(
         signUpUser.usernameET,
         signUpUser.passwordET,
-        signUpUser.age!!,
+        signUpUser.age,
         signUpUser.emailET,
         signUpUser.gender
     )

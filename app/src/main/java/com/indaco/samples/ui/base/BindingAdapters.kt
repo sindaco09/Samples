@@ -10,7 +10,7 @@ object BindingAdapters {
     @JvmStatic
     @BindingAdapter("android:onEditorAction")
     fun bindEditorAction(view: TextView, func: () -> Unit) {
-        view.setOnEditorActionListener { v, actionId, event ->
+        view.setOnEditorActionListener { _, actionId, _ ->
             if (actionId == EditorInfo.IME_ACTION_NEXT)
                 func.invoke()
             false

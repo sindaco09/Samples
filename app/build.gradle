@@ -1,7 +1,7 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
-    id 'com.google.protobuf' version "0.8.12"
+    id 'com.google.protobuf' version "0.8.17"
     id 'kotlin-kapt'
     id "kotlin-parcelize"
     id 'dagger.hilt.android.plugin'
@@ -33,23 +33,6 @@ android {
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
-
-//    flavorDimensions "experience"
-//
-//    productFlavors {
-//        instant {
-//            dimension="experience"
-//            versionCode 1
-//            applicationIdSuffix = ".instant"
-//            versionNameSuffix = "-instant"
-//        }
-//        full {
-//            dimension="experience"
-//            versionCode 2
-//            applicationIdSuffix = ".full"
-//            versionNameSuffix = "-full"
-//        }
-//    }
 
     buildFeatures {
         viewBinding true

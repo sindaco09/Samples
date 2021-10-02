@@ -1,8 +1,9 @@
 package com.example.samples.data.storage.user
 
 import androidx.datastore.core.DataStore
-import com.example.samples.CurrentUser
-import com.example.samples.data.models.user.User
+import com.example.core.data.storage.dao.UserDao
+import com.example.core.data.models.user.User
+import com.example.core.CurrentUser
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 import javax.inject.Singleton

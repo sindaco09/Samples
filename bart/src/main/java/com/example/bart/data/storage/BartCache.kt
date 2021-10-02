@@ -1,9 +1,12 @@
 package com.example.bart.data.storage
 
-import com.example.bart.data.models.BartStation
-import com.example.bart.data.models.BartTrip
+import com.example.core.data.models.bart.BartTrip
+import com.example.core.data.storage.dao.BartDao
+import com.example.core.data.models.bart.BartStation
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
+import javax.inject.Inject
+import javax.inject.Singleton
 
 @Singleton
 class BartCache @Inject constructor(private val bartDao: BartDao) {

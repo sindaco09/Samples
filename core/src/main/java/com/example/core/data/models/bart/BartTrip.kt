@@ -4,7 +4,6 @@ import androidx.room.Entity
 import androidx.room.Ignore
 import androidx.room.PrimaryKey
 import com.example.core.data.network.result.bart.GetTripResult
-import com.example.samples.data.models.bart.BartStation
 
 @Entity(tableName = "bart_commute")
 data class BartTrip (

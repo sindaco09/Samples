@@ -11,7 +11,7 @@ import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
 import com.example.samples.R
-import com.example.samples.data.models.bart.BartStation
+import com.example.core.data.models.bart.BartStation
 import com.example.samples.data.models.bart.BartTrip
 import com.example.samples.databinding.FragmentBartMapsBinding
 

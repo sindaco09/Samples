@@ -4,7 +4,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.samples.data.models.bart.BartObject
-import com.example.samples.data.models.bart.BartStation
+import com.example.core.data.models.bart.BartStation
 import com.example.samples.data.models.bart.BartTrip
 import com.example.samples.data.network.request.bart.GetTripRequest
 import com.example.samples.data.network.result.bart.GetRealTimeEstimateResult
@@ -12,7 +12,6 @@ import com.example.samples.data.network.result.bart.GetStationScheduleResult
 import com.example.samples.data.repository.BartRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import java.time.ZonedDateTime
 import javax.inject.Inject

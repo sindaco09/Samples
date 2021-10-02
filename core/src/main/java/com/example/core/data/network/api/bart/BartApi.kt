@@ -6,7 +6,6 @@ import com.example.core.data.network.result.bart.GetRealTimeEstimateResult
 import com.example.core.data.network.result.bart.GetStationScheduleResult
 import com.example.core.data.network.result.bart.GetStationsResult
 import com.example.core.data.network.result.bart.GetTripResult
-import com.example.samples.data.network.api.bart.BartService
 import retrofit2.Response
 import javax.inject.Inject
 import javax.inject.Singleton

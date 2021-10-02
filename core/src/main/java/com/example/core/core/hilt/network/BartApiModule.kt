@@ -1,7 +1,7 @@
 package com.example.core.core.hilt.network
 
 import com.example.core.data.network.api.bart.BartApi
-import com.example.samples.data.network.api.bart.BartService
+import com.example.core.data.network.api.bart.BartService
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

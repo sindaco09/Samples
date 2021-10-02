@@ -3,7 +3,7 @@ package com.example.core.core.room
 import androidx.room.Database
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
-import com.example.samples.data.models.bart.BartStation
+import com.example.core.data.models.bart.BartStation
 import com.example.core.data.models.bart.BartTrip
 import com.example.core.data.models.goal.Goal
 import com.example.core.data.models.mockhue.Light

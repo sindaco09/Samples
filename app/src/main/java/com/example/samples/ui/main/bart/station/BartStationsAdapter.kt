@@ -9,7 +9,7 @@ import android.widget.*
 import androidx.appcompat.app.AlertDialog
 import androidx.core.view.updateLayoutParams
 import androidx.recyclerview.widget.RecyclerView
-import com.example.samples.data.models.bart.BartStation
+import com.example.core.data.models.bart.BartStation
 import com.example.samples.databinding.RowItemStationNewBinding
 import com.example.samples.ui.main.bart.details.Estimate
 import com.example.samples.util.common.BindableAdapter

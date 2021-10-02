@@ -2,7 +2,7 @@ package com.example.core.data.network.result.bart
 
 import android.os.Parcelable
 import com.example.core.data.models.bart.BartRoute
-import com.example.samples.data.models.bart.BartStation
+import com.example.core.data.models.bart.BartStation
 import com.google.gson.annotations.SerializedName
 import kotlinx.parcelize.IgnoredOnParcel
 import kotlinx.parcelize.Parcelize

@@ -10,7 +10,7 @@ import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.samples.R
-import com.example.samples.data.models.bart.BartStation
+import com.example.core.data.models.bart.BartStation
 import com.example.samples.data.models.bart.BartType
 import com.example.samples.databinding.FragmentBartItemListDialogBinding
 import com.example.samples.databinding.RowItemBartObjectBinding

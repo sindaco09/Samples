@@ -1,16 +1,14 @@
-package com.example.samples.data.models.bart
+package com.example.core.data.models.bart
 
 import android.os.Parcelable
 import androidx.room.Entity
 import androidx.room.Ignore
 import androidx.room.PrimaryKey
-import com.example.core.data.models.bart.BartObject
 import com.example.core.data.network.result.bart.GetRealTimeEstimateResult
 import com.example.core.data.network.result.bart.GetStationScheduleResult
 import com.google.gson.annotations.SerializedName
 import kotlinx.parcelize.IgnoredOnParcel
 import kotlinx.parcelize.Parcelize
-import java.lang.RuntimeException
 
 typealias Schedule = GetStationScheduleResult.Item
 typealias ETD = GetRealTimeEstimateResult.ETD

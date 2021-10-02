@@ -1,6 +1,5 @@
 package com.example.core.data.models.bart
 
-import com.example.samples.data.models.bart.BartStation
 import java.lang.RuntimeException
 
 enum class BartRoute(val direction: BartStation.Direction, val routeId: String, val abbr: String, val color: String) {

@@ -3,7 +3,7 @@ package com.example.bart.ui.bart.details
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.samples.data.models.bart.BartStation
+import com.example.core.data.models.bart.BartStation
 import com.example.samples.data.models.bart.BartTrip
 import com.example.samples.data.models.bart.BartType
 import com.example.samples.data.network.request.bart.GetTripRequest
@@ -11,7 +11,6 @@ import com.example.samples.data.network.result.bart.GetRealTimeEstimateResult
 import com.example.samples.data.repository.BartRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.*
-import kotlinx.coroutines.flow.collect
 import java.time.ZonedDateTime
 import java.util.concurrent.atomic.AtomicBoolean
 import javax.inject.Inject

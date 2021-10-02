@@ -9,7 +9,7 @@ import com.example.core.data.models.bart.BartTrip
 import com.example.core.data.network.request.bart.GetTripRequest
 import com.example.core.data.network.result.bart.GetRealTimeEstimateResult
 import com.example.core.data.network.result.bart.GetStationScheduleResult
-import com.example.samples.data.models.bart.BartStation
+import com.example.core.data.models.bart.BartStation
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.collect

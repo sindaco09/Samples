@@ -1,7 +1,7 @@
 package com.example.core.data.storage.dao
 
 import androidx.room.*
-import com.example.samples.data.models.goal.Goal
+import com.example.core.data.models.goal.Goal
 import kotlinx.coroutines.flow.Flow
 
 @Dao

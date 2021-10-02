@@ -1,12 +1,12 @@
-package com.example.samples.core.hilt.storage.components
+package com.example.core.core.hilt.storage.components
 
 import android.content.Context
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
 import com.example.samples.CurrentUser
-import com.example.samples.core.datastore.DataStorePrefs.dataStorePreferences
-import com.example.samples.core.datastore.SyncPrefDataStore
-import com.example.samples.data.storage.user.CurrentUserSerializer.userDataStore
+import com.example.core.core.datastore.DataStorePrefs.dataStorePreferences
+import com.example.core.core.datastore.SyncPrefDataStore
+import com.example.core.data.storage.CurrentUserSerializer.userDataStore
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

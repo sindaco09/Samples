@@ -1,10 +1,10 @@
-package com.example.samples.data.network.api.bart
+package com.example.core.data.network.api.bart
 
-import com.example.samples.BuildConfig
-import com.example.samples.data.network.result.bart.GetRealTimeEstimateResult
-import com.example.samples.data.network.result.bart.GetStationScheduleResult
-import com.example.samples.data.network.result.bart.GetStationsResult
-import com.example.samples.data.network.result.bart.GetTripResult
+import com.example.core.BuildConfig
+import com.example.core.data.network.result.bart.GetRealTimeEstimateResult
+import com.example.core.data.network.result.bart.GetStationScheduleResult
+import com.example.core.data.network.result.bart.GetStationsResult
+import com.example.core.data.network.result.bart.GetTripResult
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Query

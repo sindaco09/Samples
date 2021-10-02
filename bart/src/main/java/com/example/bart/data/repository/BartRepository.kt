@@ -6,7 +6,7 @@ import com.example.core.data.models.bart.BartTrip
 import com.example.core.data.network.api.bart.BartApi
 import com.example.core.data.network.request.bart.GetTripRequest
 import com.example.core.data.network.result.bart.GetRealTimeEstimateResult
-import com.example.samples.data.models.bart.BartStation
+import com.example.core.data.models.bart.BartStation
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.*
 import retrofit2.Response

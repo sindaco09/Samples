@@ -5,12 +5,8 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
-import com.example.samples.R
-import com.example.samples.data.models.bart.BartTrip
-import com.example.samples.data.models.bart.BartType
-import com.example.samples.databinding.BartTripsBinding
-import com.example.samples.ui.main.bart.BartFragmentDirections
-import com.example.samples.ui.main.bart.BartViewModel
+import com.example.bart.R
+import com.example.bart.ui.bart.BartViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

@@ -1,4 +1,4 @@
-package com.example.samples.data.storage.user
+package com.example.core.data.storage
 
 import android.content.Context
 import androidx.datastore.core.CorruptionException

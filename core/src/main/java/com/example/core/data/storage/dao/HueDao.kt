@@ -5,7 +5,7 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy.REPLACE
 import androidx.room.Query
 import androidx.room.Update
-import com.example.samples.data.models.mockhue.Light
+import com.example.core.data.models.mockhue.Light
 
 @Dao
 interface HueDao {

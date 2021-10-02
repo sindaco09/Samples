@@ -1,6 +1,6 @@
 package com.example.core.data.network.result.bart
 
-import com.example.samples.data.models.bart.BartStation
+import com.example.core.data.models.bart.BartStation
 
 class GetRealTimeEstimateResult(val root: Root) {
     class Root(

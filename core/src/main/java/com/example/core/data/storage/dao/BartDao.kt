@@ -6,7 +6,7 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy.REPLACE
 import androidx.room.Query
 import com.example.core.data.models.bart.BartTrip
-import com.example.samples.data.models.bart.BartStation
+import com.example.core.data.models.bart.BartStation
 import kotlinx.coroutines.flow.Flow
 
 @Dao

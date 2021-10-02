@@ -1,10 +1,10 @@
-package com.example.samples.core.hilt.storage
+package com.example.core.core.hilt.storage
 
-import com.example.samples.core.room.AppDatabase
-import com.example.samples.data.storage.bart.BartDao
-import com.example.samples.data.storage.goal.GoalDao
-import com.example.samples.data.storage.hue.HueDao
-import com.example.samples.data.storage.user.UserDao
+import com.example.core.core.room.AppDatabase
+import com.example.core.data.storage.dao.BartDao
+import com.example.core.data.storage.dao.GoalDao
+import com.example.core.data.storage.dao.HueDao
+import com.example.core.data.storage.dao.UserDao
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

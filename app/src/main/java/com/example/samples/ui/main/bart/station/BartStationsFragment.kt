@@ -6,7 +6,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.example.samples.R
-import com.example.samples.data.models.bart.BartStation
+import com.example.core.data.models.bart.BartStation
 import com.example.samples.data.models.bart.BartType
 import com.example.samples.databinding.BartStationsBinding
 import com.example.samples.ui.main.bart.BartFragmentDirections

@@ -30,7 +30,11 @@
 
     <include app:graph="@navigation/connection_graph" />
 
-    <include app:graph="@navigation/bart_graph" />
+    <include-dynamic
+        app:moduleName="bart"
+        app:graphResName="bart_graph"
+        app:graphPackage="com.example.bart"
+        />
 
     <fragment
         android:id="@+id/hueParentFragment"

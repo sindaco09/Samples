@@ -3,20 +3,29 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/indac/StudioProjects/Samples/app/src/main/res/drawable/ic_check.xml" value="0.5708333333333333" />
         <entry key="..\:/Users/indac/StudioProjects/Samples/app/src/main/res/layout/activity_main.xml" value="0.33177083333333335" />
         <entry key="..\:/Users/indac/StudioProjects/Samples/app/src/main/res/layout/fragment_camera.xml" value="0.25317028985507245" />
         <entry key="..\:/Users/indac/StudioProjects/Samples/app/src/main/res/layout/fragment_camera_menu.xml" value="0.5546875" />
         <entry key="..\:/Users/indac/StudioProjects/Samples/app/src/main/res/layout/fragment_image_to_text_camera.xml" value="0.5546875" />
         <entry key="..\:/Users/indac/StudioProjects/Samples/app/src/main/res/layout/fragment_qr_camera_legacy.xml" value="0.5546875" />
         <entry key="..\:/Users/indac/StudioProjects/Samples/app/src/main/res/layout/fragment_qr_camerax.xml" value="0.4674457429048414" />
+        <entry key="..\:/Users/indac/StudioProjects/Samples/app/src/main/res/layout/fragment_task_child.xml" value="0.5546875" />
+        <entry key="..\:/Users/indac/StudioProjects/Samples/app/src/main/res/layout/row_item_light.xml" value="0.33177083333333335" />
         <entry key="..\:/Users/indac/StudioProjects/Samples/app/src/main/res/menu/activity_main_drawer.xml" value="0.5546875" />
         <entry key="..\:/Users/indac/StudioProjects/Samples/app/src/main/res/menu/camera_menu.xml" value="0.5546875" />
         <entry key="..\:/Users/indac/StudioProjects/Samples/app/src/main/res/menu/main.xml" value="0.33177083333333335" />
         <entry key="..\:/Users/indac/StudioProjects/Samples/app/src/main/res/xml/root_preferences.xml" value="0.5546875" />
+        <entry key="..\:/Users/indac/StudioProjects/Samples/coffee/src/main/res/drawable/ic_bullet_list.xml" value="0.34791666666666665" />
         <entry key="..\:/Users/indac/StudioProjects/Samples/coffee/src/main/res/drawable/ic_check.xml" value="0.34791666666666665" />
         <entry key="..\:/Users/indac/StudioProjects/Samples/coffee/src/main/res/drawable/ic_coffee.xml" value="0.5708333333333333" />
+        <entry key="..\:/Users/indac/StudioProjects/Samples/coffee/src/main/res/drawable/ic_coffee_maker.xml" value="0.34791666666666665" />
+        <entry key="..\:/Users/indac/StudioProjects/Samples/coffee/src/main/res/drawable/outline.xml" value="0.34791666666666665" />
         <entry key="..\:/Users/indac/StudioProjects/Samples/coffee/src/main/res/font/coming_soon.xml" value="0.5848958333333333" />
-        <entry key="..\:/Users/indac/StudioProjects/Samples/coffee/src/main/res/layout/fragment_coffee.xml" value="0.5546875" />
+        <entry key="..\:/Users/indac/StudioProjects/Samples/coffee/src/main/res/layout/coffee_form.xml" value="0.5546875" />
+        <entry key="..\:/Users/indac/StudioProjects/Samples/coffee/src/main/res/layout/fragment_coffee.xml" value="0.25" />
+        <entry key="..\:/Users/indac/StudioProjects/Samples/coffee/src/main/res/layout/fragment_coffee_complete.xml" value="0.5546875" />
+        <entry key="..\:/Users/indac/StudioProjects/Samples/coffee/src/main/res/layout/fragment_final_coffee.xml" value="0.5546875" />
       </map>
     </option>
   </component>

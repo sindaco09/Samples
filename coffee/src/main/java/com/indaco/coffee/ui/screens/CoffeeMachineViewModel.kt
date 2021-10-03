@@ -4,9 +4,9 @@ import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.indaco.samples.data.models.coffee.Coffee
-import com.indaco.samples.data.models.coffee.CoffeeMachine
-import com.indaco.samples.data.models.coffee.State
+import com.indaco.coffee.data.models.Coffee
+import com.indaco.coffee.data.models.CoffeeMachine
+import com.indaco.coffee.data.models.State
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch

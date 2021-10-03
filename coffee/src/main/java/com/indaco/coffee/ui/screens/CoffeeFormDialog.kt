@@ -7,12 +7,12 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.viewModels
-import com.indaco.samples.R
-import com.indaco.samples.databinding.CoffeeFormBinding
-import com.indaco.samples.data.models.coffee.Coffee
-import com.indaco.samples.data.models.coffee.Roast
-import com.indaco.samples.data.models.coffee.Size
-import com.indaco.samples.data.models.coffee.Temp
+import com.indaco.coffee.R
+import com.indaco.coffee.data.models.Coffee
+import com.indaco.coffee.data.models.Roast
+import com.indaco.coffee.data.models.Size
+import com.indaco.coffee.data.models.Temperature
+import com.indaco.coffee.databinding.CoffeeFormBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -69,12 +69,12 @@ class CoffeeFormDialog: DialogFragment(R.layout.coffee_form) {
 
     private fun initTempSpinner() {
         with(binding.tempPicker) {
-            val temps = listOf(Temp.COLD_BREW.name, Temp.WARM.name, Temp.HOT.name)
+            val temps = listOf(Temperature.COLD_BREW.name, Temperature.WARM.name, Temperature.HOT.name)
             adapter = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, temps)
             onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
                 override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
                     Log.d("TAG","temperature selected")
-                    coffeeOrder.temp = Temp.valueOf(temps[position])
+                    coffeeOrder.temperature = Temperature.valueOf(temps[position])
                 }
 
                 override fun onNothingSelected(parent: AdapterView<*>?) {

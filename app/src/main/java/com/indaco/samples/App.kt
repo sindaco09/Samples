@@ -7,12 +7,12 @@ import dagger.hilt.android.HiltAndroidApp
 @HiltAndroidApp
 class App: Application() {
     companion object {
-        lateinit var Instance: com.indaco.samples.App
+        lateinit var Instance: App
     }
 
     override fun onCreate() {
         super.onCreate()
-        com.indaco.samples.App.Companion.Instance = this
+       Instance = this
 
         NotificationUtil.createNotificationChannel(this)
     }

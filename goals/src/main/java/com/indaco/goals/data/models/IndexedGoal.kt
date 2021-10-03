@@ -1,5 +1,6 @@
-package com.indaco.samples.data.models.goal
+package com.indaco.goals.data.models
 
+import com.indaco.samples.data.models.goal.Goal
 import java.io.Serializable
 
 class IndexedGoal(val position: Int, val goal: Goal): Serializable {

@@ -1,23 +1,18 @@
-package com.indaco.samples.ui.main.goal.children
+package com.indaco.goals.ui.screens.children
 
 import android.annotation.SuppressLint
 import android.content.ClipData
 import android.content.ClipDescription
 import android.content.Intent
-import android.util.Log
 import android.view.*
 import androidx.recyclerview.widget.RecyclerView
+import com.indaco.goals.data.models.IndexedGoal
+import com.indaco.goals.databinding.RowItemDraggableBinding
+import com.indaco.goals.ui.screens.GoalViewModel
 import com.indaco.samples.data.models.goal.Goal
 import com.indaco.samples.data.models.goal.GoalStatus
-import com.indaco.samples.data.models.goal.IndexedGoal
-import com.indaco.samples.databinding.RowItemDraggableBinding
-import com.indaco.samples.ui.main.goal.GoalViewModel
 
 class GoalAdapter(var list: MutableList<Goal>): RecyclerView.Adapter<GoalAdapter.DragAndDropVH>() {
-
-    companion object {
-        private const val TAG = "DragAdapter"
-    }
 
     class DragAndDropVH(val binding: RowItemDraggableBinding): RecyclerView.ViewHolder(binding.root)
 

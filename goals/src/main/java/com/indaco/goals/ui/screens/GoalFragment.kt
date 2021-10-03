@@ -1,33 +1,44 @@
-package com.indaco.samples.ui.main.goal
+package com.indaco.goals.ui.screens
 
 import android.os.Bundle
 import android.view.DragEvent
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.commit
-import androidx.fragment.app.viewModels
+import androidx.lifecycle.ViewModelProvider
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import androidx.viewpager2.widget.ViewPager2
-import com.indaco.samples.R
-import com.indaco.samples.data.models.goal.GoalStatus
-import com.indaco.samples.databinding.FragmentGoalsBinding
-import com.indaco.samples.ui.base.DataBindingFragment
-import com.indaco.samples.ui.main.goal.children.*
-import com.indaco.samples.ui.main.goal.newgoal.AddGoalDialog
 import com.google.android.material.tabs.TabLayoutMediator
-import dagger.hilt.android.AndroidEntryPoint
+import com.indaco.goals.R
+import com.indaco.goals.core.Injector
+import com.indaco.goals.databinding.FragmentGoalsBinding
+import com.indaco.goals.ui.screens.children.GoalAdapter
+import com.indaco.goals.ui.screens.children.GoalListFragment
+import com.indaco.goals.ui.screens.newgoal.AddGoalDialog
+import com.indaco.samples.core.hilt.viewmodel.ViewModelFactory
+import com.indaco.samples.data.models.goal.GoalStatus
+import com.indaco.samples.util.viewBinding
+import javax.inject.Inject
 
 /*
  * Demonstrates dragging and dropping views from one list into another
  */
-@AndroidEntryPoint
-class GoalsFragment: DataBindingFragment<FragmentGoalsBinding>(R.layout.fragment_goals) {
 
-    private val viewModel: GoalViewModel by viewModels()
+class GoalsFragment: Fragment(R.layout.fragment_goals) {
+
+    private val binding by viewBinding(FragmentGoalsBinding::bind)
+
+    @Inject
+    lateinit var viewModelFactory: ViewModelFactory
+    private lateinit var viewModel: GoalViewModel
     private lateinit var taskPager: TasksPagerAdapter
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        Injector.from(requireContext()).inject(this)
+
+        viewModel = ViewModelProvider(this, viewModelFactory)[GoalViewModel::class.java]
 
         init()
     }

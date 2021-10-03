@@ -48,10 +48,10 @@
         android:label="@string/menu_camera"
         tools:layout="@layout/fragment_camera_menu"/>
 
-    <fragment
+    <include-dynamic
         android:id="@+id/nav_goals"
-        android:name="com.indaco.samples.ui.main.goal.GoalsFragment"
-        android:label="@string/menu_goals"
-        tools:layout="@layout/fragment_goals"/>
+        app:moduleName="goals"
+        app:graphResName="goal_graph"
+        app:graphPackage="${applicationId}.goals" />
 
 </navigation>

@@ -13,24 +13,9 @@ import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
-class DaoModule {
-    @Provides
-    @Singleton
-    fun provideUserDao(db: AppDatabase): UserDao =
-        db.provideUserDao()
-
+class BartDaoModule {
     @Provides
     @Singleton
     fun provideBartDao(db: AppDatabase): BartDao =
         db.provideBartDao()
-
-    @Provides
-    @Singleton
-    fun provideHueDao(db: AppDatabase): HueDao =
-        db.provideHueDao()
-
-    @Provides
-    @Singleton
-    fun provideGoalsDao(db: AppDatabase): GoalDao =
-        db.provideGoalsDao()
 }

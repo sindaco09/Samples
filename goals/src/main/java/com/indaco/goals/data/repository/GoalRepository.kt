@@ -1,7 +1,8 @@
-package com.indaco.samples.data.repository
+package com.indaco.goals.data.repository
 
+import com.indaco.goals.data.storage.GoalCache
 import com.indaco.samples.data.models.goal.Goal
-import com.indaco.samples.data.storage.goal.GoalCache
+import com.indaco.samples.data.models.goal.Goals
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -13,7 +14,7 @@ class GoalRepository @Inject constructor(private val goalCache: GoalCache) {
         goalCache.addGoal(goal)
     }
 
-    fun getGoals(): Flow<List<Goal>?> {
+    fun getGoals(): Flow<Goals> {
         return goalCache.getGoals()
     }
 

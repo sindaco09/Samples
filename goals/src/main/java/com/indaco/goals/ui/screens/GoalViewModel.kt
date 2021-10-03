@@ -1,20 +1,20 @@
-package com.indaco.samples.ui.main.goal
+package com.indaco.goals.ui.screens
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.indaco.goals.data.repository.GoalRepository
 import com.indaco.samples.data.models.goal.Goal
 import com.indaco.samples.data.models.goal.GoalStatus
 import com.indaco.samples.data.models.goal.Goals
-import com.indaco.samples.data.repository.GoalRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
-@HiltViewModel
 class GoalViewModel @Inject constructor(private val repository: GoalRepository): ViewModel() {
 
     private val defaultDispatcher = Dispatchers.Default
@@ -30,7 +30,7 @@ class GoalViewModel @Inject constructor(private val repository: GoalRepository):
     
     fun getGoals() {
         viewModelScope.launch(defaultDispatcher) {
-            repository.getGoals().collect { goals ->
+            repository.getGoals().collect { goals: Goals ->
                 _toDoGoalLiveData.postValue(goals?.filter { it.status == GoalStatus.TODO } ?: emptyList())
                 _inProgressGoalLiveData.postValue(goals?.filter { it.status == GoalStatus.IN_PROGRESS } ?: emptyList())
                 _doneGoalLiveData.postValue(goals?.filter { it.status == GoalStatus.DONE } ?: emptyList())
@@ -39,6 +39,7 @@ class GoalViewModel @Inject constructor(private val repository: GoalRepository):
     }
 
     fun addNewGoal(goal: String) {
+        Log.d("TAG","goal: $goal")
         if (goal.isNotBlank()) {
             viewModelScope.launch(defaultDispatcher) {
                 repository.addGoal(Goal(todoItem = goal))

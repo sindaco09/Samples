@@ -5,7 +5,7 @@ import androidx.room.PrimaryKey
 import java.io.Serializable
 import java.util.*
 
-typealias Goals = List<Goal>
+typealias Goals = List<Goal>?
 
 @Entity(tableName = "goals")
 data class Goal(

@@ -1,17 +1,15 @@
-package com.indaco.samples.ui.main.goal.newgoal
+package com.indaco.goals.ui.screens.newgoal
 
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.indaco.goals.data.repository.GoalRepository
 import com.indaco.samples.data.models.goal.Goal
-import com.indaco.samples.data.repository.GoalRepository
-import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
-@HiltViewModel
 class AddGoalDialogViewModel @Inject constructor(private val repository: GoalRepository): ViewModel() {
 
     private val dispatcher = Dispatchers.Default

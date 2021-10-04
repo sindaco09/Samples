@@ -1,6 +1,7 @@
-package com.indaco.samples.data.storage.hue
+package com.indaco.hue.data.storage
 
 import com.indaco.samples.data.models.mockhue.Light
+import com.indaco.samples.data.storage.hue.HueDao
 import javax.inject.Inject
 import javax.inject.Singleton
 

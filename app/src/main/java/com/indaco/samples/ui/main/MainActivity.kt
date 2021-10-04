@@ -36,7 +36,7 @@ class MainActivity : AppCompatActivity() {
             R.id.nav_news,
             R.id.nav_bart,
             R.id.nav_coffee,
-            R.id.hueParentFragment,
+            R.id.nav_hue,
             R.id.nav_camera,
             R.id.nav_goals,
             R.id.connection_graph

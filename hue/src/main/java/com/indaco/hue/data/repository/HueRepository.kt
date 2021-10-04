@@ -1,7 +1,7 @@
-package com.indaco.samples.data.repository
+package com.indaco.hue.data.repository
 
 import com.indaco.samples.data.models.mockhue.Light
-import com.indaco.samples.data.storage.hue.HueCache
+import com.indaco.hue.data.storage.HueCache
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flowOf
 import javax.inject.Inject

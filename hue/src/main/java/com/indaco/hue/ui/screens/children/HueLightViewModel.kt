@@ -1,16 +1,15 @@
-package com.indaco.samples.ui.main.mockhue.children
+package com.indaco.hue.ui.screens.children
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.indaco.samples.data.models.mockhue.Light
-import com.indaco.samples.data.repository.HueRepository
+import com.indaco.hue.data.repository.HueRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
-@HiltViewModel
 class HueLightViewModel @Inject constructor(val repository: HueRepository): ViewModel() {
 
     private val defaultDispatcher = Dispatchers.Default

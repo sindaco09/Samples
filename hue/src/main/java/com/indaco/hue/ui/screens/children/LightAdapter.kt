@@ -1,4 +1,4 @@
-package com.indaco.samples.ui.main.mockhue.children
+package com.indaco.hue.ui.screens.children
 
 import android.graphics.Color
 import android.view.LayoutInflater
@@ -7,8 +7,8 @@ import android.view.ViewGroup
 import android.widget.SeekBar
 import androidx.annotation.UiThread
 import androidx.recyclerview.widget.RecyclerView
+import com.indaco.hue.databinding.RowItemLightBinding
 import com.indaco.samples.data.models.mockhue.Light
-import com.indaco.samples.databinding.RowItemLightBinding
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.first

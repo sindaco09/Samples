@@ -1,4 +1,4 @@
-package com.indaco.samples.ui.main.mockhue
+package com.indaco.hue.ui.screens
 
 import android.os.Bundle
 import android.view.View
@@ -7,24 +7,28 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
-import com.indaco.samples.R
-import dagger.hilt.android.AndroidEntryPoint
+import com.indaco.hue.R
+import com.indaco.hue.core.hilt.Injector
+import com.indaco.samples.core.hilt.viewmodel.ViewModelFactory
 import kotlinx.coroutines.flow.collect
+import javax.inject.Inject
 
 /*
  * Demonstrate embedding a navigation graph inside a fragment
  * the viewmodel is shared between fragment A and B
  * ISSUE! pressing back does not respect backstack of embedded navgraph
  */
-@AndroidEntryPoint
 class HueParentFragment: Fragment(R.layout.fragment_parent) {
 
-    private val viewModel: HueViewModel by viewModels()
+    @Inject lateinit var viewModelFactory: ViewModelFactory
+    private val viewModel: HueViewModel by viewModels({this},{viewModelFactory})
 
     private lateinit var childController: NavController
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        Injector.from(requireContext()).inject(this)
 
         val localNavHost = childFragmentManager.findFragmentById(R.id.child_nav_host_fragment) as NavHostFragment
         childController = localNavHost.navController

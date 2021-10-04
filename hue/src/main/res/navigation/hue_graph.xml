@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@id/nav_hue"
+    app:startDestination="@id/hueParentFragment">
+    <fragment
+        android:id="@+id/hueParentFragment"
+        app:moduleName="hue"
+        android:name="com.indaco.hue.ui.screens.HueParentFragment"
+        android:label="@string/menu_hue_parent"
+        tools:layout="@layout/fragment_parent"/>
+</navigation>

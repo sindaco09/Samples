@@ -32,11 +32,11 @@
 
     <include app:graph="@navigation/connection_graph" />
 
-    <fragment
-        android:id="@+id/hueParentFragment"
-        android:name="com.indaco.samples.ui.main.mockhue.HueParentFragment"
-        android:label="@string/menu_hue_parent"
-        tools:layout="@layout/fragment_parent"/>
+    <include-dynamic
+        android:id="@+id/nav_hue"
+        app:moduleName="hue"
+        app:graphResName="hue_graph"
+        app:graphPackage="${applicationId}.hue" />
 
     <include-dynamic
         android:id="@+id/nav_camera"

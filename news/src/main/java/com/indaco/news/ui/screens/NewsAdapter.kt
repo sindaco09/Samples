@@ -1,10 +1,10 @@
-package com.indaco.samples.ui.main.news
+package com.indaco.news.ui.screens
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.indaco.samples.data.models.news.News
-import com.indaco.samples.databinding.RowItemNewsBinding
+import com.indaco.news.data.models.News
+import com.indaco.news.databinding.RowItemNewsBinding
 
 class NewsAdapter(var newsList: MutableList<News>): RecyclerView.Adapter<NewsAdapter.NewsViewHolder>() {
     class NewsViewHolder(val binding: RowItemNewsBinding): RecyclerView.ViewHolder(binding.root)

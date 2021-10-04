@@ -1,15 +1,17 @@
-package com.indaco.samples.data.network.api.news
+package com.indaco.news.data.network.api
 
+import android.content.Context
 import androidx.annotation.WorkerThread
-import com.indaco.samples.data.models.news.News
+import com.indaco.news.data.models.News
+import com.indaco.news.data.network.result.NewsResult
+import com.indaco.news.util.MockNewsData
 import com.indaco.samples.data.network.result.BaseResult
-import com.indaco.samples.data.network.result.news.NewsResult
-import com.indaco.samples.util.news.MockNewsData
+import dagger.hilt.android.qualifiers.ApplicationContext
 import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
-class NewsApi @Inject constructor() {
+class NewsApi @Inject constructor(@ApplicationContext val app: Context) {
 
     @WorkerThread
     fun getBreakingNews(count: Int = 1): BaseResult<NewsResult<News.BreakingNews>> {
@@ -23,6 +25,6 @@ class NewsApi @Inject constructor() {
 
     @WorkerThread
     fun getLocalNews(count: Int = 1): BaseResult<NewsResult<News.LocalNews>> {
-        return BaseResult.success(NewsResult(MockNewsData.LocalNews.getLocalNewsReelList(count)))
+        return BaseResult.success(NewsResult(MockNewsData.LocalNews.getLocalNewsReelList(count, app)))
     }
 }

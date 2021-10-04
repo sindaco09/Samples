@@ -1,4 +1,4 @@
-package com.indaco.samples.data.network.request.news
+package com.indaco.news.data.network.request
 
 import com.indaco.samples.data.network.request.BaseRequest
 

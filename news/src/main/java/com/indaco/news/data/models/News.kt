@@ -1,4 +1,4 @@
-package com.indaco.samples.data.models.news
+package com.indaco.news.data.models
 
 open class News(val title: String, val type: Type) {
 

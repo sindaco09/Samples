@@ -1,4 +1,4 @@
-package com.indaco.samples.data.storage.news
+package com.indaco.news.data.storage
 
 import android.content.Context
 import androidx.datastore.core.DataStore

@@ -1,8 +1,9 @@
-package com.indaco.samples.util.news
+package com.indaco.news.util
 
-import com.indaco.samples.App
-import com.indaco.samples.R
-import com.indaco.samples.data.models.news.News
+import android.content.Context
+import com.indaco.news.R
+import com.indaco.news.data.models.News
+import com.indaco.samples.App.Companion.Instance
 
 object MockNewsData {
 
@@ -74,46 +75,46 @@ object MockNewsData {
 
     object LocalNews {
         private var localNewsReelItemIndex = 0
-        private val localNewsReel = listOf(
+        private fun getLocalNewsReel(context: Context) = listOf(
             News.LocalNews(
-                com.indaco.samples.App.Instance.getString(R.string.news_lasertag_title),
-                com.indaco.samples.App.Instance.getString(R.string.news_lasertag_body)
-                ),
-            News.LocalNews(
-                com.indaco.samples.App.Instance.getString(R.string.news_disney_fandom_title),
-                com.indaco.samples.App.Instance.getString(R.string.news_disney_fandom_body)
+                context.getString(R.string.news_lasertag_title),
+                context.getString(R.string.news_lasertag_body)
             ),
             News.LocalNews(
-                com.indaco.samples.App.Instance.getString(R.string.news_parents_disbelief_title),
-                com.indaco.samples.App.Instance.getString(R.string.news_parents_disbelief_body)
+                context.getString(R.string.news_disney_fandom_title),
+                context.getString(R.string.news_disney_fandom_body)
             ),
             News.LocalNews(
-                com.indaco.samples.App.Instance.getString(R.string.news_biden_childcare_title),
-                com.indaco.samples.App.Instance.getString(R.string.news_biden_childcare_body)
+                context.getString(R.string.news_parents_disbelief_title),
+                context.getString(R.string.news_parents_disbelief_body)
             ),
             News.LocalNews(
-                com.indaco.samples.App.Instance.getString(R.string.news_woman_disbelief_title),
-                com.indaco.samples.App.Instance.getString(R.string.news_woman_disbelief_body)
+                context.getString(R.string.news_biden_childcare_title),
+                context.getString(R.string.news_biden_childcare_body)
             ),
             News.LocalNews(
-                com.indaco.samples.App.Instance.getString(R.string.news_missing_tiger_title),
-                com.indaco.samples.App.Instance.getString(R.string.news_missing_tiger_body)
+                context.getString(R.string.news_woman_disbelief_title),
+                context.getString(R.string.news_woman_disbelief_body)
+            ),
+            News.LocalNews(
+                context.getString(R.string.news_missing_tiger_title),
+                context.getString(R.string.news_missing_tiger_body)
             )
         )
 
-        fun getLocalNewsReelItem(): News.LocalNews {
-            val news = localNewsReel[localNewsReelItemIndex]
-            incrementIndex()
+        fun getLocalNewsReelItem(context: Context): News.LocalNews {
+            val news = getLocalNewsReel(context)[localNewsReelItemIndex]
+            incrementIndex(context)
             return news
         }
 
-        fun getLocalNewsReelList(size: Int = 2): List<News.LocalNews> {
-            return List(size) { getLocalNewsReelItem() }
+        fun getLocalNewsReelList(size: Int = 2, context: Context): List<News.LocalNews> {
+            return List(size) { getLocalNewsReelItem(context) }
         }
 
-        private fun incrementIndex() {
+        private fun incrementIndex(context: Context) {
             localNewsReelItemIndex++
-            if (localNewsReelItemIndex == localNewsReel.lastIndex)
+            if (localNewsReelItemIndex == getLocalNewsReel(context).lastIndex)
                 localNewsReelItemIndex = 0
         }
     }

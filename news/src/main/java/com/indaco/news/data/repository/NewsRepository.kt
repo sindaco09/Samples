@@ -1,14 +1,11 @@
-package com.indaco.samples.data.repository
+package com.indaco.news.data.repository
 
+import com.indaco.news.data.models.News
+import com.indaco.news.data.network.api.NewsApi
+import com.indaco.news.data.storage.NewsCache
 import com.indaco.samples.data.network.result.BaseResult
-import com.indaco.samples.data.models.news.News
-import com.indaco.samples.data.storage.news.NewsCache
-import com.indaco.samples.data.network.api.news.NewsApi
 import kotlinx.coroutines.delay
-import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
-import kotlinx.coroutines.flow.flowOf
-import kotlinx.coroutines.flow.map
 import java.util.concurrent.atomic.AtomicBoolean
 import javax.inject.Inject
 import javax.inject.Singleton

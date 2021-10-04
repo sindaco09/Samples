@@ -1,24 +1,20 @@
-package com.indaco.samples.ui.main.news
+package com.indaco.news.ui.screens
 
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.indaco.samples.data.models.news.News
+import com.indaco.news.data.models.News
+import com.indaco.news.data.repository.NewsRepository
 import com.indaco.samples.data.network.result.BaseResult
-import com.indaco.samples.data.repository.NewsRepository
-import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
-@HiltViewModel
-class NewsViewModel @Inject constructor(
-    private val newsRepository: NewsRepository
-): ViewModel() {
+class NewsViewModel @Inject constructor(private val newsRepository: NewsRepository): ViewModel() {
 
     private val ioDispatcher = Dispatchers.IO
 
@@ -61,6 +57,5 @@ class NewsViewModel @Inject constructor(
                 }
             }
         }
-
     }
 }

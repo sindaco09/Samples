@@ -1,4 +1,4 @@
-package com.indaco.samples.ui.main.news
+package com.indaco.news.ui.screens
 
 import android.animation.LayoutTransition
 import android.animation.ObjectAnimator
@@ -12,22 +12,26 @@ import android.widget.Toast
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.animation.doOnEnd
 import androidx.core.view.updateLayoutParams
-import androidx.fragment.app.viewModels
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
-import com.indaco.samples.R
-import com.indaco.samples.data.models.news.News
-import com.indaco.samples.databinding.FragmentNewsBinding
-import com.indaco.samples.ui.base.DataBindingFragment
+import com.indaco.news.R
+import com.indaco.news.core.Injector
+import com.indaco.news.data.models.News
+import com.indaco.news.databinding.FragmentNewsBinding
+import com.indaco.samples.core.hilt.viewmodel.ViewModelFactory
 import com.indaco.samples.util.common.Ext.toPx
-import dagger.hilt.android.AndroidEntryPoint
+import com.indaco.samples.util.viewBinding
 import java.util.*
 import java.util.concurrent.atomic.AtomicBoolean
+import javax.inject.Inject
 
+class NewsFragment: Fragment(R.layout.fragment_news) {
 
-@AndroidEntryPoint
-class NewsFragment: DataBindingFragment<FragmentNewsBinding>(R.layout.fragment_news) {
-
-    private val viewModel: NewsViewModel by viewModels()
+    @Inject
+    lateinit var viewModelFactory: ViewModelFactory
+    private lateinit var viewModel: NewsViewModel
+    private val binding by viewBinding(FragmentNewsBinding::bind)
 
     @Volatile var breakingNews: Queue<News.BreakingNews> = LinkedList()
     private var breakingNewsAnimator: ObjectAnimator? = null
@@ -35,7 +39,10 @@ class NewsFragment: DataBindingFragment<FragmentNewsBinding>(R.layout.fragment_n
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.viewmodel = viewModel
+
+        Injector.from(requireContext()).inject(this)
+
+        viewModel = ViewModelProvider(this, viewModelFactory)[NewsViewModel::class.java]
 
         binding.constraintRoot.layoutTransition.enableTransitionType(LayoutTransition.CHANGING)
 
@@ -88,6 +95,10 @@ class NewsFragment: DataBindingFragment<FragmentNewsBinding>(R.layout.fragment_n
         setResetButton()
         with(binding) {
             reset.setOnClickListener(setResetButton())
+
+            stop.setOnClickListener { viewModel.stopBreakingNews() }
+
+            resume.setOnClickListener { viewModel.getBreakingNews() }
         }
     }
 

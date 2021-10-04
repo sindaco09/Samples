@@ -3,7 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/indac/StudioProjects/Samples/app/src/main/res/drawable/ic_article.xml" value="0.34791666666666665" />
         <entry key="..\:/Users/indac/StudioProjects/Samples/app/src/main/res/drawable/ic_check.xml" value="0.5708333333333333" />
+        <entry key="..\:/Users/indac/StudioProjects/Samples/app/src/main/res/drawable/ic_coffee.xml" value="0.34791666666666665" />
+        <entry key="..\:/Users/indac/StudioProjects/Samples/app/src/main/res/drawable/ic_coffee_maker.xml" value="0.34791666666666665" />
         <entry key="..\:/Users/indac/StudioProjects/Samples/app/src/main/res/layout/activity_main.xml" value="0.33177083333333335" />
         <entry key="..\:/Users/indac/StudioProjects/Samples/app/src/main/res/layout/add_goal_form.xml" value="0.5546875" />
         <entry key="..\:/Users/indac/StudioProjects/Samples/app/src/main/res/layout/fragment_camera.xml" value="0.25317028985507245" />
@@ -32,6 +35,10 @@
         <entry key="..\:/Users/indac/StudioProjects/Samples/goals/src/main/res/layout/fragment_goals.xml" value="0.5546875" />
         <entry key="..\:/Users/indac/StudioProjects/Samples/goals/src/main/res/layout/fragment_task_child.xml" value="0.35392320534223703" />
         <entry key="..\:/Users/indac/StudioProjects/Samples/goals/src/main/res/layout/row_item_draggable.xml" value="0.5546875" />
+        <entry key="..\:/Users/indac/StudioProjects/Samples/news/src/main/res/drawable/ic_article.xml" value="0.34791666666666665" />
+        <entry key="..\:/Users/indac/StudioProjects/Samples/news/src/main/res/font/news_cycle.xml" value="0.3619791666666667" />
+        <entry key="..\:/Users/indac/StudioProjects/Samples/news/src/main/res/layout/fragment_news.xml" value="0.34959349593495936" />
+        <entry key="..\:/Users/indac/StudioProjects/Samples/news/src/main/res/layout/row_item_news.xml" value="0.33177083333333335" />
       </map>
     </option>
   </component>

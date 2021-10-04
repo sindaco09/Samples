@@ -38,11 +38,11 @@
         android:label="@string/menu_hue_parent"
         tools:layout="@layout/fragment_parent"/>
 
-    <fragment
+    <include-dynamic
         android:id="@+id/nav_camera"
-        android:name="com.indaco.samples.ui.main.camera.CameraMenuFragment"
-        android:label="@string/menu_camera"
-        tools:layout="@layout/fragment_camera_menu"/>
+        app:moduleName="camera"
+        app:graphResName="camera_graph"
+        app:graphPackage="${applicationId}.camera" />
 
     <include-dynamic
         android:id="@+id/nav_goals"

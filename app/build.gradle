@@ -40,7 +40,7 @@ android {
     kotlinOptions {
         jvmTarget = '11'
     }
-    dynamicFeatures = [':coffee', ':goals', ':news', ':bart']
+    dynamicFeatures = [':coffee', ':goals', ':news', ':bart', ':camera']
 }
 
 dependencies {
@@ -49,12 +49,6 @@ dependencies {
     api 'androidx.constraintlayout:constraintlayout:2.1.1'
     api "androidx.core:core-ktx:1.6.0"
     api 'com.google.android.material:material:1.4.0'
-
-    // Camera
-    api "androidx.camera:camera-core:${camerax_version}"
-    api "androidx.camera:camera-camera2:${camerax_version}"
-    api "androidx.camera:camera-lifecycle:${camerax_version}"
-    api "androidx.camera:camera-view:${camerax_view_version}"
 
     // Datastore
     api "androidx.datastore:datastore:1.0.0"

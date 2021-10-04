@@ -17,9 +17,7 @@ import com.indaco.samples.core.hilt.viewmodel.ViewModelFactory
 import com.indaco.samples.data.models.bart.BartObject
 import com.indaco.samples.data.models.bart.BartType
 import com.indaco.samples.util.viewBinding
-import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
-
 
 class BartFragment: Fragment(R.layout.fragment_bart) {
 

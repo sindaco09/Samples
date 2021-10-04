@@ -1,0 +1,49 @@
+plugins {
+    id 'com.android.dynamic-feature'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+    id "kotlin-parcelize"
+    id 'androidx.navigation.safeargs.kotlin'
+}
+
+def getBartKey = { ->
+    try {
+        def apikeyPropertiesFile = rootProject.file("apikeys.properties")
+        def apikeyProperties = new Properties()
+        apikeyProperties.load(new FileInputStream(apikeyPropertiesFile))
+        return apikeyProperties['BART_PRIVATE_KEY']
+    } catch (ignored) {
+        return "\"MW9S-E7SL-26DU-VV8V\""
+    }
+}
+
+android {
+    compileSdk 31
+
+    defaultConfig {
+        applicationId "com.indaco.bart"
+        minSdk 26
+        targetSdk 31
+        versionCode 1
+        versionName "1.0"
+
+        buildConfigField("String", "BART_KEY", getBartKey())
+    }
+
+    buildFeatures {
+        viewBinding true
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
+    }
+    kotlinOptions {
+        jvmTarget = '11'
+    }
+}
+
+dependencies {
+    implementation project(":app")
+    kapt "com.google.dagger:hilt-compiler:$hilt_version"
+}

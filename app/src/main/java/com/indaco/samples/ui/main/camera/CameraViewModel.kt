@@ -5,6 +5,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.indaco.samples.core.hilt.IODispatcher
 import com.indaco.samples.data.repository.UserRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.CoroutineDispatcher
@@ -15,7 +16,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class CameraViewModel @Inject constructor(
-    private val dispatcher: CoroutineDispatcher = Dispatchers.IO,
+    @IODispatcher private val dispatcher: CoroutineDispatcher = Dispatchers.IO,
     private val userRepository: UserRepository
     ): ViewModel() {
 
@@ -23,7 +24,7 @@ class CameraViewModel @Inject constructor(
         return MutableLiveData<String?>().also {
             viewModelScope.launch(dispatcher) {
                 userRepository.processQRCode(code).collect { result: String? ->
-                    Log.d("TAG","processQRCode result: ${result}")
+                    Log.d("TAG","processQRCode result: $result")
                     it.postValue(result)
                 }
             }

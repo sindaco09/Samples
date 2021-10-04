@@ -32,8 +32,6 @@
 
     <include app:graph="@navigation/connection_graph" />
 
-    <include app:graph="@navigation/bart_graph" />
-
     <fragment
         android:id="@+id/hueParentFragment"
         android:name="com.indaco.samples.ui.main.mockhue.HueParentFragment"
@@ -57,5 +55,11 @@
         app:moduleName="news"
         app:graphResName="news_graph"
         app:graphPackage="${applicationId}.news" />
+
+    <include-dynamic
+        android:id="@+id/nav_bart"
+        app:moduleName="bart"
+        app:graphResName="bart_graph"
+        app:graphPackage="${applicationId}.bart" />
 
 </navigation>

@@ -3,3 +3,4 @@ rootProject.name = "Samples"
 include ':coffee'
 include ':goals'
 include ':news'
+include ':bart'

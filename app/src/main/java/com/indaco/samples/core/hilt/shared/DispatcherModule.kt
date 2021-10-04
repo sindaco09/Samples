@@ -1,5 +1,6 @@
 package com.indaco.samples.core.hilt.shared
 
+import com.indaco.samples.core.hilt.IODispatcher
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -11,6 +12,7 @@ import kotlinx.coroutines.Dispatchers
 @Module
 class DispatcherModule {
 
+    @IODispatcher
     @Provides
     fun providesDispatcher(): CoroutineDispatcher = Dispatchers.IO
 }

@@ -21,6 +21,18 @@
         <entry key="..\:/Users/indac/StudioProjects/Samples/app/src/main/res/menu/camera_menu.xml" value="0.5546875" />
         <entry key="..\:/Users/indac/StudioProjects/Samples/app/src/main/res/menu/main.xml" value="0.33177083333333335" />
         <entry key="..\:/Users/indac/StudioProjects/Samples/app/src/main/res/xml/root_preferences.xml" value="0.5546875" />
+        <entry key="..\:/Users/indac/StudioProjects/Samples/bart/src/main/res/drawable/ic_baseline_more_horiz_24.xml" value="0.5708333333333333" />
+        <entry key="..\:/Users/indac/StudioProjects/Samples/bart/src/main/res/drawable/ic_baseline_sync_24.xml" value="0.5708333333333333" />
+        <entry key="..\:/Users/indac/StudioProjects/Samples/bart/src/main/res/drawable/ic_filter_list_24.xml" value="0.5708333333333333" />
+        <entry key="..\:/Users/indac/StudioProjects/Samples/bart/src/main/res/layout/bart_stations.xml" value="0.5546875" />
+        <entry key="..\:/Users/indac/StudioProjects/Samples/bart/src/main/res/layout/bart_trips.xml" value="0.5546875" />
+        <entry key="..\:/Users/indac/StudioProjects/Samples/bart/src/main/res/layout/bottom_sheet_bart_map.xml" value="0.5546875" />
+        <entry key="..\:/Users/indac/StudioProjects/Samples/bart/src/main/res/layout/fragment_bart.xml" value="0.5546875" />
+        <entry key="..\:/Users/indac/StudioProjects/Samples/bart/src/main/res/layout/fragment_bart_maps.xml" value="0.5546875" />
+        <entry key="..\:/Users/indac/StudioProjects/Samples/bart/src/main/res/layout/fragment_commute.xml" value="0.5546875" />
+        <entry key="..\:/Users/indac/StudioProjects/Samples/bart/src/main/res/layout/row_item_bart_object.xml" value="0.5546875" />
+        <entry key="..\:/Users/indac/StudioProjects/Samples/bart/src/main/res/layout/row_item_commute.xml" value="0.5546875" />
+        <entry key="..\:/Users/indac/StudioProjects/Samples/bart/src/main/res/layout/row_item_station_new.xml" value="0.5546875" />
         <entry key="..\:/Users/indac/StudioProjects/Samples/coffee/src/main/res/drawable/ic_bullet_list.xml" value="0.34791666666666665" />
         <entry key="..\:/Users/indac/StudioProjects/Samples/coffee/src/main/res/drawable/ic_check.xml" value="0.34791666666666665" />
         <entry key="..\:/Users/indac/StudioProjects/Samples/coffee/src/main/res/drawable/ic_coffee.xml" value="0.5708333333333333" />

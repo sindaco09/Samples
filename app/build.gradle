@@ -8,17 +8,6 @@ plugins {
     id 'androidx.navigation.safeargs.kotlin'
 }
 
-def getBartKey = { ->
-    try {
-        def apikeyPropertiesFile = rootProject.file("apikeys.properties")
-        def apikeyProperties = new Properties()
-        apikeyProperties.load(new FileInputStream(apikeyPropertiesFile))
-        return apikeyProperties['BART_PRIVATE_KEY']
-    } catch (ignored) {
-        return "\"MW9S-E7SL-26DU-VV8V\""
-    }
-}
-
 android {
     compileSdkVersion 31
 
@@ -28,8 +17,6 @@ android {
         targetSdkVersion 31
         versionCode 1
         versionName "1.0"
-
-        buildConfigField("String", "BART_KEY", getBartKey())
     }
 
     buildFeatures {
@@ -53,7 +40,7 @@ android {
     kotlinOptions {
         jvmTarget = '11'
     }
-    dynamicFeatures = [':coffee', ':goals', ':news']
+    dynamicFeatures = [':coffee', ':goals', ':news', ':bart']
 }
 
 dependencies {

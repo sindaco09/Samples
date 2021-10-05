@@ -6,7 +6,6 @@ import androidx.fragment.app.FragmentManager
 import androidx.navigation.*
 import androidx.navigation.dynamicfeatures.fragment.DynamicNavHostFragment
 import androidx.navigation.fragment.FragmentNavigator
-import androidx.navigation.fragment.NavHostFragment
 import com.indaco.samples.R
 
 private val defaultNavOptions = navOptions {

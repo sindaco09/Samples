@@ -3,6 +3,7 @@ package com.indaco.goals.ui.screens.children
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.indaco.goals.R
@@ -21,17 +22,14 @@ import javax.inject.Inject
  */
 class GoalListFragment(val goalStatus: GoalStatus): Fragment(R.layout.fragment_task_child) {
 
-    @Inject
-    lateinit var viewModelFactory: ViewModelFactory
+    @Inject lateinit var viewModelFactory: ViewModelFactory
+    private val viewModel: GoalViewModel by viewModels({requireParentFragment()},{viewModelFactory})
     private val binding by viewBinding(FragmentTaskChildBinding::bind)
-    private lateinit var viewModel: GoalViewModel
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         Injector.from(requireContext()).inject(this)
-
-        viewModel = ViewModelProvider(requireParentFragment(),viewModelFactory)[GoalViewModel::class.java]
 
         init()
     }

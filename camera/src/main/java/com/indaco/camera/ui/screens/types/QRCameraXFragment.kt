@@ -37,7 +37,7 @@ import javax.inject.Inject
 class QRCameraXFragment : Fragment(R.layout.fragment_qr_camerax) {
 
     @Inject lateinit var viewModelFactory: ViewModelFactory
-    private val cameraViewModel: CameraViewModel by viewModels({this},{viewModelFactory})
+    private val cameraViewModel: CameraViewModel by viewModels {viewModelFactory}
     private val binding by viewBinding(FragmentQrCameraxBinding::bind)
 
     private lateinit var permissionsUtil: PermissionsUtil

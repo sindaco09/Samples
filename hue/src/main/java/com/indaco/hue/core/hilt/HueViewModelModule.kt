@@ -3,6 +3,7 @@ package com.indaco.hue.core.hilt
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.indaco.hue.ui.screens.HueViewModel
+import com.indaco.hue.ui.screens.children.HueLightViewModel
 import com.indaco.samples.core.hilt.viewmodel.ViewModelFactory
 import com.indaco.samples.core.hilt.viewmodel.ViewModelKey
 import dagger.Binds
@@ -22,4 +23,9 @@ abstract class HueViewModelModule {
     @IntoMap
     @ViewModelKey(HueViewModel::class)
     abstract fun provideHueViewModel(viewModel: HueViewModel): ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(HueLightViewModel::class)
+    abstract fun provideHueLightViewModel(viewModel: HueLightViewModel): ViewModel
 }

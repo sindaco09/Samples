@@ -21,25 +21,21 @@ import javax.inject.Inject
 class HueParentFragment: Fragment(R.layout.fragment_parent) {
 
     @Inject lateinit var viewModelFactory: ViewModelFactory
-    private val viewModel: HueViewModel by viewModels({this},{viewModelFactory})
+    private val viewModel: HueViewModel by viewModels {viewModelFactory}
 
-    private lateinit var childController: NavController
+    private val childController: NavController get() =
+        (childFragmentManager.findFragmentById(R.id.child_nav_host_fragment) as NavHostFragment).navController
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         Injector.from(requireContext()).inject(this)
 
-        val localNavHost = childFragmentManager.findFragmentById(R.id.child_nav_host_fragment) as NavHostFragment
-        childController = localNavHost.navController
-
         lifecycleScope.launchWhenStarted {
             viewModel.state.collect {
                 when (it) {
-                    HueViewModel.State.NOT_CONNECTED ->
-                        childController.navigate(R.id.lights_fragment)
-                    HueViewModel.State.CONNECTED ->
-                        childController.navigate(R.id.bridge_discovery_fragment)
+                    HueViewModel.State.NOT_CONNECTED -> childController.navigate(R.id.lights_fragment)
+                    HueViewModel.State.CONNECTED -> childController.navigate(R.id.bridge_discovery_fragment)
                 }
             }
         }

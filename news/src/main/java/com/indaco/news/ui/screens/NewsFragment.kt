@@ -13,6 +13,7 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.animation.doOnEnd
 import androidx.core.view.updateLayoutParams
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import com.indaco.news.R
@@ -28,9 +29,8 @@ import javax.inject.Inject
 
 class NewsFragment: Fragment(R.layout.fragment_news) {
 
-    @Inject
-    lateinit var viewModelFactory: ViewModelFactory
-    private lateinit var viewModel: NewsViewModel
+    @Inject lateinit var viewModelFactory: ViewModelFactory
+    private val viewModel: NewsViewModel by viewModels { viewModelFactory }
     private val binding by viewBinding(FragmentNewsBinding::bind)
 
     @Volatile var breakingNews: Queue<News.BreakingNews> = LinkedList()
@@ -41,8 +41,6 @@ class NewsFragment: Fragment(R.layout.fragment_news) {
         super.onViewCreated(view, savedInstanceState)
 
         Injector.from(requireContext()).inject(this)
-
-        viewModel = ViewModelProvider(this, viewModelFactory)[NewsViewModel::class.java]
 
         binding.constraintRoot.layoutTransition.enableTransitionType(LayoutTransition.CHANGING)
 

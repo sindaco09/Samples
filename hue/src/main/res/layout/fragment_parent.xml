@@ -5,15 +5,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <androidx.fragment.app.FragmentContainerView
+    <!-- FragmentContainerView doesn't work -->
+    <fragment
         android:id="@+id/child_nav_host_fragment"
         android:name="com.indaco.samples.ui.base.BaseNavHostFragment"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:defaultNavHost="false"
+        app:navGraph="@navigation/inner_hue_graph"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:navGraph="@navigation/mock_hue_graph"  />
+        app:layout_constraintStart_toStartOf="parent"  />
 </androidx.constraintlayout.widget.ConstraintLayout>

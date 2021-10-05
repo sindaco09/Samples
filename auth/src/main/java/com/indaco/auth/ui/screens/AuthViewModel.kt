@@ -1,4 +1,4 @@
-package com.indaco.samples.ui.onboard
+package com.indaco.auth.ui.screens
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
@@ -6,16 +6,14 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.indaco.samples.data.repository.UserRepository
+import com.indaco.auth.data.repository.AuthRepository
 import com.indaco.samples.data.models.user.SignUpUser
 import com.indaco.samples.data.models.user.User
 import com.indaco.samples.ui.main.HomeFragment
-import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
-@HiltViewModel
-class OnboardViewModel @Inject constructor(private val userRepository: UserRepository): ViewModel() {
+class AuthViewModel @Inject constructor(private val authRepository: AuthRepository): ViewModel() {
 
     enum class State(val fragment: Class<out Fragment>) {
         HOME(HomeFragment::class.java),
@@ -39,13 +37,13 @@ class OnboardViewModel @Inject constructor(private val userRepository: UserRepos
     private val _onError = MutableLiveData<String?>()
     val onError: LiveData<String?> get() = _onError
 
-    private suspend fun userExists(username: String) = userRepository.getUser(username) != null
+    private suspend fun userExists(username: String) = authRepository.getUser(username) != null
 
     fun onLoginClicked() {
         viewModelScope.launch {
-            val user = userRepository.getUser(signUpUser.usernameET)
+            val user = authRepository.getUser(signUpUser.usernameET)
             if (user != null) {
-                userRepository.loginUser(user)
+                authRepository.loginUser(user)
                 changeFragmentState(State.HOME)
             } else
                 _onError.value = "Failed to login. Check Spelling."
@@ -53,11 +51,11 @@ class OnboardViewModel @Inject constructor(private val userRepository: UserRepos
     }
 
     private suspend fun login(username: String): Boolean {
-        val user = userRepository.getUser(username)
+        val user = authRepository.getUser(username)
         return if (user == null) {
             false
         } else {
-            userRepository.loginUser(user)
+            authRepository.loginUser(user)
             true
         }
     }
@@ -122,7 +120,7 @@ class OnboardViewModel @Inject constructor(private val userRepository: UserRepos
         viewModelScope.launch {
             val result = userDetailsValid()
             if (result.success) {
-                userRepository.addUser(User(signUpUser))
+                authRepository.addUser(User(signUpUser))
                 changeFragmentState(State.HOME)
             } else
                 _onError.value = result.error

@@ -5,8 +5,8 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.indaco.camera.data.repository.CameraRepository
 import com.indaco.samples.core.hilt.IODispatcher
-import com.indaco.samples.data.repository.UserRepository
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.collect
@@ -15,7 +15,7 @@ import javax.inject.Inject
 
 class CameraViewModel @Inject constructor(
     @IODispatcher private val dispatcher: CoroutineDispatcher = Dispatchers.IO,
-    private val userRepository: UserRepository
+    private val userRepository: CameraRepository
     ): ViewModel() {
 
     fun processQRCode(code: String?): LiveData<String?> {

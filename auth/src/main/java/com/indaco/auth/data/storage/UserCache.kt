@@ -1,8 +1,9 @@
-package com.indaco.samples.data.storage.user
+package com.indaco.auth.data.storage
 
 import androidx.datastore.core.DataStore
 import com.indaco.samples.CurrentUser
 import com.indaco.samples.data.models.user.User
+import com.indaco.samples.data.storage.user.UserDao
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 import javax.inject.Singleton

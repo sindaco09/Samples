@@ -1,16 +1,17 @@
 # Samples
 app for testing new Android features and tools in more applicable case scenarios.
 
-** Architecture **
-The project directories are divided up into 4 main dirs: core, data, ui, util
+**Architecture**
 
-- Core: holds directories/classes associated with core functionality of app like room, hilt, datastore
+package structure is divided up into four main directories: core, data, ui, util
+
+- Core: holds classes associated with core functionality of app like room, hilt, datastore
 - Data: holds models, storage, and network classes
 - UI: holds all UI elements including ViewModels
 - Util: holds helper classes and extracted classes for specific features
 
 Data is separated by data type (storage, model, network) and then by feature
-ui is separated by type (custom views or screens) adn then by feature
+ui is separated by type (custom views or screens) and then by feature
 util is separated by feature
 
 ui and util are divided more similarly than data
@@ -21,7 +22,8 @@ ui and util are divided more similarly than data
 - Hilt is used for dependency injection
 - Retrofit is used for network calls
 
-** FEATURES **
+**FEATURES**
+
 Bart:
  - Experiment a bit with ViewModel + DataBinding
  - use ViewModel to pass data between fragments

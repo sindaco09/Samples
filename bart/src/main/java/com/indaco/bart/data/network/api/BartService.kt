@@ -1,10 +1,10 @@
 package com.indaco.bart.data.network.api
 
 import com.indaco.bart.BuildConfig
-import com.indaco.samples.data.network.result.bart.GetRealTimeEstimateResult
-import com.indaco.samples.data.network.result.bart.GetStationScheduleResult
-import com.indaco.samples.data.network.result.bart.GetStationsResult
-import com.indaco.samples.data.network.result.bart.GetTripResult
+import com.indaco.bart.data.network.result.GetRealTimeEstimateResult
+import com.indaco.bart.data.network.result.GetStationScheduleResult
+import com.indaco.bart.data.network.result.GetStationsResult
+import com.indaco.bart.data.network.result.GetTripResult
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Query

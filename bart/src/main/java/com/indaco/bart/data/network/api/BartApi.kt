@@ -2,9 +2,9 @@ package com.indaco.bart.data.network.api
 
 import com.indaco.bart.data.network.request.GetRealTimeEstimateRequest
 import com.indaco.bart.data.network.request.GetTripRequest
-import com.indaco.samples.data.network.result.bart.GetRealTimeEstimateResult
-import com.indaco.samples.data.network.result.bart.GetStationsResult
-import com.indaco.samples.data.network.result.bart.GetTripResult
+import com.indaco.bart.data.network.result.GetRealTimeEstimateResult
+import com.indaco.bart.data.network.result.GetStationsResult
+import com.indaco.bart.data.network.result.GetTripResult
 import retrofit2.Response
 import javax.inject.Inject
 import javax.inject.Singleton

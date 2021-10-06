@@ -1,4 +1,4 @@
-package com.indaco.samples.data.network.result.bart
+package com.indaco.bart.data.network.result
 
 import com.google.gson.annotations.SerializedName
 

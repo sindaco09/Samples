@@ -8,12 +8,12 @@ import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import com.indaco.bart.R
 import com.indaco.bart.core.hilt.Injector
+import com.indaco.bart.data.models.BartStation
+import com.indaco.bart.data.models.BartType
 import com.indaco.bart.databinding.BartStationsBinding
 import com.indaco.bart.ui.screens.BartFragmentDirections
 import com.indaco.bart.ui.screens.BartViewModel
 import com.indaco.samples.core.hilt.viewmodel.ViewModelFactory
-import com.indaco.samples.data.models.bart.BartStation
-import com.indaco.samples.data.models.bart.BartType
 import com.indaco.samples.util.viewBinding
 import javax.inject.Inject
 

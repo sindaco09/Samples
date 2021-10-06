@@ -1,12 +1,11 @@
-package com.indaco.samples.data.models.bart
+package com.indaco.bart.data.models
 
-import android.os.Parcelable
-import androidx.room.Entity
 import androidx.room.Ignore
 import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
-import com.indaco.samples.data.network.result.bart.GetRealTimeEstimateResult
-import com.indaco.samples.data.network.result.bart.GetStationScheduleResult
+import com.indaco.samples.data.models.bart.BartStationDbo
+import com.indaco.bart.data.network.result.GetRealTimeEstimateResult
+import com.indaco.bart.data.network.result.GetStationScheduleResult
 import kotlinx.parcelize.IgnoredOnParcel
 import kotlinx.parcelize.Parcelize
 import java.lang.RuntimeException
@@ -15,14 +14,15 @@ typealias Schedule = GetStationScheduleResult.Item
 typealias ETD = GetRealTimeEstimateResult.ETD
 
 @Parcelize
-@Entity(tableName = "bart_stations")
 data class BartStation(
-    val name: String,
-    @PrimaryKey val abbr: String,
-    @SerializedName("gtfs_latitude") val latitude: Double,
-    @SerializedName("gtfs_longitude") val longitude: Double,
-    var favorite: Boolean = false
-): BartObject(), Parcelable {
+    override val name: String,
+    @PrimaryKey override val abbr: String,
+    @SerializedName("gtfs_latitude") override val latitude: Double,
+    @SerializedName("gtfs_longitude") override val longitude: Double,
+    override var favorite: Boolean = false
+): BartStationDbo(name, abbr, latitude, longitude, favorite) {
+
+    constructor(dbo: BartStationDbo):this(dbo.name, dbo.abbr, dbo.latitude, dbo.longitude, dbo.favorite)
 
     @IgnoredOnParcel
     @Ignore
@@ -42,6 +42,8 @@ data class BartStation(
     override fun hashCode(): Int {
         return abbr.hashCode()
     }
+
+    fun toBartStationDbo() = BartStationDbo(name, abbr, latitude, longitude, favorite)
 
     enum class Direction {SOUTH, NORTH;
         companion object {

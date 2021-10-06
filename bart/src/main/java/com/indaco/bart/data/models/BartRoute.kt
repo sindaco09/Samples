@@ -1,4 +1,4 @@
-package com.indaco.samples.data.models.bart
+package com.indaco.bart.data.models
 
 import java.lang.RuntimeException
 

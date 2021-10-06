@@ -9,9 +9,9 @@ import android.widget.*
 import androidx.appcompat.app.AlertDialog
 import androidx.core.view.updateLayoutParams
 import androidx.recyclerview.widget.RecyclerView
+import com.indaco.bart.data.models.BartStation
 import com.indaco.bart.databinding.RowItemStationNewBinding
 import com.indaco.bart.ui.screens.details.Estimate
-import com.indaco.samples.data.models.bart.BartStation
 import com.indaco.samples.util.common.BindableAdapter
 import com.indaco.samples.util.common.Ext.toPx
 import java.time.LocalTime

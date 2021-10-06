@@ -3,13 +3,12 @@ package com.indaco.bart.ui.screens.details
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.indaco.bart.data.models.BartStation
+import com.indaco.bart.data.models.BartTrip
+import com.indaco.bart.data.models.BartType
 import com.indaco.bart.data.repository.BartRepository
-import com.indaco.samples.data.models.bart.BartStation
-import com.indaco.samples.data.models.bart.BartTrip
-import com.indaco.samples.data.models.bart.BartType
 import com.indaco.bart.data.network.request.GetTripRequest
-import com.indaco.samples.data.network.result.bart.GetRealTimeEstimateResult
-import dagger.hilt.android.lifecycle.HiltViewModel
+import com.indaco.bart.data.network.result.GetRealTimeEstimateResult
 import kotlinx.coroutines.*
 import kotlinx.coroutines.flow.collect
 import java.time.ZonedDateTime

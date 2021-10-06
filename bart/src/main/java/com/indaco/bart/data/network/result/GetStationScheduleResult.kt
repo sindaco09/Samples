@@ -1,9 +1,9 @@
-package com.indaco.samples.data.network.result.bart
+package com.indaco.bart.data.network.result
 
 import android.os.Parcelable
-import com.indaco.samples.data.models.bart.BartRoute
-import com.indaco.samples.data.models.bart.BartStation
 import com.google.gson.annotations.SerializedName
+import com.indaco.bart.data.models.BartRoute
+import com.indaco.bart.data.models.BartStation
 import kotlinx.parcelize.IgnoredOnParcel
 import kotlinx.parcelize.Parcelize
 import java.time.*

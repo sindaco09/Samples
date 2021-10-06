@@ -30,8 +30,6 @@
         app:graphResName="coffee_graph"
         app:graphPackage="${applicationId}.coffee" />
 
-    <include app:graph="@navigation/connection_graph" />
-
     <include-dynamic
         android:id="@+id/nav_hue"
         app:moduleName="hue"

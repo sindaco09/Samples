@@ -13,12 +13,12 @@ import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.indaco.bart.R
 import com.indaco.samples.R as appR
 import com.indaco.bart.core.hilt.Injector
+import com.indaco.bart.data.models.BartStation
+import com.indaco.bart.data.models.BartType
 import com.indaco.bart.databinding.FragmentBartItemListDialogBinding
 import com.indaco.bart.databinding.RowItemBartObjectBinding
 import com.indaco.bart.ui.screens.BartViewModel
 import com.indaco.samples.core.hilt.viewmodel.ViewModelFactory
-import com.indaco.samples.data.models.bart.BartStation
-import com.indaco.samples.data.models.bart.BartType
 import com.indaco.samples.util.viewBinding
 import javax.inject.Inject
 
@@ -26,7 +26,7 @@ class BartItemListDialogFragment : BottomSheetDialogFragment() {
 
     private val binding by viewBinding(FragmentBartItemListDialogBinding::bind)
     @Inject lateinit var viewModelFactory: ViewModelFactory
-    private val viewModel: BartViewModel by viewModels({this},{viewModelFactory})
+    private val viewModel: BartViewModel by viewModels {viewModelFactory}
 
     private val args by navArgs<BartItemListDialogFragmentArgs>()
     private lateinit var type: BartType

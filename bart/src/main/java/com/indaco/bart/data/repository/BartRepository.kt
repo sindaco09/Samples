@@ -1,13 +1,13 @@
 package com.indaco.bart.data.repository
 
+import com.indaco.bart.data.models.BartStation
+import com.indaco.bart.data.models.BartTrip
 import com.indaco.bart.data.network.api.BartApi
 import com.indaco.bart.data.network.request.GetTripRequest
 import com.indaco.bart.data.storage.BartCache
 import com.indaco.bart.ui.screens.ETD
-import com.indaco.samples.data.models.bart.BartStation
-import com.indaco.samples.data.models.bart.BartTrip
-import com.indaco.samples.data.network.result.bart.GetStationScheduleResult
-import com.indaco.samples.data.network.result.bart.GetTripResult
+import com.indaco.bart.data.network.result.GetStationScheduleResult
+import com.indaco.bart.data.network.result.GetTripResult
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.*
 import retrofit2.Response
@@ -20,14 +20,8 @@ class BartRepository @Inject constructor(
     private val bartCache: BartCache
 ) {
 
-    fun getStoredBartStations(): Flow<Response<List<BartStation>?>> {
-        val response = bartCache.getBartStationsFlow()
-            .map {
-                Response.success(it)
-            }
-
-        return response
-    }
+    fun getStoredBartStations(): Flow<Response<List<BartStation>?>> =
+        bartCache.getBartStationsFlow().map { Response.success(it) }
 
     var continueRealTimeEstimates = false
 

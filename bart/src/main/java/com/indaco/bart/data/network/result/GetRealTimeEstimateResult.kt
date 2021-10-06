@@ -1,6 +1,6 @@
-package com.indaco.samples.data.network.result.bart
+package com.indaco.bart.data.network.result
 
-import com.indaco.samples.data.models.bart.BartStation
+import com.indaco.bart.data.models.BartStation
 
 class GetRealTimeEstimateResult(val root: Root) {
     class Root(

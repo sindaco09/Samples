@@ -10,14 +10,14 @@ import android.widget.RelativeLayout
 import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
-import com.indaco.samples.data.models.bart.BartStation
-import com.indaco.samples.data.models.bart.BartTrip
 
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.tabs.TabLayout
+import com.indaco.samples.R as appR
 import com.indaco.bart.R
 import com.indaco.bart.core.hilt.Injector
-import com.indaco.samples.R as appR
+import com.indaco.bart.data.models.BartStation
+import com.indaco.bart.data.models.BartTrip
 import com.indaco.bart.databinding.FragmentBartMapsBinding
 import com.indaco.samples.core.hilt.viewmodel.ViewModelFactory
 import com.indaco.samples.util.viewBinding

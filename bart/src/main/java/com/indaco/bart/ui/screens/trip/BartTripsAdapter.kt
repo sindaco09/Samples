@@ -5,8 +5,8 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.indaco.bart.data.models.BartTrip
 import com.indaco.bart.databinding.RowItemCommuteBinding
-import com.indaco.samples.data.models.bart.BartTrip
 import com.indaco.samples.util.common.BindableAdapter
 
 class BartTripsAdapter(

@@ -10,12 +10,12 @@ import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.google.android.material.tabs.TabLayoutMediator
 import com.indaco.bart.R
 import com.indaco.bart.core.hilt.Injector
+import com.indaco.bart.data.models.BartType
 import com.indaco.bart.databinding.FragmentBartBinding
 import com.indaco.bart.ui.screens.station.BartStationsFragment
 import com.indaco.bart.ui.screens.trip.BartTripsFragment
 import com.indaco.samples.core.hilt.viewmodel.ViewModelFactory
 import com.indaco.samples.data.models.bart.BartObject
-import com.indaco.samples.data.models.bart.BartType
 import com.indaco.samples.util.viewBinding
 import javax.inject.Inject
 

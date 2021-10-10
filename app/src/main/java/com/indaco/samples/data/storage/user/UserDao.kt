@@ -5,21 +5,21 @@ import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy.REPLACE
 import androidx.room.Query
-import com.indaco.samples.data.models.user.User
+import com.indaco.samples.data.models.user.UserDbo
 
 @Dao
 interface UserDao {
 
     @Query("SELECT * FROM users")
-    suspend fun getAllUsers(): List<User>?
+    suspend fun getAllUsers(): List<UserDbo>?
 
     @Query("SELECT * FROM users WHERE username = :name LIMIT 1")
-    suspend fun getUser(name: String): User?
+    suspend fun getUser(name: String): UserDbo?
 
     @Insert(onConflict = REPLACE)
-    suspend fun addUser(user: User)
+    suspend fun addUser(userDbo: UserDbo)
 
     @Delete
-    suspend fun delete(user: User)
+    suspend fun delete(userDbo: UserDbo)
 
 }

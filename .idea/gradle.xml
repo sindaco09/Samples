@@ -12,13 +12,14 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
-            <option value="$PROJECT_DIR$/auth" />
-            <option value="$PROJECT_DIR$/bart" />
-            <option value="$PROJECT_DIR$/camera" />
-            <option value="$PROJECT_DIR$/coffee" />
-            <option value="$PROJECT_DIR$/goals" />
-            <option value="$PROJECT_DIR$/hue" />
-            <option value="$PROJECT_DIR$/news" />
+            <option value="$PROJECT_DIR$/features" />
+            <option value="$PROJECT_DIR$/features/auth" />
+            <option value="$PROJECT_DIR$/features/bart" />
+            <option value="$PROJECT_DIR$/features/camera" />
+            <option value="$PROJECT_DIR$/features/coffee" />
+            <option value="$PROJECT_DIR$/features/goals" />
+            <option value="$PROJECT_DIR$/features/hue" />
+            <option value="$PROJECT_DIR$/features/news" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

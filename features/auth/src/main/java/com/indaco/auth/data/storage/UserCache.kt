@@ -2,7 +2,7 @@ package com.indaco.auth.data.storage
 
 import androidx.datastore.core.DataStore
 import com.indaco.samples.CurrentUser
-import com.indaco.samples.data.models.user.User
+import com.indaco.samples.data.models.user.UserDbo
 import com.indaco.samples.data.storage.user.UserDao
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
@@ -14,7 +14,7 @@ class UserCache @Inject constructor(
     private val userDao: UserDao
 ) {
 
-    suspend fun addUser(user: User) = userDao.addUser(user)
+    suspend fun addUser(userDbo: UserDbo) = userDao.addUser(userDbo)
 
     suspend fun getUsers() = userDao.getAllUsers()
 
@@ -22,10 +22,10 @@ class UserCache @Inject constructor(
 
     fun getCurrentUser(): Flow<CurrentUser> = userDataStore.data
 
-    suspend fun setCurrentUser(user: User) = userDataStore.updateData {
+    suspend fun setCurrentUser(userDbo: UserDbo) = userDataStore.updateData {
         it.toBuilder()
-            .setFirstname(user.username)
-            .setAge(user.age)
+            .setFirstname(userDbo.username)
+            .setAge(userDbo.age)
             .build()
     }
 

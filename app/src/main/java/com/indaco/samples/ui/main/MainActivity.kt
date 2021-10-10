@@ -1,10 +1,13 @@
 package com.indaco.samples.ui.main
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.util.Log
 import android.view.Menu
+import android.view.MenuInflater
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.view.menu.MenuBuilder
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
@@ -23,6 +26,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var mainBinding: ActivityMainBinding
 
+    @SuppressLint("RestrictedApi")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         mainBinding = ActivityMainBinding.inflate(layoutInflater)
@@ -31,15 +35,10 @@ class MainActivity : AppCompatActivity() {
 
         setSupportActionBar(mainBinding.toolbar)
 
-        appBarConfiguration = AppBarConfiguration(setOf(
-            R.id.nav_home,
-            R.id.nav_news,
-            R.id.nav_bart,
-            R.id.nav_coffee,
-            R.id.nav_hue,
-            R.id.nav_camera,
-            R.id.nav_goals
-        ), mainBinding.drawerLayout)
+        val menu = MenuBuilder(this)
+            .also{ MenuInflater(this).inflate(R.menu.activity_main_drawer, it) }
+
+        appBarConfiguration = AppBarConfiguration(menu, mainBinding.drawerLayout)
 
         setupActionBarWithNavController(navController, appBarConfiguration)
         mainBinding.navView.setupWithNavController(navController)

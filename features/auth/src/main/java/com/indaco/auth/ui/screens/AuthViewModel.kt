@@ -7,8 +7,8 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.indaco.auth.data.repository.AuthRepository
-import com.indaco.samples.data.models.user.SignUpUser
-import com.indaco.samples.data.models.user.User
+import com.indaco.auth.data.models.SignUpUser
+import com.indaco.samples.data.models.user.UserDbo
 import com.indaco.samples.ui.main.HomeFragment
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -120,7 +120,7 @@ class AuthViewModel @Inject constructor(private val authRepository: AuthReposito
         viewModelScope.launch {
             val result = userDetailsValid()
             if (result.success) {
-                authRepository.addUser(User(signUpUser))
+                authRepository.addUser(signUpUser.toUser())
                 changeFragmentState(State.HOME)
             } else
                 _onError.value = result.error

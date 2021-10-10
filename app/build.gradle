@@ -40,7 +40,15 @@ android {
     kotlinOptions {
         jvmTarget = '11'
     }
-    dynamicFeatures = [':coffee', ':goals', ':news', ':bart', ':camera', ':hue', ':auth']
+    dynamicFeatures = [
+            ':features:coffee',
+            ':features:goals',
+            ':features:news',
+            ':features:bart',
+            ':features:camera',
+            ':features:hue',
+            ':features:auth'
+    ]
 }
 
 dependencies {

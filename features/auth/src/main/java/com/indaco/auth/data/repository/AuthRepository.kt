@@ -1,7 +1,7 @@
 package com.indaco.auth.data.repository
 
 import com.indaco.samples.CurrentUser
-import com.indaco.samples.data.models.user.User
+import com.indaco.samples.data.models.user.UserDbo
 import com.indaco.auth.data.storage.UserCache
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
@@ -18,7 +18,7 @@ class AuthRepository @Inject constructor(
     suspend fun getUsers() = userCache.getUsers()
 
     // get user from DB
-    suspend fun getUser(userName: String): User? = userCache.getUser(userName)
+    suspend fun getUser(userName: String): UserDbo? = userCache.getUser(userName)
 
     // get user from DataStore
     fun getCurrentUser(): Flow<CurrentUser> = userCache.getCurrentUser()
@@ -26,7 +26,7 @@ class AuthRepository @Inject constructor(
     // clear user from DataStore
     suspend fun clearCurrentUser() = userCache.clearCurrentUser()
 
-    suspend fun loginUser(user: User) = userCache.setCurrentUser(user)
+    suspend fun loginUser(userDbo: UserDbo) = userCache.setCurrentUser(userDbo)
 
-    suspend fun addUser(user: User) = userCache.addUser(user)
+    suspend fun addUser(userDbo: UserDbo) = userCache.addUser(userDbo)
 }

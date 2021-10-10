@@ -20,8 +20,7 @@ class SettingsFragment : PreferenceFragmentCompat() {
     lateinit var dataStore: DataStore<Preferences>
 
     override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
-        preferenceManager.preferenceDataStore =
-            com.indaco.samples.core.datastore.SyncPrefDataStore(dataStore)
+        preferenceManager.preferenceDataStore = SyncPrefDataStore(dataStore)
         setPreferencesFromResource(R.xml.root_preferences, rootKey)
     }
 }

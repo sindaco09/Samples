@@ -1,4 +1,7 @@
-package com.indaco.samples.data.models.user
+package com.indaco.auth.data.models
+
+import com.indaco.samples.data.models.user.Gender
+import com.indaco.samples.data.models.user.UserDbo
 
 class SignUpUser(
     var usernameET: String = "",
@@ -7,11 +10,14 @@ class SignUpUser(
     var confirmPasswordET: String = "",
     var emailET: String? = null
 ) {
+    fun toUser(): UserDbo =
+        UserDbo(usernameET, passwordET, age, emailET, gender)
 
     var male: Boolean = false
     var female: Boolean = false
 
     val age: Int get() = ageET.toIntOrNull() ?: 1
+
     val gender: Gender
         get() = when {
         male -> Gender.MALE

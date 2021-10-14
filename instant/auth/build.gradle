@@ -2,28 +2,32 @@ plugins {
     id 'com.android.dynamic-feature'
     id 'kotlin-android'
     id 'kotlin-kapt'
+    id 'androidx.navigation.safeargs.kotlin'
+    id("com.google.secrets_gradle_plugin") version "0.6"
+}
+
+Properties properties = new Properties()
+if (project.rootProject.file('local.properties').canRead()) {
+    properties.load(project.rootProject.file("local.properties").newDataInputStream())
 }
 
 android {
     compileSdk 31
 
     defaultConfig {
-        applicationId "com.indaco.news"
+        applicationId "com.indaco.auth"
         minSdk 26
         targetSdk 31
         versionCode 1
         versionName "1.0"
 
+        buildConfigField 'String', 'SERVER_CLIENT_ID', properties.getProperty('SERVER_CLIENT_ID',"")
     }
+
     buildFeatures {
         viewBinding true
     }
 
-    buildTypes {
-        release {
-            minifyEnabled false
-        }
-    }
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_11
         targetCompatibility JavaVersion.VERSION_11
@@ -36,4 +40,5 @@ android {
 dependencies {
     implementation project(":app")
     kapt "com.google.dagger:hilt-compiler:$hilt_version"
+    implementation 'com.google.android.gms:play-services-auth:19.2.0'
 }

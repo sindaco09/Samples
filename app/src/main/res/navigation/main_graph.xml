@@ -9,32 +9,26 @@
         android:id="@+id/go_to_settings"
         app:destination="@id/nav_setting" />
 
+    <action
+        android:id="@+id/go_to_auth"
+        app:destination="@id/nav_auth"/>
+
     <fragment
         android:id="@+id/nav_setting"
         android:name="com.indaco.samples.ui.main.SettingsFragment"
         android:label="fragment_settings"/>
 
-    <fragment
-        android:id="@+id/nav_home"
-        android:name="com.indaco.samples.ui.main.HomeFragment"
-        android:label="fragment_home"
-        tools:layout="@layout/fragment_home" >
-        <action
-            android:id="@+id/action_nav_home_to_nav_coffee"
-            app:destination="@id/nav_coffee" />
-    </fragment>
+    <include-dynamic
+        android:id="@+id/nav_auth"
+        app:moduleName="auth"
+        app:graphResName="auth_graph"
+        app:graphPackage="${applicationId}.auth" />
 
     <include-dynamic
-        android:id="@+id/nav_coffee"
-        app:moduleName="coffee"
-        app:graphResName="coffee_graph"
-        app:graphPackage="${applicationId}.coffee" />
-
-    <include-dynamic
-        android:id="@+id/nav_hue"
-        app:moduleName="hue"
-        app:graphResName="hue_graph"
-        app:graphPackage="${applicationId}.hue" />
+        android:id="@+id/nav_bart"
+        app:moduleName="bart"
+        app:graphResName="bart_graph"
+        app:graphPackage="${applicationId}.bart" />
 
     <include-dynamic
         android:id="@+id/nav_camera"
@@ -43,21 +37,37 @@
         app:graphPackage="${applicationId}.camera" />
 
     <include-dynamic
+        android:id="@+id/nav_coffee"
+        app:moduleName="coffee"
+        app:graphResName="coffee_graph"
+        app:graphPackage="${applicationId}.coffee" />
+
+    <include-dynamic
         android:id="@+id/nav_goals"
         app:moduleName="goals"
         app:graphResName="goal_graph"
         app:graphPackage="${applicationId}.goals" />
 
     <include-dynamic
+        android:id="@+id/nav_home"
+        app:moduleName="home"
+        app:graphResName="home_graph"
+        app:graphPackage="${applicationId}.home">
+        <action
+            android:id="@+id/action_nav_home_to_nav_coffee"
+            app:destination="@id/nav_coffee" />
+    </include-dynamic>
+
+    <include-dynamic
+        android:id="@+id/nav_hue"
+        app:moduleName="hue"
+        app:graphResName="hue_graph"
+        app:graphPackage="${applicationId}.hue" />
+
+    <include-dynamic
         android:id="@+id/nav_news"
         app:moduleName="news"
         app:graphResName="news_graph"
         app:graphPackage="${applicationId}.news" />
-
-    <include-dynamic
-        android:id="@+id/nav_bart"
-        app:moduleName="bart"
-        app:graphResName="bart_graph"
-        app:graphPackage="${applicationId}.bart" />
 
 </navigation>

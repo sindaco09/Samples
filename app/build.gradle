@@ -11,6 +11,15 @@ plugins {
 android {
     compileSdkVersion 31
 
+    signingConfigs {
+        release {
+            storeFile file('C:\\Users\\indac\\.android\\MyKeystore.jks')
+            storePassword 'St3fg3g0@09'
+            keyAlias 'mykey'
+            keyPassword 'St3fg3g0@09'
+        }
+    }
+
     defaultConfig {
         applicationId "com.indaco.samples"
         minSdkVersion 26
@@ -27,6 +36,7 @@ android {
     buildTypes {
         release {
             minifyEnabled true
+            signingConfig signingConfigs.release
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
         debug {
@@ -47,7 +57,8 @@ android {
             ':features:bart',
             ':features:camera',
             ':features:hue',
-            ':features:auth'
+            ':features:home',
+            ':instant:auth'
     ]
 }
 

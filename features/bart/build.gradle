@@ -30,6 +30,17 @@ android {
         buildConfigField("String", "BART_KEY", getBartKey())
     }
 
+    flavorDimensions "experience"
+
+    productFlavors {
+        installed {
+            dimension "experience"
+        }
+        instant {
+            dimension "experience"
+        }
+    }
+
     buildFeatures {
         viewBinding true
     }

@@ -13,6 +13,17 @@ android {
         versionName "1.0"
     }
 
+    flavorDimensions "experience"
+
+    productFlavors {
+        installed {
+            dimension "experience"
+        }
+        instant {
+            dimension "experience"
+        }
+    }
+
     buildFeatures {
         viewBinding true
     }

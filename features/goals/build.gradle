@@ -15,6 +15,17 @@ android {
 
     }
 
+    flavorDimensions "experience"
+
+    productFlavors {
+        installed {
+            dimension "experience"
+        }
+        instant {
+            dimension "experience"
+        }
+    }
+
     buildFeatures {
         viewBinding true
     }

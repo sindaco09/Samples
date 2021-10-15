@@ -8,11 +8,14 @@ import android.view.MenuInflater
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.view.menu.MenuBuilder
+import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
+import com.google.android.gms.common.wrappers.InstantApps.isInstantApp
+import com.indaco.samples.MainGraphDirections
 import com.indaco.samples.R
 import com.indaco.samples.databinding.ActivityMainBinding
 import dagger.hilt.android.AndroidEntryPoint
@@ -40,6 +43,11 @@ class MainActivity : AppCompatActivity() {
 
         appBarConfiguration = AppBarConfiguration(menu, mainBinding.drawerLayout)
 
+        if (isInstantApp(this)) {
+            mainBinding.drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
+            navController.navigate(MainGraphDirections.goToAuth())
+        }
+
         setupActionBarWithNavController(navController, appBarConfiguration)
         mainBinding.navView.setupWithNavController(navController)
     }
@@ -52,7 +60,7 @@ class MainActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.action_settings -> navController.navigate(R.id.go_to_settings)
-            R.id.action_logout -> navController.navigate(R.id.go_to_auth)
+            R.id.action_logout -> navController.navigate(MainGraphDirections.goToAuth())
             else -> Log.e("TAG","impossible state")
 
         }

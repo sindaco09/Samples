@@ -11,6 +11,8 @@
 
     <action
         android:id="@+id/go_to_auth"
+        app:popUpTo="@id/nav_home"
+        app:popUpToInclusive="true"
         app:destination="@id/nav_auth"/>
 
     <action

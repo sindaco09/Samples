@@ -1,11 +1,13 @@
 package com.indaco.bart.data.models
 
+import android.os.Parcelable
 import androidx.room.Ignore
 import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
 import com.indaco.samples.data.models.bart.BartStationDbo
 import com.indaco.bart.data.network.result.GetRealTimeEstimateResult
 import com.indaco.bart.data.network.result.GetStationScheduleResult
+import com.indaco.samples.data.models.bart.BartObject
 import kotlinx.parcelize.IgnoredOnParcel
 import kotlinx.parcelize.Parcelize
 import java.lang.RuntimeException
@@ -13,14 +15,13 @@ import java.lang.RuntimeException
 typealias Schedule = GetStationScheduleResult.Item
 typealias ETD = GetRealTimeEstimateResult.ETD
 
-@Parcelize
 data class BartStation(
-    override val name: String,
-    @PrimaryKey override val abbr: String,
-    @SerializedName("gtfs_latitude") override val latitude: Double,
-    @SerializedName("gtfs_longitude") override val longitude: Double,
-    override var favorite: Boolean = false
-): BartStationDbo(name, abbr, latitude, longitude, favorite) {
+    val name: String,
+    val abbr: String,
+    @SerializedName("gtfs_latitude") val latitude: Double,
+    @SerializedName("gtfs_longitude") val longitude: Double,
+    var favorite: Boolean = false
+): BartObject() {
 
     constructor(dbo: BartStationDbo):this(dbo.name, dbo.abbr, dbo.latitude, dbo.longitude, dbo.favorite)
 

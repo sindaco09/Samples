@@ -11,8 +11,8 @@ import kotlinx.parcelize.Parcelize
 open class BartStationDbo(
     open val name: String,
     @PrimaryKey open val abbr: String,
-    @SerializedName("gtfs_latitude") open val latitude: Double,
-    @SerializedName("gtfs_longitude") open val longitude: Double,
+    open val latitude: Double,
+    open val longitude: Double,
     open var favorite: Boolean = false
 ): BartObject(), Parcelable {
 

@@ -15,7 +15,7 @@
 
     <application>
         <activity
-            android:name=".ui.screens.landing.MainActivity"
+            android:name=".ui.screens.landing.AuthActivity"
             android:exported="false" />
     </application>
 

@@ -31,11 +31,5 @@
     <fragment
         android:id="@+id/authFragment"
         android:name="com.indaco.auth.ui.screens.signup.SignUpFragment"
-        android:label="AuthFragment">
-<!--        <action-->
-<!--            android:id="@+id/action_auth_to_home"-->
-<!--            app:destination="@id/home_graph"-->
-<!--            app:popUpTo="@id/launcherFragment"-->
-<!--            app:popUpToInclusive="true" />-->
-    </fragment>
+        android:label="AuthFragment" />
 </navigation>

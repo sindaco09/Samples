@@ -23,6 +23,6 @@ object BindingAdapters {
         if (errorMessage.isEmpty())
             view.error = null
         else
-            view.error = errorMessage;
+            view.error = errorMessage
     }
 }

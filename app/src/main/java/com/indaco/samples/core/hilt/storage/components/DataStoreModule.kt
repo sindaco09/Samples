@@ -26,5 +26,5 @@ class DataStoreModule {
 
     @Provides
     fun provideSyncPrefsDataStore(dataStore: DataStore<Preferences>) =
-        com.indaco.samples.core.datastore.SyncPrefDataStore(dataStore)
+        SyncPrefDataStore(dataStore)
 }

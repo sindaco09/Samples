@@ -16,9 +16,9 @@ object DataStorePrefs {
     val EMAIL_KEY = stringPreferencesKey("email")
 
     fun getEmail(context: Context): Flow<String?> =
-        context.dataStorePreferences.data.map { it[com.indaco.samples.core.datastore.DataStorePrefs.EMAIL_KEY] }
+        context.dataStorePreferences.data.map { it[EMAIL_KEY] }
 
     suspend fun setEmail(context: Context, email: String) {
-        context.dataStorePreferences.edit { it[com.indaco.samples.core.datastore.DataStorePrefs.EMAIL_KEY] = email }
+        context.dataStorePreferences.edit { it[EMAIL_KEY] = email }
     }
 }

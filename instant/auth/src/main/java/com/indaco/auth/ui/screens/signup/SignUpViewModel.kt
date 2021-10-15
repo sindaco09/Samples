@@ -7,9 +7,11 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.google.android.gms.auth.api.identity.SignInCredential
 import com.indaco.auth.data.repository.AuthRepository
+import com.indaco.samples.core.hilt.IODispatcher
 import com.indaco.samples.data.models.user.User
 import com.indaco.samples.util.Validator
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -17,6 +19,7 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 class SignUpViewModel @Inject constructor(
+    @IODispatcher private val defaultDispatcher: CoroutineDispatcher,
     private val repository: AuthRepository
 ): ViewModel() {
 
@@ -36,10 +39,6 @@ class SignUpViewModel @Inject constructor(
         }
     }
 
-    private val defaultDispatcher = Dispatchers.Default
-
-    val signUpStateFlow: StateFlow<SignUpState> = MutableStateFlow(SignUpState.EMAIL)
-
     val onGoogleClicked = MutableLiveData(false)
 
     var user: SignUpUser = SignUpUser()
@@ -50,7 +49,7 @@ class SignUpViewModel @Inject constructor(
     private var _typeLiveData = MutableLiveData(SignUpState.EMAIL)
     val stateLiveData: LiveData<SignUpState> get() = _typeLiveData
 
-    private val _usingGmailAccount = MutableLiveData<Boolean>(false)
+    private val _usingGmailAccount = MutableLiveData(false)
     val usingGmailAccount: LiveData<Boolean> get() = _usingGmailAccount
 
     fun verifyField(state: SignUpState) {

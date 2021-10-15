@@ -8,15 +8,20 @@ plugins {
     id 'androidx.navigation.safeargs.kotlin'
 }
 
+Properties properties = new Properties()
+if (project.rootProject.file('local.properties').canRead()) {
+    properties.load(project.rootProject.file("local.properties").newDataInputStream())
+}
+
 android {
     compileSdkVersion 31
 
     signingConfigs {
         release {
-            storeFile file('C:\\Users\\indac\\.android\\MyKeystore.jks')
-            storePassword 'St3fg3g0@09'
-            keyAlias 'mykey'
-            keyPassword 'St3fg3g0@09'
+            storeFile file(properties['STORE_FILE'])
+            storePassword properties['STORE_PASSWORD']
+            keyAlias properties['KEY_ALIAS']
+            keyPassword properties['KEY_PASSWORD']
         }
     }
 

@@ -5,6 +5,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.screens.landing.AuthActivity">
+    tools:context=".ui.screens.AuthActivity">
+  <fragment
+      android:id="@+id/container"
+      android:name="com.indaco.samples.ui.base.BaseNavHostFragment"
+      app:defaultNavHost="false"
+      app:navGraph="@navigation/auth_graph"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent" />
 
-  </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

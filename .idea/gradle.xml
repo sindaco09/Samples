@@ -22,6 +22,7 @@
             <option value="$PROJECT_DIR$/features/news" />
             <option value="$PROJECT_DIR$/instant" />
             <option value="$PROJECT_DIR$/instant/auth" />
+            <option value="$PROJECT_DIR$/instant/promo" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

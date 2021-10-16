@@ -6,6 +6,8 @@ plugins {
     id 'androidx.navigation.safeargs.kotlin'
 }
 
+apply from: "${rootProject.projectDir}/flavors.gradle"
+
 def getBartKey = { ->
     try {
         def apikeyPropertiesFile = rootProject.file("apikeys.properties")
@@ -30,16 +32,7 @@ android {
         buildConfigField("String", "BART_KEY", getBartKey())
     }
 
-    flavorDimensions "experience"
-
-    productFlavors {
-        installed {
-            dimension "experience"
-        }
-        instant {
-            dimension "experience"
-        }
-    }
+    with flavorConfig
 
     buildFeatures {
         viewBinding true

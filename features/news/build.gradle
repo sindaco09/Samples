@@ -4,6 +4,8 @@ plugins {
     id 'kotlin-kapt'
 }
 
+apply from: "${rootProject.projectDir}/flavors.gradle"
+
 android {
     compileSdk 31
 
@@ -19,16 +21,7 @@ android {
         viewBinding true
     }
 
-    flavorDimensions "experience"
-
-    productFlavors {
-        installed {
-            dimension "experience"
-        }
-        instant {
-            dimension "experience"
-        }
-    }
+    with flavorConfig
 
     buildTypes {
         release {

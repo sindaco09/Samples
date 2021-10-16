@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:dist="http://schemas.android.com/apk/distribution"
-    package="com.indaco.auth">
+    package="com.indaco.promo">
 
     <dist:module
         dist:instant="true"
-        dist:title="@string/title_auth">
+        dist:title="@string/title_promo">
         <dist:delivery>
             <dist:install-time />
         </dist:delivery>
@@ -15,9 +15,8 @@
 
     <application>
         <activity
-            android:name=".ui.screens.AuthActivity"
+            android:name=".PromoActivity"
             android:exported="true">
-            <nav-graph android:value="@navigation/auth_graph" />
             <intent-filter android:autoVerify="true">
                 <action android:name="android.intent.action.VIEW" />
 
@@ -26,7 +25,7 @@
 
                 <data android:scheme="https" />
                 <data android:scheme="http" />
-                <data android:path="/auth"
+                <data android:path="/promo"
                     android:host="sindaco09.github.io" />
             </intent-filter>
         </activity>

@@ -9,11 +9,15 @@ android {
     compileSdk 31
 
     defaultConfig {
-        applicationId "com.indaco.home"
+        applicationId "com.indaco.promo"
         minSdk 26
         targetSdk 31
-        versionCode 1
-        versionName "1.0"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+        }
     }
 
     with flavorConfig

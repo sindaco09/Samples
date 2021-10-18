@@ -18,17 +18,30 @@
             android:name=".ui.screens.AuthActivity"
             android:exported="true">
             <nav-graph android:value="@navigation/auth_graph" />
-            <intent-filter android:autoVerify="true">
-                <action android:name="android.intent.action.VIEW" />
+<!--            <meta-data-->
+<!--                android:name="default-url"-->
+<!--                android:value="https://sindaco09.github.io" />-->
 
-                <category android:name="android.intent.category.DEFAULT" />
-                <category android:name="android.intent.category.BROWSABLE" />
+<!--            <intent-filter android:autoVerify="true">-->
+<!--                <action android:name="android.intent.action.VIEW" />-->
 
-                <data android:scheme="https" />
-                <data android:scheme="http" />
-                <data android:path="/auth"
-                    android:host="sindaco09.github.io" />
-            </intent-filter>
+<!--                <category android:name="android.intent.category.DEFAULT" />-->
+<!--                <category android:name="android.intent.category.BROWSABLE" />-->
+
+<!--                <data-->
+<!--                    android:scheme="https"-->
+<!--                    android:host="sindaco09.github.io" />-->
+<!--            </intent-filter>-->
+<!--            <intent-filter android:autoVerify="true">-->
+<!--                <action android:name="android.intent.action.VIEW" />-->
+
+<!--                <category android:name="android.intent.category.DEFAULT" />-->
+<!--                <category android:name="android.intent.category.BROWSABLE" />-->
+
+<!--                <data-->
+<!--                    android:scheme="http"-->
+<!--                    android:host="sindaco09.github.io" />-->
+<!--            </intent-filter>-->
         </activity>
     </application>
 

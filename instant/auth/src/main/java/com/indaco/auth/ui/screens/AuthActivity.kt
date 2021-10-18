@@ -10,5 +10,6 @@ class AuthActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_auth)
         Log.d("TAG","AuthActivity")
+
     }
 }

@@ -3,28 +3,15 @@ ext.flavorConfig = {
     flavorDimensions "experience"
     productFlavors {
         installed {
-            versionCode 1003
+            versionCode 1009
             versionNameSuffix ".$versionCode"
             dimension "experience"
 
         }
         instant {
-            versionCode 3
+            versionCode 9
             versionNameSuffix ".$versionCode"
             dimension "experience"
         }
     }
-
-    productFlavors.all { flavor -> // 3
-        if (flavor.hasProperty('myApplicationIdSuffix') && isApplicationProject()) {
-            flavor.applicationIdSuffix = flavor.myApplicationIdSuffix
-        }
-    }
-
-}
-
-def isApplicationProject() { // 4
-    return project.android.class.simpleName.startsWith('BaseAppModuleExtension')
-    // in AGP 3.1.x with library modules instead of feature modules:
-    // return project.android instanceof com.android.build.gradle.AppExtension
 }

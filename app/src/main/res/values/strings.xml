@@ -35,4 +35,13 @@
     <string name="title_auth">Auth</string>
     <string name="title_home">Home</string>
     <string name="title_promo">Promo</string>
+    <string name="asset_statements">
+        [{
+            \"relation\": [\"delegate_permission/common.share_location\"],
+            \"target\": {
+                \"namespace\": \"web\",
+                \"site\": \"https://sindaco09.github.io\"
+            }
+        }]
+    </string>
 </resources>

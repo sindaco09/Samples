@@ -2,9 +2,9 @@ package com.indaco.bart.data.storage
 
 import com.indaco.bart.data.models.BartStation
 import com.indaco.bart.data.models.BartTrip
-import com.indaco.samples.data.models.bart.BartStationDbo
-import com.indaco.samples.data.models.bart.BartTripDbo
-import com.indaco.samples.data.storage.bart.BartDao
+import com.indaco.corebart.dao.BartDao
+import com.indaco.corebart.models.bart.BartStationDbo
+import com.indaco.corebart.models.bart.BartTripDbo
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 import javax.inject.Inject

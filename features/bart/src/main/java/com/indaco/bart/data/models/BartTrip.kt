@@ -1,8 +1,8 @@
 package com.indaco.bart.data.models
 
-import com.indaco.samples.data.models.bart.BartTripDbo
 import com.indaco.bart.data.network.result.GetTripResult
-import com.indaco.samples.data.models.bart.BartObject
+import com.indaco.corebart.models.bart.BartObject
+import com.indaco.corebart.models.bart.BartTripDbo
 
 data class BartTrip (
     val primaryAbbr: String,

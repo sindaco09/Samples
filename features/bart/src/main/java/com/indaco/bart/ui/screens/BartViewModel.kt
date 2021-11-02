@@ -8,9 +8,9 @@ import com.indaco.bart.data.models.BartTrip
 import com.indaco.bart.data.network.request.GetTripRequest
 import com.indaco.bart.data.repository.BartRepository
 import com.indaco.samples.core.hilt.IODispatcher
-import com.indaco.samples.data.models.bart.BartObject
 import com.indaco.bart.data.network.result.GetRealTimeEstimateResult
 import com.indaco.bart.data.network.result.GetStationScheduleResult
+import com.indaco.corebart.models.bart.BartObject
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch

@@ -7,8 +7,8 @@ import android.view.ViewGroup
 import android.widget.SeekBar
 import androidx.annotation.UiThread
 import androidx.recyclerview.widget.RecyclerView
+import com.indaco.core.models.mockhue.Light
 import com.indaco.hue.databinding.RowItemLightBinding
-import com.indaco.samples.data.models.mockhue.Light
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.first

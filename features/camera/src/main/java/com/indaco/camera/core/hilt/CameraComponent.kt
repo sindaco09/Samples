@@ -4,14 +4,14 @@ import android.content.Context
 import com.indaco.camera.ui.screens.types.ImageToTextCameraXFragment
 import com.indaco.camera.ui.screens.types.QRCamera2Fragment
 import com.indaco.camera.ui.screens.types.QRCameraXFragment
-import com.indaco.samples.core.hilt.dependencies.CameraDependencies
+import com.indaco.samples.core.hilt.dependencies.DispatcherDependency
 import dagger.BindsInstance
 import dagger.Component
 import javax.inject.Singleton
 
 @Singleton
 @Component(
-    dependencies = [CameraDependencies::class],
+    dependencies = [DispatcherDependency::class],
     modules = [CameraViewModelModule::class]
 )
 interface CameraComponent {
@@ -23,7 +23,7 @@ interface CameraComponent {
     @Component.Builder
     interface Builder {
         fun context(@BindsInstance context: Context): Builder
-        fun appDependencies(dependencies: CameraDependencies): Builder
+        fun dispatcherDependency(dependency: DispatcherDependency): Builder
         fun build(): CameraComponent
     }
 }

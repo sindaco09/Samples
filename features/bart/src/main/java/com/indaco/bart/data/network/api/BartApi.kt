@@ -5,6 +5,8 @@ import com.indaco.bart.data.network.request.GetTripRequest
 import com.indaco.bart.data.network.result.GetRealTimeEstimateResult
 import com.indaco.bart.data.network.result.GetStationsResult
 import com.indaco.bart.data.network.result.GetTripResult
+import com.indaco.core.service.BaseRequest
+import com.indaco.core.service.Client
 import retrofit2.Response
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -12,7 +14,7 @@ import javax.inject.Singleton
 @Singleton
 class BartApi @Inject constructor(
     private val bartService: BartService
-) {
+): Client {
     fun getStations(): Response<GetStationsResult> = bartService.getStations().execute()
 
     fun getStationSchedule(stationId: String) =
@@ -26,4 +28,8 @@ class BartApi @Inject constructor(
 
     fun getRealTimeEstimate(request: GetRealTimeEstimateRequest): Response<GetRealTimeEstimateResult> =
         bartService.getRealTimeEstimate(request.plat, request.orig, request.dir).execute()
+
+    override fun execute(request: BaseRequest) {
+        TODO("Not yet implemented")
+    }
 }

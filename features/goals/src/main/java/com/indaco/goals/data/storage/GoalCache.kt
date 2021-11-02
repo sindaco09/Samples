@@ -2,7 +2,7 @@ package com.indaco.goals.data.storage
 
 import com.indaco.samples.data.models.goal.Goal
 import com.indaco.samples.data.models.goal.Goals
-import com.indaco.samples.data.storage.goal.GoalDao
+import com.indaco.core.dao.GoalDao
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 import javax.inject.Singleton

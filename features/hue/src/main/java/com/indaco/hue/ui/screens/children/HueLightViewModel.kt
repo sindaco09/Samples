@@ -2,7 +2,7 @@ package com.indaco.hue.ui.screens.children
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.indaco.samples.data.models.mockhue.Light
+import com.indaco.core.models.mockhue.Light
 import com.indaco.hue.data.repository.HueRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers

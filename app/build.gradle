@@ -60,6 +60,10 @@ android {
         jvmTarget = '11'
     }
 
+    hilt {
+        enableAggregatingTask = true
+    }
+
     dynamicFeatures = [
             ':features:coffee',
             ':features:goals',
@@ -74,6 +78,9 @@ android {
 }
 
 dependencies {
+//    api project(path: ':core')
+    api project(path: ':corebart')
+
     // Core
     api 'androidx.appcompat:appcompat:1.3.1'
     api 'androidx.constraintlayout:constraintlayout:2.1.1'

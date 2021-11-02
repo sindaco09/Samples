@@ -1,7 +1,7 @@
 package com.indaco.auth.data.models
 
-import com.indaco.samples.data.models.user.Gender
-import com.indaco.samples.data.models.user.User
+import com.indaco.core.models.user.Gender
+import com.indaco.core.models.user.User
 
 class SignUpUser(
     var usernameET: String = "",

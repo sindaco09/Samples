@@ -1,7 +1,7 @@
 package com.indaco.goals.core
 
 import android.content.Context
-import com.indaco.samples.core.hilt.dependencies.GoalsDependencies
+import com.indaco.core.core.hilt.dependencies.GoalsDaoDependency
 import dagger.hilt.android.EntryPointAccessors
 
 object Injector {
@@ -9,10 +9,10 @@ object Injector {
         return DaggerGoalsComponent
             .builder()
             .context(context)
-            .appDependencies(
+            .goalsDaoDependency(
                 EntryPointAccessors.fromApplication(
                     context.applicationContext,
-                    GoalsDependencies::class.java
+                    GoalsDaoDependency::class.java
                 )
             )
             .build()

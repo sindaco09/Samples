@@ -1,7 +1,7 @@
 package com.indaco.camera.core.hilt
 
 import android.content.Context
-import com.indaco.samples.core.hilt.dependencies.CameraDependencies
+import com.indaco.samples.core.hilt.dependencies.DispatcherDependency
 import dagger.hilt.android.EntryPointAccessors
 
 object Injector {
@@ -9,10 +9,10 @@ object Injector {
         return DaggerCameraComponent
             .builder()
             .context(context)
-            .appDependencies(
+            .dispatcherDependency(
                 EntryPointAccessors.fromApplication(
                     context.applicationContext,
-                    CameraDependencies::class.java
+                    DispatcherDependency::class.java
                 )
             )
             .build()

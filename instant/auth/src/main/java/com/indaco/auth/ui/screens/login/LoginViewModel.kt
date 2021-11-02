@@ -6,7 +6,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.google.android.gms.auth.api.identity.SignInCredential
 import com.indaco.auth.data.repository.AuthRepository
-import com.indaco.samples.data.models.user.User
+import com.indaco.core.models.user.User
 import com.indaco.samples.util.Validator
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch

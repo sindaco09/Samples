@@ -1,7 +1,7 @@
 package com.indaco.news.core
 
 import android.content.Context
-import com.indaco.samples.core.hilt.dependencies.NewsDependencies
+import com.indaco.samples.core.hilt.dependencies.DatastorePreferencesDependency
 import dagger.hilt.android.EntryPointAccessors
 
 object Injector {
@@ -12,7 +12,7 @@ object Injector {
             .appDependencies(
                 EntryPointAccessors.fromApplication(
                     context.applicationContext,
-                    NewsDependencies::class.java
+                    DatastorePreferencesDependency::class.java
                 )
             )
             .build()

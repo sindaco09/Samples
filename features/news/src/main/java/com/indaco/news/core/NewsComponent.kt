@@ -2,14 +2,14 @@ package com.indaco.news.core
 
 import android.content.Context
 import com.indaco.news.ui.screens.NewsFragment
-import com.indaco.samples.core.hilt.dependencies.NewsDependencies
+import com.indaco.samples.core.hilt.dependencies.DatastorePreferencesDependency
 import dagger.BindsInstance
 import dagger.Component
 import javax.inject.Singleton
 
 @Singleton
 @Component(
-    dependencies = [NewsDependencies::class],
+    dependencies = [DatastorePreferencesDependency::class],
     modules = [NewsViewModelModule::class]
 )
 interface NewsComponent {
@@ -19,7 +19,7 @@ interface NewsComponent {
     @Component.Builder
     interface Builder {
         fun context(@BindsInstance context: Context): Builder
-        fun appDependencies(dependencies: NewsDependencies): Builder
+        fun appDependencies(dependency: DatastorePreferencesDependency): Builder
         fun build(): NewsComponent
     }
 }

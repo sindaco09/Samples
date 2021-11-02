@@ -4,10 +4,10 @@ import android.os.Parcelable
 import androidx.room.Ignore
 import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
-import com.indaco.samples.data.models.bart.BartStationDbo
 import com.indaco.bart.data.network.result.GetRealTimeEstimateResult
 import com.indaco.bart.data.network.result.GetStationScheduleResult
-import com.indaco.samples.data.models.bart.BartObject
+import com.indaco.corebart.models.bart.BartObject
+import com.indaco.corebart.models.bart.BartStationDbo
 import kotlinx.parcelize.IgnoredOnParcel
 import kotlinx.parcelize.Parcelize
 import java.lang.RuntimeException

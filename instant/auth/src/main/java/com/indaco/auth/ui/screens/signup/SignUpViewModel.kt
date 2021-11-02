@@ -8,7 +8,7 @@ import androidx.lifecycle.viewModelScope
 import com.google.android.gms.auth.api.identity.SignInCredential
 import com.indaco.auth.data.repository.AuthRepository
 import com.indaco.samples.core.hilt.IODispatcher
-import com.indaco.samples.data.models.user.User
+import com.indaco.core.models.user.User
 import com.indaco.samples.util.Validator
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.CoroutineDispatcher

@@ -6,14 +6,16 @@ import com.indaco.auth.ui.screens.signup.AccountDetailsFragment
 import com.indaco.auth.ui.screens.signup.EmailFragment
 import com.indaco.auth.ui.screens.signup.PasswordFragment
 import com.indaco.auth.ui.screens.signup.SignUpFragment
-import com.indaco.samples.core.hilt.dependencies.AuthDependencies
+import com.indaco.core.core.hilt.dependencies.UserDaoDependency
+import com.indaco.samples.core.hilt.dependencies.CurrentUserDependency
+import com.indaco.samples.core.hilt.dependencies.DispatcherDependency
 import dagger.BindsInstance
 import dagger.Component
 import javax.inject.Singleton
 
 @Singleton
 @Component(
-    dependencies = [AuthDependencies::class],
+    dependencies = [DispatcherDependency::class, CurrentUserDependency::class, UserDaoDependency::class],
     modules = [AuthViewModelModule::class]
 )
 interface AuthComponent {
@@ -27,7 +29,9 @@ interface AuthComponent {
     @Component.Builder
     interface Builder {
         fun context(@BindsInstance context: Context): Builder
-        fun appDependencies(dependencies: AuthDependencies): Builder
+        fun dispatcherDependency(d0: DispatcherDependency): Builder
+        fun currentUserDependency(d1: CurrentUserDependency): Builder
+        fun userDaoDependency(d2: UserDaoDependency): Builder
         fun build(): AuthComponent
     }
 }

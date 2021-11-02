@@ -1,7 +1,7 @@
 package com.indaco.hue.core.hilt
 
 import android.content.Context
-import com.indaco.samples.core.hilt.dependencies.HueDependencies
+import com.indaco.core.core.hilt.dependencies.HueDaoDependency
 import dagger.hilt.android.EntryPointAccessors
 
 object Injector {
@@ -9,11 +9,9 @@ object Injector {
         return DaggerHueComponent
             .builder()
             .context(context)
-            .appDependencies(
+            .hueDaoDependency(
                 EntryPointAccessors.fromApplication(
-                    context.applicationContext,
-                    HueDependencies::class.java
-                )
+                    context.applicationContext,HueDaoDependency::class.java)
             )
             .build()
     }

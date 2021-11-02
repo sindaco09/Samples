@@ -2,9 +2,9 @@ package com.indaco.auth.data.repository
 
 import com.google.android.gms.auth.api.identity.SignInCredential
 import com.indaco.samples.CurrentUser
-import com.indaco.samples.data.models.user.User
 import com.indaco.auth.data.storage.UserCache
 import com.indaco.auth.ui.screens.signup.SignUpViewModel
+import com.indaco.core.models.user.User
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 import javax.inject.Singleton

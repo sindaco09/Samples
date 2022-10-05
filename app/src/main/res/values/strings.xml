@@ -11,6 +11,7 @@
     <string name="menu_coffee">Coffee</string>
     <string name="menu_commute">Commute</string>
     <string name="menu_news">News</string>
+    <string name="shortcut_short_label">My Shortcut</string>
     <!-- Preference Titles -->
     <string name="news_header">News</string>
 

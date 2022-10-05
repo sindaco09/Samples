@@ -11,12 +11,12 @@
 
     <fragment
         android:id="@+id/nav_setting"
-        android:name="com.example.samples.ui.main.SettingsFragment"
+        android:name="com.indaco.samples.ui.main.SettingsFragment"
         android:label="fragment_settings"/>
 
     <fragment
         android:id="@+id/nav_home"
-        android:name="com.example.samples.ui.main.HomeFragment"
+        android:name="com.indaco.samples.ui.main.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" >
         <action
@@ -34,19 +34,19 @@
 
     <fragment
         android:id="@+id/hueParentFragment"
-        android:name="com.example.samples.ui.main.mockhue.HueParentFragment"
+        android:name="com.indaco.samples.ui.main.mockhue.HueParentFragment"
         android:label="@string/menu_hue_parent"
         tools:layout="@layout/fragment_parent"/>
 
     <fragment
         android:id="@+id/nav_camera"
-        android:name="com.example.samples.ui.main.camera.CameraMenuFragment"
+        android:name="com.indaco.samples.ui.main.camera.CameraMenuFragment"
         android:label="@string/menu_camera"
         tools:layout="@layout/fragment_camera_menu"/>
 
     <fragment
         android:id="@+id/nav_goals"
-        android:name="com.example.samples.ui.main.goal.GoalsFragment"
+        android:name="com.indaco.samples.ui.main.goal.GoalsFragment"
         android:label="@string/menu_goals"
         tools:layout="@layout/fragment_goals"/>
 

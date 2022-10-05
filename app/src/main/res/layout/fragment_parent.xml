@@ -10,7 +10,7 @@
 
         <androidx.fragment.app.FragmentContainerView
             android:id="@+id/child_nav_host_fragment"
-            android:name="com.example.samples.ui.base.BaseNavHostFragment"
+            android:name="com.indaco.samples.ui.base.BaseNavHostFragment"
             android:layout_width="0dp"
             android:layout_height="0dp"
             app:defaultNavHost="false"

@@ -5,7 +5,7 @@
     <data>
         <variable
             name="viewmodel"
-            type="com.example.samples.ui.main.mockhue.HueViewModel" />
+            type="com.indaco.samples.ui.main.mockhue.HueViewModel" />
     </data>
     <androidx.constraintlayout.widget.ConstraintLayout
         android:background="#9580B3"

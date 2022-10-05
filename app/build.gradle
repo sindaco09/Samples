@@ -24,7 +24,7 @@ android {
     buildToolsVersion '33.0.0'
 
     defaultConfig {
-        applicationId "com.example.samples"
+        applicationId "com.indaco.samples"
         minSdkVersion 26
         targetSdkVersion 33
         versionCode 1009
@@ -47,8 +47,7 @@ android {
         }
         full {
             dimension="experience"
-            versionCode 2
-            applicationIdSuffix = ".full"
+            versionCode 1009
             versionNameSuffix = "-full"
         }
     }

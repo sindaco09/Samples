@@ -1,6 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:dist="http://schemas.android.com/apk/distribution"
-    package="com.example.samples"
+    package="com.indaco.samples"
     android:targetSandboxVersion="2">
 
     <dist:module dist:instant="true" />

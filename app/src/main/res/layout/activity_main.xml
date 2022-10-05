@@ -31,7 +31,7 @@
         <androidx.fragment.app.FragmentContainerView
             android:id="@+id/nav_host_fragment"
             android:layout_marginTop="?attr/actionBarSize"
-            android:name="com.example.samples.ui.base.BaseNavHostFragment"
+            android:name="com.indaco.samples.ui.base.BaseNavHostFragment"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:defaultNavHost="true"

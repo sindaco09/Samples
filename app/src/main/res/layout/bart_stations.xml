@@ -5,7 +5,7 @@
     <data>
         <variable
             name="viewModel"
-            type="com.example.samples.ui.main.bart.BartViewModel" />
+            type="com.indaco.samples.ui.main.bart.BartViewModel" />
     </data>
 
     <androidx.recyclerview.widget.RecyclerView

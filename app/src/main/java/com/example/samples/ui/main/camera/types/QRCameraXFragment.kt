@@ -14,7 +14,7 @@ import com.example.samples.ui.main.camera.CameraViewModel
 import com.example.samples.util.camera.barcode.camerax.CameraPreview
 import com.example.samples.util.camera.barcode.camerax.QRCodeAnalyzer
 import com.example.samples.util.common.PermissionsUtil
-import com.google.mlkit.vision.barcode.Barcode
+import com.google.mlkit.vision.barcode.common.Barcode
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.asExecutor

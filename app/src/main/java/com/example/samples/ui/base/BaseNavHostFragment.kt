@@ -57,8 +57,8 @@ class BaseFragmentNavigator(
             let { originalNavOptions ->
                 navOptions {
                     launchSingleTop = originalNavOptions.shouldLaunchSingleTop()
-                    popUpTo(originalNavOptions.popUpTo) {
-                        inclusive = originalNavOptions.isPopUpToInclusive
+                    popUpTo(originalNavOptions.popUpToId) {
+                        inclusive = originalNavOptions.isPopUpToInclusive()
                     }
                     anim {
                         enter =

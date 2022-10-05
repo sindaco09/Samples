@@ -6,12 +6,12 @@ plugins {
 apply from: "${rootProject.projectDir}/flavors.gradle"
 
 android {
-    compileSdk 31
+    compileSdk 33
 
     defaultConfig {
         applicationId "com.indaco.home"
         minSdk 26
-        targetSdk 31
+        targetSdk 33
         versionCode 1
         versionName "1.0"
     }

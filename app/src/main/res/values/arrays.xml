@@ -16,4 +16,21 @@
         <item>@string/key_breaking_in_app</item>
         <item>@string/key_local_in_app</item>
     </string-array>
+
+    <array name="jtw_synonyms">
+        <item>join</item>
+        <item>join waitlist</item>
+        <item>join the waitlist</item>
+        <item>waitlist</item>
+        <item>bears</item>
+    </array>
+
+    <array name="wait_time_synonyms">
+        <item>waittime</item>
+        <item>wait time</item>
+        <item>waiting time</item>
+        <item>time wait</item>
+        <item>wait</item>
+        <item>wolves</item>
+    </array>
 </resources>

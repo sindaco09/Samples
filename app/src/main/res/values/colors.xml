@@ -11,4 +11,8 @@
     <color name="brown">#6A2E00</color>
     <color name="light_brown">#9E4400</color>
     <color name="very_light_brown">#FFAB91</color>
+    <color name="light_blue_50">#FFE1F5FE</color>
+    <color name="light_blue_200">#FF81D4FA</color>
+    <color name="light_blue_600">#FF039BE5</color>
+    <color name="light_blue_900">#FF01579B</color>
 </resources>

@@ -27,6 +27,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         mainBinding = ActivityMainBinding.inflate(layoutInflater)
 
+        Log.d("TAG","TEST: ${intent.extras?.keySet()?.joinToString(", ")}")
+
         setContentView(mainBinding.root)
 
         setSupportActionBar(mainBinding.toolbar)

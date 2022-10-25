@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Samples</string>
+    <string name="app_name">Samples Table</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="action_settings">Settings</string>
@@ -39,4 +39,8 @@
     <string name="menu_camera">Camera</string>
     <string name="menu_goals">Goals</string>
     <string name="menu_connection">Venue</string>
+    <string name="appwidget_text">EXAMPLE</string>
+    <string name="add_widget">Add widget</string>
+    <string name="app_widget_description">This is an app widget description</string>
+    <string name="label_wait">Wait Label</string>
 </resources>

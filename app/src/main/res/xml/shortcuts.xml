@@ -1,27 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
 <shortcuts xmlns:android="http://schemas.android.com/apk/res/android">
+    <shortcut
+        android:enabled="true"
+        android:shortcutId="wait_time_shortcut_id"
+        android:shortcutShortLabel="@string/label_wait">
+        <capability-binding android:key="actions.intent.GET_THING">
+            <parameter-binding
+                android:key="feature"
+                android:value="@array/wait_time_synonyms" />
+        </capability-binding>
+    </shortcut>
+
+    <capability android:name="actions.intent.GET_THING">
+        <app-widget
+            android:identifier="OPEN_APP_FEATURE"
+            android:targetClass="com.indaco.samples.ui.widget.JtwWidget"
+            android:targetPackage="com.indaco.samples">
+            <extra android:name="hasTts" android:value="true"/>
+        </app-widget>
+    </capability>
+
+    <shortcut
+        android:shortcutId="ID_ONE"
+        android:shortcutShortLabel="@string/shortcut_short_label">
+        <capability-binding android:key="actions.intent.OPEN_APP_FEATURE">
+            <parameter-binding
+                android:value="@array/jtw_synonyms"
+                android:key="feature" />
+        </capability-binding>
+    </shortcut>
+
     <capability android:name="actions.intent.OPEN_APP_FEATURE">
-        <intent
-            android:action="android.intent.action.VIEW"
-            android:targetPackage="com.indaco.samples"
-            android:targetClass="com.indaco.samples.ui.main.MainActivity" />
+        <app-widget
+            android:identifier="OPEN_APP_FEATURE_JTW"
+            android:targetClass="com.indaco.samples.ui.widget.JtwWidget"
+            android:targetPackage="com.indaco.samples">
+            <parameter
+                android:name="feature"
+                android:key="screens">
+            </parameter>
+            <extra android:name="hasTts" android:value="true"/>
+        </app-widget>
     </capability>
 </shortcuts>
 
 
 
-
-
-    <!--<parameter-->
-    <!--android:name="feature"-->
-    <!--android:key="featureParam"/>-->
-
-    <!--<shortcut-->
-    <!--android:shortcutId="ID_ONE"-->
-    <!--android:shortcutShortLabel="@string/shortcut_short_label">-->
-    <!--<capability-binding android:key="actions.intent.OPEN_APP_FEATURE">-->
-    <!--    <parameter-binding-->
-    <!--        android:value="featureParam"-->
-    <!--        android:key="feature" />-->
-    <!--</capability-binding>-->
-    <!--</shortcut>-->
